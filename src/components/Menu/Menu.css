@@ -1,0 +1,91 @@
+.menu {
+  position: fixed;
+  top: 0;
+  width: 290px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid var(--gold);
+  padding: 68px 29px 0 29px;
+  align-items: center;
+  translate: -100%;
+  background-color: black;
+  z-index: 50;
+}
+
+/* Подложка для перекрытия другого контента при анимации */
+.menu::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  content: "";
+  z-index: -1;
+}
+
+.menu__logo {
+  width: 186px;
+  height: 66px;
+  margin-bottom: 68px;
+}
+
+.menu__items {
+  width: 100%;
+  overflow: scroll;
+  max-width: 200px;
+}
+
+.menu__item {
+  display: flex;
+  margin-bottom: 24px;
+  justify-content: space-between;
+}
+
+.menu__link {
+  font-size: 21px;
+  line-height: 26px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.menu__link_active {
+  color: white;
+}
+
+.menu__slider {
+  background-image: url("../../images/menu-slider.svg");
+  width: 40px;
+  height: 174px;
+
+  transform: translateX(99%);
+  position: absolute;
+  right: 0;
+  top: 193px;
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    translate: 0;
+    grid-area: "menu";
+    grid-row: span 2;
+  }
+
+  .menu__slider {
+    display: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .menu {
+    width: 480px;
+  }
+
+  .menu__logo {
+    width: 326px;
+    height: 112px;
+  }
+}

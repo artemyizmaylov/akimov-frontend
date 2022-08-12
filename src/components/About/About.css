@@ -1,0 +1,469 @@
+.about {
+  background-image: url("../../images/about/background.png");
+  background-size: cover;
+  padding-top: 46px;
+}
+
+.about__container {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 0 75px;
+  gap: 30px;
+}
+
+.about__heading {
+  font-family: "Lighthaus";
+  font-size: 34px;
+  line-height: 44px;
+  text-align: center;
+}
+
+.about__heading_big {
+  font-size: 140px;
+  text-align: center;
+  line-height: 0.8;
+}
+
+.about__text {
+  font-size: 13px;
+  line-height: 16px;
+  text-align: justify;
+}
+
+.about__text_small {
+  font-size: 8px;
+  line-height: 10px;
+}
+
+.about__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+.about__history-heading {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.about__materials-container {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.about__materials {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 34px;
+  width: 316px;
+  border: 1px solid white;
+  border-radius: 33px;
+  padding: 0 4px;
+}
+
+.about__material {
+  width: 34px;
+  height: 34px;
+}
+
+.about__material-button {
+  width: 100%;
+  height: 100%;
+}
+
+.about__meterial-image {
+  width: 100%;
+  height: 100%;
+}
+
+.about__product-image-container {
+  position: relative;
+  width: 297px;
+  height: 463px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__product-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.about__gems-image {
+  position: absolute;
+  width: 238px;
+  height: 358px;
+  z-index: 2;
+  transform: translateY(14px);
+}
+
+.about__circle {
+  width: 158px;
+  height: 158px;
+  border-radius: 50%;
+  background-color: white;
+
+  position: absolute;
+  z-index: 1;
+}
+
+/*  Индивидуальные стили */
+.magi-image {
+  width: 168px;
+  height: 168px;
+}
+
+.image-with-text {
+  width: 230px;
+  height: 313px;
+}
+
+.annunciation-image {
+  width: 284px;
+  height: 346px;
+  align-self: flex-start;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.link-to-catalogue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 70px;
+}
+
+.link-to-catalogue__text {
+  font-family: "Lighthaus";
+  font-size: 34px;
+  line-height: 44px;
+}
+
+.femail-cross {
+  position: relative;
+}
+
+.femail-cross__heading-container {
+  position: absolute;
+  top: 27px;
+  left: -40px;
+  width: 108px;
+  height: 55px;
+}
+
+.femail-cross__heading {
+  font-family: "Lighthaus";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  text-align: right;
+  letter-spacing: 0.085em;
+  z-index: 10;
+}
+
+.femail-cross__arrow {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  width: 25px;
+  height: 12px;
+}
+
+.femail-cross__image {
+  position: relative;
+  width: 269px;
+  height: 409px;
+  z-index: 99;
+}
+
+.femail-cross__circle {
+  top: 40px;
+  right: -45px;
+}
+
+.femail-cross__text {
+  max-width: 116px;
+  position: absolute;
+  top: 0;
+  right: -44px;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+
+.circle-button {
+  width: 28px;
+  height: 28px;
+  background-image: url("../../images/spark-white.svg");
+  background-position-x: left;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.product__circle {
+  top: 136px;
+  right: -33px;
+}
+
+/* Заголовок с линиями */
+.heading-with-line {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.line {
+  border: 0.5px solid white;
+  position: absolute;
+  width: 51px;
+  top: 50%;
+}
+
+.line_left {
+  left: 0;
+}
+
+.line_right {
+  right: 0;
+}
+
+/* Заголовок об истории */
+.history-heading {
+  display: block;
+  height: 34px;
+  letter-spacing: 0.05em;
+}
+
+.history-heading-image {
+  width: 100%;
+  height: 62px;
+  border-top: 1px white solid;
+  border-bottom: 1px white solid;
+  background-image: url("../../images/about/history-heading.png");
+}
+
+.history-heading_reverse {
+  transform: rotateX(180deg);
+  opacity: 50%;
+}
+
+/* Footer */
+.footer {
+  margin-top: 84px;
+}
+
+.footer__heading {
+  position: relative;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+}
+
+.footer__heading-text {
+  white-space: nowrap;
+  transform: translateX(100vw);
+}
+
+.footer__contacts {
+  height: 284px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer__contact {
+  font-family: "Century";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 42px;
+  text-align: center;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.footer__text {
+  font-family: "Century";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  letter-spacing: -0.06em;
+
+  border: 1px solid white;
+  border-left: none;
+  border-right: none;
+  padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .about__section {
+    padding: 0 135px;
+    gap: 50px;
+  }
+
+  .magi-image {
+    width: 228px;
+    height: 228px;
+  }
+
+  .about__history-heading {
+    margin-top: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    grid-template-areas: "menu main";
+  }
+
+  .about__container {
+    width: calc(100vw - 290px);
+  }
+
+  .about__section {
+    width: 620px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .about {
+    grid-template-columns: 480px 1fr;
+  }
+
+  .about__container {
+    width: calc(100vw - 480px);
+  }
+
+  .about__section {
+    padding: 0;
+  }
+
+  .about__heading {
+    font-size: 55px;
+    line-height: 71px;
+  }
+
+  .about__text {
+    font-size: 21px;
+    line-height: 26px;
+  }
+
+  .about__text_small {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .history-heading {
+    height: 54px;
+  }
+
+  .magi-image {
+    width: 254px;
+    height: 254px;
+  }
+
+  .image-with-text {
+    width: 554px;
+    height: 700px;
+  }
+
+  .femail-cross__image {
+    width: 441px;
+    height: 700px;
+  }
+
+  .femail-cross__heading-container {
+    width: 285px;
+    height: 135px;
+    left: -190px;
+  }
+
+  .femail-cross__heading {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 45px;
+    letter-spacing: 0.085em;
+  }
+
+  .femail-cross__arrow {
+    width: 50px;
+    height: 25px;
+  }
+
+  .femail-cross__text {
+    font-size: 13px;
+    line-height: 16px;
+    text-align: justify;
+    letter-spacing: 0.07em;
+    max-width: 194px;
+    height: 237px;
+    top: 15px;
+    right: -108px;
+  }
+
+  .femail-cross__circle {
+    width: 354px;
+    height: 354px;
+  }
+
+  .annunciation-image {
+    height: 766px;
+    width: 630px;
+  }
+
+  .about__product-image {
+    height: 710px;
+    width: 455px;
+  }
+
+  .about__gems-image {
+    height: 549px;
+    width: 365px;
+    transform: translateY(22px);
+  }
+
+  .about__product-image-container {
+    width: 455px;
+    height: 710px;
+  }
+
+  .product__circle {
+    width: 376px;
+    height: 376px;
+    top: 80px;
+    left: 146px;
+  }
+}

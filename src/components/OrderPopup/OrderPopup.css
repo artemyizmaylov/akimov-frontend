@@ -1,0 +1,130 @@
+.order-popup {
+  position: absolute;
+  top: calc(100vh - 125px);
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+
+  display: grid;
+  grid-template-rows: 125px 1fr;
+
+  transition: 0.7s ease-in-out;
+}
+
+.order-button__policy-agreement {
+  color: black;
+  font-size: 13px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  align-self: center;
+}
+
+.order-popup__span-text {
+  color: var(--gold);
+}
+
+.order-popup__close-button {
+  background-image: url("../../images/close-black.svg");
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.order-popup__confirm-button {
+  width: 100%;
+  font-size: 35px;
+  line-height: 43px;
+  text-align: center;
+  color: black;
+  background-color: var(--gold);
+}
+
+.order-popup__price {
+  font-size: 35px;
+  line-height: 43px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.order-popup__text {
+  font-size: 21px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.order-popup__form {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr) 3fr 125px;
+  justify-items: center;
+  row-gap: 30px;
+}
+
+.order-popup__input {
+  border-bottom: 1px solid black;
+  width: 291px;
+  /* height: 32px; */
+}
+
+.order-popup__input_type_textarea {
+  /* height: 136px; */
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+}
+
+.order-popup__input::placeholder {
+  font-size: 21px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.12em;
+
+  color: #979797;
+}
+
+.order-popup__input_type_textarea::placeholder {
+  text-align: start;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.12em;
+
+  color: #979797;
+}
+
+@media (min-width: 768px) {
+  .order-popup__input {
+    width: 475px;
+  }
+}
+
+@media (min-width: 768px) {
+  .order-popup__close-button {
+    width: 39px;
+    height: 39px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .order-popup {
+    top: 0;
+    left: unset;
+    right: -100%;
+    width: 520px;
+    height: 100vh;
+    grid-template-rows: repeat(2, 1fr);
+    align-content: center;
+  }
+}
+
+.order-popup_opened {
+  top: 0;
+  right: 0;
+}
+
+.order-popup_fullscreen {
+  width: 100vw;
+  z-index: 99;
+}

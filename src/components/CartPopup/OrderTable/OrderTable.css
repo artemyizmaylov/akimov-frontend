@@ -1,0 +1,34 @@
+.order-table {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 50px 0;
+  display: flex;
+  justify-content: end;
+  background-color: black;
+  border-top: 1px solid var(--gold);
+}
+
+.order-table__order-button {
+  height: 77px;
+  margin-right: 130px;
+}
+
+.order-table__text {
+  font-family: "Century";
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.order-table__text_big {
+  font-size: 34px;
+  line-height: 42px;
+}
+
+.order-table__text_small {
+  font-size: 21px;
+  line-height: 26px;
+}

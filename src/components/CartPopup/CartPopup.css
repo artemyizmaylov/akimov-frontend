@@ -1,0 +1,46 @@
+.cart-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: none;
+  z-index: 99;
+}
+
+.cart-popup__items {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  height: 100%;
+  overflow: scroll;
+  height: calc(100% - 125px * 2);
+}
+
+.cart-popup__heading {
+  font-family: "Lighthaus";
+  color: var(--gold);
+}
+
+.cart-popup__close-button {
+  background-image: url("../../images/close-gold.svg");
+  width: 100%;
+  height: 100%;
+}
+
+.cart-popup__text {
+  font-family: "Century";
+  font-size: 26px;
+  text-align: center;
+  margin-top: 30vh;
+}
+
+@media (min-width: 1920px) {
+  .cart-popup {
+    width: calc(100% - 480px);
+    height: 100%;
+    left: unset;
+    right: 0;
+  }
+}

@@ -1,0 +1,12 @@
+.main-desktop {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-desktop__button {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}

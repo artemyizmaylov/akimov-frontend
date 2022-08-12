@@ -1,0 +1,29 @@
+.enter-button {
+  position: relative;
+  height: 56px;
+  width: 225px;
+  color: white;
+  align-self: end;
+  z-index: 100;
+}
+
+.enter-button__text {
+  font-family: "Lighthaus";
+  font-size: 34px;
+  line-height: 44px;
+}
+
+.enter-button__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%);
+  width: 56px;
+  height: 56px;
+  background-image: url("../../../images/spark-white.svg");
+  background-repeat: no-repeat;
+  background-size: 37px 19px;
+  background-position-y: center;
+  border: 1px solid white;
+  border-radius: 50%;
+}

@@ -1,0 +1,48 @@
+.size-slider {
+  position: relative;
+  height: 40px;
+}
+
+.size-slider__input {
+  width: 100%;
+  outline: none;
+  overflow: hidden;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 30px;
+  background: transparent;
+  padding: 0 4px;
+  position: relative;
+}
+
+.size-slider__text {
+  font-family: "Century";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.size-slider__label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.size-slider__input::-webkit-slider-thumb,
+.size-slider__input::-moz-range-thumb {
+  background: white;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+}

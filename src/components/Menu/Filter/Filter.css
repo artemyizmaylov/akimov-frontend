@@ -1,0 +1,23 @@
+.menu__filter {
+  padding-left: 15%;
+  overflow: hidden;
+  height: 0;
+}
+
+@keyframes show-category {
+  from {
+    height: 0;
+  }
+  to {
+    height: 351px;
+  }
+}
+
+@keyframes show-who {
+  from {
+    height: 0;
+  }
+  to {
+    height: 101px;
+  }
+}
