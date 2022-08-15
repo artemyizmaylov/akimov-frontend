@@ -36,6 +36,11 @@
   width: 100%;
   overflow: scroll;
   max-width: 200px;
+  scrollbar-width: none;
+}
+
+.menu__items::-webkit-scrollbar {
+  display: none;
 }
 
 .menu__item {
