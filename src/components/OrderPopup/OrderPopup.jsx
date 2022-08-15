@@ -1,15 +1,13 @@
-import {
-  useRef, React, useState, useContext,
-} from 'react';
-import CartContext from '../../context/CartContext';
-import useWindowWidth from '../../hooks/useWindowWidth';
-import ConfirmOrderPopup from '../ConfirmOrderPopup/ConfirmOrderPopup';
-import sendOrder from '../../utils/sendOrder';
-import './OrderPopup.css';
+import { useRef, React, useState, useContext } from "react";
+import CartContext from "../../context/CartContext";
+import ConfirmOrderPopup from "../ConfirmOrderPopup/ConfirmOrderPopup";
+import sendOrder from "../../utils/sendOrder";
+import "./OrderPopup.css";
+import WindowContext from "../../context/WindowContext";
 
 export default function OrderPopup({ isOpen, switchPopup }) {
   const breakpoint = 1920;
-  const windowWidth = useWindowWidth();
+  const { windowWidth } = useContext(WindowContext);
   const popup = useRef();
   const [confirmOrderOpened, setConfirmOrderOpened] = useState(false);
   const { totalPrice, cartItems } = useContext(CartContext);
@@ -21,7 +19,9 @@ export default function OrderPopup({ isOpen, switchPopup }) {
   const hadleSubmit = (evt) => {
     evt.preventDefault();
     setConfirmOrderOpened(true);
-    document.querySelector('.order-popup').classList.add('order-popup_fullscreen');
+    document
+      .querySelector(".order-popup")
+      .classList.add("order-popup_fullscreen");
 
     const bill = {
       customer: {
@@ -37,7 +37,10 @@ export default function OrderPopup({ isOpen, switchPopup }) {
   };
 
   return (
-    <div className={`order-popup ${isOpen && 'order-popup_opened'}`} ref={popup}>
+    <div
+      className={`order-popup ${isOpen && "order-popup_opened"}`}
+      ref={popup}
+    >
       <button
         className="order-popup__close-button"
         type="button"
@@ -48,21 +51,28 @@ export default function OrderPopup({ isOpen, switchPopup }) {
         <p className="order-button__policy-agreement">
           Продолжая, вы соглашаетесь на обработку персональных данных в
           соответсвии
-          <br />
-          с
-          {' '}
+          <br />с{" "}
           <span className="order-popup__span-text">
             политикой конфиденциальности
           </span>
         </p>
       ) : (
-        <button className="order-popup__price-button" onClick={handleSwitchPopup} type="button">
-          <p className="order-popup__price">{ `${totalPrice} р`}</p>
+        <button
+          className="order-popup__price-button"
+          onClick={handleSwitchPopup}
+          type="button"
+        >
+          <p className="order-popup__price">{`${totalPrice} р`}</p>
           <h3 className="order-popup__text">Оформить заказ</h3>
         </button>
       )}
 
-      <form className="order-popup__form" name="order" onSubmit={hadleSubmit} method="POST">
+      <form
+        className="order-popup__form"
+        name="order"
+        onSubmit={hadleSubmit}
+        method="POST"
+      >
         <input
           className="order-popup__input"
           name="name"

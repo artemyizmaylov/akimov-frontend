@@ -4,7 +4,7 @@
   right: 0;
   bottom: 0;
   padding: 50px 0;
-  display: flex;
+  display: none;
   justify-content: end;
   background-color: black;
   border-top: 1px solid var(--gold);
@@ -31,4 +31,10 @@
 .order-table__text_small {
   font-size: 21px;
   line-height: 26px;
+}
+
+@media (min-width: 1920px) {
+  .order-table {
+    display: flex;
+  }
 }

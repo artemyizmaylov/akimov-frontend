@@ -1,20 +1,20 @@
-import gsap from 'gsap';
-import { useEffect, useRef, React } from 'react';
-import './Parallax.css';
+import gsap from "gsap";
+import { useEffect, useRef, React } from "react";
+import "./Parallax.css";
 
-import one from '../../../images/parallax/1.png';
-import two from '../../../images/parallax/2.png';
-import three from '../../../images/parallax/3.png';
-import four from '../../../images/parallax/4.png';
-import five from '../../../images/parallax/5.png';
-import six from '../../../images/parallax/6.png';
-import seven from '../../../images/parallax/7.png';
+import one from "../../../images/parallax/1.png";
+import two from "../../../images/parallax/2.png";
+import three from "../../../images/parallax/3.png";
+import four from "../../../images/parallax/4.png";
+import five from "../../../images/parallax/5.png";
+import six from "../../../images/parallax/6.png";
+import seven from "../../../images/parallax/7.png";
 
 export default function Parallax() {
   const parallax = useRef(null);
 
   const animateParallax = () => {
-    window.addEventListener('mousemove', (e) => {
+    window.addEventListener("mousemove", (e) => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
@@ -36,9 +36,7 @@ export default function Parallax() {
   return (
     <div className="parallax" ref={parallax}>
       <h1 className="parallax__heading parallax__layer">
-        Ювелирная
-        {' '}
-        <br />
+        Ювелирная <br />
         иконОтека
       </h1>
       <div className="parallax__round-text parallax__layer" />

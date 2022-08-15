@@ -1,11 +1,20 @@
+.catalogue {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas:
+    "header"
+    "items";
+}
+
 .catalogue__items {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-flow: dense;
+  justify-content: center;
   grid-area: items;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 670px) {
   .catalogue__items {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -13,7 +22,6 @@
 
 @media (min-width: 1024px) {
   .catalogue {
-    display: grid;
     grid-template-columns: 290px 1fr;
     grid-template-rows: min-content 1fr;
     grid-template-areas:
@@ -22,11 +30,14 @@
   }
 }
 
+@media (min-width: 1500px) {
+  .catalogue__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (min-width: 1920px) {
   .catalogue {
     grid-template-columns: 480px 1fr;
-  }
-  .catalogue__items {
-    grid-template-columns: repeat(3, 1fr);
   }
 }

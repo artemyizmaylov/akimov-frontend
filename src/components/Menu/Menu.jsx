@@ -1,20 +1,21 @@
-import './Menu.css';
-import { Link, useLocation } from 'react-router-dom';
-import {
-  memo, useEffect, useRef, useState, React,
-} from 'react';
-import { gsap } from 'gsap';
-import logo from '../../images/logo-gold.svg';
-import sparkGold from '../../images/spark-gold.svg';
-import sparkWhite from '../../images/spark-white.svg';
-import Filter from './Filter/Filter';
-import useWindowWidth from '../../hooks/useWindowWidth';
+import "./Menu.css";
+import { Link, useLocation } from "react-router-dom";
+import { memo, useEffect, useRef, useState, React, useContext } from "react";
+import { gsap } from "gsap";
+import logo from "../../images/logo-gold.svg";
+import sparkGold from "../../images/spark-gold.svg";
+import sparkWhite from "../../images/spark-white.svg";
+import Filter from "./Filter/Filter";
+import WindowContext from "../../context/WindowContext";
 
 const Menu = memo(() => {
-  const windowWidth = useWindowWidth();
+  Menu.displayName = "Menu";
+
+  const windowWidth = useContext(WindowContext);
   const menu = useRef();
   const location = useLocation();
   const [hidden, setHidden] = useState(!(window.innerWidth >= 1024));
+  const breakpoint = 1024;
 
   const switchMenu = () => {
     setHidden(!hidden);
@@ -22,23 +23,27 @@ const Menu = memo(() => {
 
   useEffect(() => {
     const settings = {
-      translate: '0',
-      ease: 'back.inOut',
+      translate: "0",
+      ease: "back.inOut",
       duration: 1.3,
     };
 
-    if (windowWidth >= 1024) {
-      setHidden(false);
-    }
-
     if (hidden) {
-      settings.translate = '-100%';
+      settings.translate = "-100%";
     } else {
-      settings.translate = '0';
+      settings.translate = "0";
     }
 
     gsap.to(menu.current, settings);
-  }, [hidden, windowWidth]);
+  }, [hidden]);
+
+  useEffect(() => {
+    if (windowWidth >= breakpoint) {
+      setHidden(false);
+    } else {
+      setHidden(true);
+    }
+  }, [windowWidth]);
 
   return (
     <nav className="menu" ref={menu}>
@@ -47,7 +52,7 @@ const Menu = memo(() => {
         <li className="menu__item">
           <Link
             className={`menu__link ${
-              location.pathname === '/catalogue' && 'menu__link_active'
+              location.pathname === "/catalogue" && "menu__link_active"
             }`}
             to="/catalogue"
             onClick={switchMenu}
@@ -55,17 +60,17 @@ const Menu = memo(() => {
             Каталог
           </Link>
           <img
-            src={location.pathname === '/catalogue' ? sparkWhite : sparkGold}
+            src={location.pathname === "/catalogue" ? sparkWhite : sparkGold}
             alt=""
           />
         </li>
 
-        {location.pathname === '/catalogue' && <Filter />}
+        {location.pathname === "/catalogue" && <Filter />}
 
         <li className="menu__item">
           <Link
             className={`menu__link ${
-              location.pathname === '/about' && 'menu__link_active'
+              location.pathname === "/about" && "menu__link_active"
             }`}
             to="/about"
             onClick={switchMenu}
@@ -73,14 +78,14 @@ const Menu = memo(() => {
             О коллекции
           </Link>
           <img
-            src={location.pathname === '/about' ? sparkWhite : sparkGold}
+            src={location.pathname === "/about" ? sparkWhite : sparkGold}
             alt=""
           />
         </li>
         <li className="menu__item">
           <Link
             className={`menu__link ${
-              location.pathname === '/contacts' && 'menu__link_active'
+              location.pathname === "/contacts" && "menu__link_active"
             }`}
             to="/contacts"
             onClick={switchMenu}
@@ -88,12 +93,17 @@ const Menu = memo(() => {
             Контакты
           </Link>
           <img
-            src={location.pathname === '/contacts' ? sparkWhite : sparkGold}
+            src={location.pathname === "/contacts" ? sparkWhite : sparkGold}
             alt=""
           />
         </li>
       </ul>
-      <button className="menu__slider" type="button" onClick={switchMenu} aria-label="Открыть" />
+      <button
+        className="menu__slider"
+        type="button"
+        onClick={switchMenu}
+        aria-label="Открыть"
+      />
     </nav>
   );
 });

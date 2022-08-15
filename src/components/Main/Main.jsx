@@ -1,16 +1,17 @@
-import './Main.css';
-import React from 'react';
-import MainMobile from './MainMobile/MainMobile';
-import MainDesktop from './MainDesktop/MainDesktop';
-import useWindowWidth from '../../hooks/useWindowWidth';
+import "./Main.css";
+import React, { useContext } from "react";
+import MainMobile from "./MainMobile/MainMobile";
+import MainDesktop from "./MainDesktop/MainDesktop";
+import WindowContext from "../../context/WindowContext";
 
 export default function Main() {
   const breakpoint = 1024;
-  const width = useWindowWidth();
+  const windowWidth = useContext(WindowContext);
+  console.log(windowWidth);
 
   return (
     <div className="main">
-      {width > breakpoint ? <MainDesktop /> : <MainMobile />}
+      {windowWidth > breakpoint ? <MainDesktop /> : <MainMobile />}
     </div>
   );
 }

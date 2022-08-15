@@ -1,5 +1,5 @@
-import React from 'react';
-import './AddButton.css';
+import React from "react";
+import "./AddButton.css";
 
 export default function AddButton({ price, text, onClick }) {
   return (
