@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import Header from "../Header/Header";
 import ItemPopup from "../ItemPopup/ItemPopup";
@@ -12,13 +12,15 @@ import "./Details.css";
 import ItemRotator from "../ItemRotator/ItemRotator";
 import Menu from "../Menu/Menu";
 import WindowContext from "../../context/WindowContext";
+import db from "../../db.json";
 
 export default function Details() {
-  const location = useLocation();
   const nav = useNavigate();
-  const { item } = location.state;
-  const [popupOpened, setPopupOpened] = useState(false);
+  const { article } = useParams();
   const { windowWidth } = useContext(WindowContext);
+  const [popupOpened, setPopupOpened] = useState(false);
+
+  const item = db.find((i) => i.article === article);
 
   const openPopup = () => {
     setPopupOpened(true);
@@ -38,8 +40,8 @@ export default function Details() {
         <Header
           buttonImage={closeButton}
           buttonHandler={returnToCatalogue}
-          text={item.name}
-          subtext={item.type}
+          text={item.type}
+          subtext={item.name}
         />
       ) : (
         <Header buttonImage={closeButton} buttonHandler={returnToCatalogue} />
@@ -47,7 +49,7 @@ export default function Details() {
       <Menu />
       <section className="details__container">
         <div className="details__item">
-          <ItemRotator article={item.article} />
+          <ItemRotator article={article} />
           <img className="details__rotate-image" src={rotateImage} alt="" />
           <img
             className="details__rotate-image-left"

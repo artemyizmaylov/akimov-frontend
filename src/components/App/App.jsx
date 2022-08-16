@@ -129,7 +129,7 @@ function App() {
             <Route path="/catalogue" element={<Catalogue />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/about" element={<About />} />
-            <Route path="/details" element={<Details />} />
+            <Route path="/details/:article" element={<Details />} />
           </Routes>
           <CartPopup />
         </CartContext.Provider>

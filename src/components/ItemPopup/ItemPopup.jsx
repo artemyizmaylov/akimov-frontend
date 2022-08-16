@@ -1,17 +1,15 @@
-import React, {
-  useEffect, useRef, useState, useContext,
-} from 'react';
-import { useNavigate } from 'react-router-dom';
-import gsap from 'gsap';
-import AddButton from '../AddButton/AddButton';
-import './ItemPopup.css';
-import CartContext from '../../context/CartContext';
-import MaterialSlider from '../MaterialSlider/MaterialSlider';
-import SizeSlider from '../SizeSlider/SizeSlider';
+import React, { useEffect, useRef, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import AddButton from "../AddButton/AddButton";
+import "./ItemPopup.css";
+import CartContext from "../../context/CartContext";
+import MaterialSlider from "../MaterialSlider/MaterialSlider";
+import SizeSlider from "../SizeSlider/SizeSlider";
 
 export default function ItemPopup({ item, isOpen, handleClose }) {
   const { addToCart } = useContext(CartContext);
-  const [material, setMaterial] = useState('silver');
+  const [material, setMaterial] = useState("silver");
   const sizes = Object.keys(item.materials[material].size);
   const [size, setSize] = useState(sizes[0]);
   const nav = useNavigate();
@@ -20,10 +18,10 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
   const silverImage = useRef(null);
 
   const handleMaterialChange = () => {
-    if (material === 'gold') {
-      setMaterial('silver');
+    if (material === "gold") {
+      setMaterial("silver");
     } else {
-      setMaterial('gold');
+      setMaterial("gold");
     }
   };
 
@@ -44,7 +42,7 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
     delete itemCopy.gender;
 
     addToCart(itemCopy);
-    nav('/catalogue');
+    nav("/catalogue");
     handleClose();
   };
 
@@ -52,18 +50,18 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
     if (isOpen) {
       gsap.to(popup.current, {
         opacity: 1,
-        display: 'grid',
+        display: "grid",
       });
     } else {
       gsap.to(popup.current, {
         opacity: 0,
-        display: 'none',
+        display: "none",
       });
     }
   }, [isOpen]);
 
   useEffect(() => {
-    if (material === 'gold') {
+    if (material === "gold") {
       gsap.to(goldImage.current, {
         opacity: 1,
       });
@@ -89,18 +87,37 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
         onClick={handleClose}
       />
       <div className="item-popup__image-container">
-        <img className="item-popup__image" src={`./items/${item.article}_gold.png`} alt={item.name} ref={goldImage} />
-        <img className="item-popup__image" src={`./items/${item.article}_silver.png`} alt={item.name} ref={silverImage} />
+        <img
+          className="item-popup__image"
+          src={`/items/${item.article}_gold.png`}
+          alt={item.name}
+          ref={goldImage}
+        />
+        <img
+          className="item-popup__image"
+          src={`/items/${item.article}_silver.png`}
+          alt={item.name}
+          ref={silverImage}
+        />
       </div>
       <div className="item-popup__info">
         <div className="item-popup__sliders">
           <div className="item-popup__slider-container">
             <p className="item-popup__slider-text">Выберите исполнение</p>
-            <MaterialSlider id="material" value={material} onChange={handleMaterialChange} />
+            <MaterialSlider
+              id="material"
+              value={material}
+              onChange={handleMaterialChange}
+            />
           </div>
           <div className="item-popup__slider-container">
             <p className="item-popup__slider-text">Выберите размер</p>
-            <SizeSlider id="size" rageArray={sizes} value={size} onChange={handleSizeChange} />
+            <SizeSlider
+              id="size"
+              rageArray={sizes}
+              value={size}
+              onChange={handleSizeChange}
+            />
           </div>
         </div>
         <div className="item-popup__text-container">
@@ -110,7 +127,11 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
           <p className="item-popup__text">{`${item.materials[material].size[size].weight} ГР`}</p>
         </div>
       </div>
-      <AddButton price={item.materials[material].size[size].prices} text="Добавить" onClick={handleAddButtonClick} />
+      <AddButton
+        price={item.materials[material].size[size].prices}
+        text="Добавить"
+        onClick={handleAddButtonClick}
+      />
     </div>
   );
 }

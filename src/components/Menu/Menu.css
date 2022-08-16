@@ -9,9 +9,9 @@
   border-right: 1px solid var(--gold);
   padding: 68px 29px 0 29px;
   align-items: center;
-  translate: -100%;
   background-color: black;
   z-index: 50;
+  transform: translateX(-100%);
 }
 
 /* Подложка для перекрытия другого контента при анимации */
@@ -74,9 +74,9 @@
 
 @media (min-width: 1024px) {
   .menu {
-    translate: 0;
     grid-area: "menu";
     grid-row: span 2;
+    transform: translateX(0);
   }
 
   .menu__slider {

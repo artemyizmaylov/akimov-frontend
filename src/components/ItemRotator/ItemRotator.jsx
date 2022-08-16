@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import './ItemRotator.css';
-import { JavascriptViewer } from '@3dweb/360javascriptviewer';
+import React, { useEffect } from "react";
+import "./ItemRotator.css";
+import { JavascriptViewer } from "@3dweb/360javascriptviewer";
 
 export default function ItemRotator({ article }) {
   const viewer = new JavascriptViewer({
-    mainHolderId: 'item-rotator',
-    mainImageId: 'item-rotator-image',
+    mainHolderId: "item-rotator",
+    mainImageId: "item-rotator-image",
     totalFrames: 179,
     speed: 90,
     defaultProgressBar: true,
-    imageUrlFormat: '0_x.png',
+    imageUrlFormat: "0_x.png",
   });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ItemRotator({ article }) {
         className="item-rotator-image"
         id="item-rotator-image"
         alt="example"
-        src={`./items3D/${article}/0_0.png`}
+        src={`/items3D/${article}/0_0.png`}
       />
     </div>
   );

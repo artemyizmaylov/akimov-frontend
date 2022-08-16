@@ -30,7 +30,7 @@
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1450px) {
   .catalogue__items {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -39,5 +39,12 @@
 @media (min-width: 1920px) {
   .catalogue {
     grid-template-columns: 480px 1fr;
+  }
+}
+
+@media (min-width: 2300px) {
+  .catalogue__items {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 500px));
+    justify-content: space-around;
   }
 }

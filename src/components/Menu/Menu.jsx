@@ -14,7 +14,7 @@ const Menu = memo(() => {
   const windowWidth = useContext(WindowContext);
   const menu = useRef();
   const location = useLocation();
-  const [hidden, setHidden] = useState(!(window.innerWidth >= 1024));
+  const [hidden, setHidden] = useState(true);
   const breakpoint = 1024;
 
   const switchMenu = () => {
@@ -23,15 +23,15 @@ const Menu = memo(() => {
 
   useEffect(() => {
     const settings = {
-      translate: "0",
+      transform: "translateX(0)",
       ease: "back.inOut",
       duration: 1.3,
     };
 
     if (hidden) {
-      settings.translate = "-100%";
+      settings.transform = "translateX(-100%)";
     } else {
-      settings.translate = "0";
+      settings.transform = "translateX(0)";
     }
 
     gsap.to(menu.current, settings);

@@ -1,0 +1,8 @@
+.swiper {
+  width: 100vw;
+  height: calc(100vh - 135px);
+}
+
+.swiper-pagination {
+  background-color: azure;
+}

@@ -1,12 +1,12 @@
-import "./Item.css";
+import "./CatalogueItem.css";
 import gsap from "gsap";
 import { React, useRef, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import CartContext from "../../../context/CartContext";
-import MaterialSlider from "../../MaterialSlider/MaterialSlider";
-import WindowContext from "../../../context/WindowContext";
+import CartContext from "../../context/CartContext";
+import MaterialSlider from "../MaterialSlider/MaterialSlider";
+import WindowContext from "../../context/WindowContext";
 
-export default function Item({ item }) {
+export default function CatalogueItem({ item }) {
   const { addToCart } = useContext(CartContext);
   const [material, setMaterial] = useState("gold");
   const startingPrice = Object.values(item.materials[material].size)[0].prices;
@@ -73,6 +73,10 @@ export default function Item({ item }) {
       <div className="item__images-container">
         <img
           className="item__image item__image_gold"
+          style={{
+            objectFit:
+              item.type === "цепь" && windowWidth < 580 ? "cover" : "contain",
+          }}
           alt={item.name}
           src={`/items/${item.article}_gold${
             item.type === "цепь" && windowWidth < 580 ? "_m" : ""
@@ -81,6 +85,10 @@ export default function Item({ item }) {
         />
         <img
           className="item__image item__image_silver"
+          style={{
+            objectFit:
+              item.type === "цепь" && windowWidth < 580 ? "cover" : "contain",
+          }}
           alt={item.name}
           src={`/items/${item.article}_silver${
             item.type === "цепь" && windowWidth < 768 ? "_m" : ""
@@ -127,7 +135,7 @@ export default function Item({ item }) {
           />
         </div>
         <Link
-          to="/details"
+          to={`/details/${item.article}`}
           state={{ item }}
           className="item__text_gold item__text_big"
         >
