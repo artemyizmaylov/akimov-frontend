@@ -6,9 +6,9 @@ import "./OrderPopup.css";
 import WindowContext from "../../context/WindowContext";
 
 export default function OrderPopup({ isOpen, switchPopup }) {
+  const popup = useRef();
   const breakpoint = 1920;
   const { windowWidth } = useContext(WindowContext);
-  const popup = useRef();
   const [confirmOrderOpened, setConfirmOrderOpened] = useState(false);
   const { totalPrice, cartItems } = useContext(CartContext);
 
@@ -41,12 +41,14 @@ export default function OrderPopup({ isOpen, switchPopup }) {
       className={`order-popup ${isOpen && "order-popup_opened"}`}
       ref={popup}
     >
-      <button
-        className="order-popup__close-button"
-        type="button"
-        onClick={handleSwitchPopup}
-        aria-label="Закрыть"
-      />
+      {isOpen && (
+        <button
+          className="order-popup__close-button"
+          type="button"
+          onClick={handleSwitchPopup}
+          aria-label="Закрыть"
+        />
+      )}
       {windowWidth >= breakpoint ? (
         <p className="order-button__policy-agreement">
           Продолжая, вы соглашаетесь на обработку персональных данных в

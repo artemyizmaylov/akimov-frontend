@@ -86,7 +86,10 @@ function App() {
 
   const deleteFromCart = (item) => {
     const index = cartItems.findIndex(
-      (cartItem) => cartItem.article === item.article
+      (cartItem) =>
+        cartItem.article === item.article &&
+        cartItem.size === item.size &&
+        cartItem.material === item.material
     );
 
     if (index > -1) {

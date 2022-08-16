@@ -74,7 +74,7 @@
 
 @media (min-width: 1024px) {
   .menu {
-    grid-area: "menu";
+    grid-area: menu;
     grid-row: span 2;
     transform: translateX(0);
   }
@@ -84,7 +84,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1750px) {
   .menu {
     width: 480px;
   }

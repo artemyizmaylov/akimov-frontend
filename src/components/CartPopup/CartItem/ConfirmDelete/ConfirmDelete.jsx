@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import './ConfirmDelete.css';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import "./ConfirmDelete.css";
 
 export default function ConfirmDelete({ isOpen, handleClose, handleDelete }) {
   const popup = useRef(null);
@@ -8,10 +8,12 @@ export default function ConfirmDelete({ isOpen, handleClose, handleDelete }) {
   useEffect(() => {
     if (isOpen) {
       gsap.to(popup.current, {
-        height: 216,
+        display: "flex",
+        height: "100%",
       });
     } else {
       gsap.to(popup.current, {
+        display: "none",
         height: 0,
       });
     }

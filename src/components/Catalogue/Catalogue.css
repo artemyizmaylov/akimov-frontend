@@ -36,7 +36,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1750px) {
   .catalogue {
     grid-template-columns: 480px 1fr;
   }

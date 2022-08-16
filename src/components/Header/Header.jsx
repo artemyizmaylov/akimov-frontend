@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import CartContext from '../../context/CartContext';
-import './Header.css';
+import React, { useContext, useEffect, useState } from "react";
+import CartContext from "../../context/CartContext";
+import "./Header.css";
 
-export default function Header({
-  text, subtext, buttonHandler, buttonImage,
-}) {
+export default function Header({ text, subtext, buttonHandler, buttonImage }) {
   const { cartItems, setCartIsOpen } = useContext(CartContext);
   const [counter, setCounter] = useState(0);
 
@@ -37,7 +35,7 @@ export default function Header({
         type="button"
       >
         {buttonImage ? (
-          <img src={buttonImage} alt="" />
+          <img className="header__button-image" src={buttonImage} alt="" />
         ) : (
           <div className="header__cart">
             <p className="header__cart-counter">{counter}</p>

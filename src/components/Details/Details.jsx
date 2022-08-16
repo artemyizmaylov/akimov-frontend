@@ -16,8 +16,8 @@ import db from "../../db.json";
 
 export default function Details() {
   const nav = useNavigate();
+  const windowWidth = useContext(WindowContext);
   const { article } = useParams();
-  const { windowWidth } = useContext(WindowContext);
   const [popupOpened, setPopupOpened] = useState(false);
 
   const item = db.find((i) => i.article === article);
@@ -38,10 +38,10 @@ export default function Details() {
     <div className="details">
       {windowWidth < 1920 ? (
         <Header
+          text={item.name}
+          subtext={item.type}
           buttonImage={closeButton}
           buttonHandler={returnToCatalogue}
-          text={item.type}
-          subtext={item.name}
         />
       ) : (
         <Header buttonImage={closeButton} buttonHandler={returnToCatalogue} />
