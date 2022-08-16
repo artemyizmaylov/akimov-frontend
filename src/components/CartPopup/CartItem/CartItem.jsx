@@ -1,13 +1,15 @@
-import {
-  React, useContext, useState,
-} from 'react';
-import CartContext from '../../../context/CartContext';
-import './CartItem.css';
-import ConfirmDelete from './ConfirmDelete/ConfirmDelete';
+import { React, useContext, useState } from "react";
+import CartContext from "../../../context/CartContext";
+import "./CartItem.css";
+import ConfirmDelete from "./ConfirmDelete/ConfirmDelete";
 
 export default function CartItem({ item }) {
   const {
-    increaseItemCount, decreaseItemCount, deleteFromCart, setCartIsOpen, cartItems,
+    increaseItemCount,
+    decreaseItemCount,
+    deleteFromCart,
+    setCartIsOpen,
+    cartItems,
   } = useContext(CartContext);
   const [popupOpened, setPopupOpened] = useState(false);
 
@@ -42,7 +44,9 @@ export default function CartItem({ item }) {
           <p className="cart-item__text">{item.type}</p>
           <p className="cart-item__text">{item.name}</p>
 
-          <p className="cart-item__text">{item.material === 'gold' ? 'золото 585' : 'серебро 925'}</p>
+          <p className="cart-item__text">
+            {item.material === "gold" ? "золото 585" : "серебро 925"}
+          </p>
           <p className="cart-item__text">{item.gems}</p>
           <p className="cart-item__text">{`${item.size} мм`}</p>
           <p className="cart-item__text">{`${item.weight} гр`}</p>
@@ -50,7 +54,7 @@ export default function CartItem({ item }) {
 
         <img
           className="cart-item__image"
-          src={`./items/${item.article}_${item.material}.png`}
+          src={`/items/${item.article}_${item.material}.png`}
           alt={item.name}
         />
 
@@ -59,7 +63,7 @@ export default function CartItem({ item }) {
             <div className="counter__elements">
               <button
                 className="counter__element counter__button"
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
                 onClick={decreaseCount}
                 type="button"
               >
@@ -68,7 +72,7 @@ export default function CartItem({ item }) {
               <p className="counter__element">{item.count}</p>
               <button
                 className="counter__element counter__button"
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
                 onClick={increaseCount}
                 type="button"
               >
