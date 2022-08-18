@@ -2,10 +2,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   grid-template-rows: 1fr min-content 120px;
-  padding-top: 50px;
+  padding-top: 10px;
   overflow: hidden;
   background: rgb(28, 0, 0);
   background: linear-gradient(
@@ -36,7 +36,7 @@
   background-image: url("../../images/close-gold.svg");
   position: absolute;
   right: 20px;
-  top: 55px;
+  top: 20px;
   width: 30px;
   height: 30px;
   cursor: pointer;

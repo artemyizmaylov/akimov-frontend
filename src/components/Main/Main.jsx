@@ -7,7 +7,6 @@ import WindowContext from "../../context/WindowContext";
 export default function Main() {
   const breakpoint = 1024;
   const windowWidth = useContext(WindowContext);
-  console.log(windowWidth);
 
   return (
     <div className="main">

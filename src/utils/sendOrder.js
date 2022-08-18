@@ -1,9 +1,14 @@
+const url = "https://api.daryvolkhvov.ru/cart";
+
 export default function sendOrder(message) {
-  fetch('http://127.0.0.1:5000/cart', {
+  fetch(url, {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(message),
-  });
+  })
+    .then((res) => res.json())
+    .then((res) => console.log(res.message))
+    .catch((err) => console.log(err));
 }

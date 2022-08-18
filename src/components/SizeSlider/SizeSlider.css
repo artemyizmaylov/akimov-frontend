@@ -1,6 +1,8 @@
 .size-slider {
   position: relative;
   height: 40px;
+  border: 1px solid white;
+  border-radius: 30px;
 }
 
 .size-slider__input {
@@ -8,8 +10,6 @@
   outline: none;
   overflow: hidden;
   height: 40px;
-  border: 1px solid white;
-  border-radius: 30px;
   background: transparent;
   padding: 0 4px;
   position: relative;
