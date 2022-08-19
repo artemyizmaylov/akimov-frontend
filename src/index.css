@@ -41,6 +41,7 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
   padding: 0;
+  cursor: pointer;
 }
 
 h1,

@@ -13,25 +13,26 @@ import seven from "../../../images/parallax/7.png";
 export default function Parallax() {
   const parallax = useRef(null);
 
-  const animateParallax = () => {
-    window.addEventListener("mousemove", (e) => {
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
+  const animateParallax = (e) => {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
 
-      const centerX = windowWidth / 2;
-      const centerY = windowHeight / 2;
-      const coefficient = 70;
+    const centerX = windowWidth / 2;
+    const centerY = windowHeight / 2;
+    const coefficient = 70;
 
-      gsap.to(parallax.current, {
-        transform: `
+    gsap.to(parallax.current, {
+      transform: `
             rotateX(${Math.round((e.clientY - centerY) / coefficient) * -1}deg)
             rotateY(${Math.round((e.clientX - centerX) / coefficient)}deg)
           `,
-      });
     });
   };
 
-  useEffect(animateParallax, []);
+  useEffect(() => {
+    document.addEventListener("mousemove", animateParallax);
+    return () => document.removeEventListener("mousemove", animateParallax);
+  }, []);
 
   return (
     <div className="parallax" ref={parallax}>

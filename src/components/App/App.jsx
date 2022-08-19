@@ -15,9 +15,7 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 
 function App() {
   const [cartIsOpen, setCartIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const windowWidth = useWindowWidth();
 
@@ -30,7 +28,8 @@ function App() {
       });
     }
 
-    setTotalPrice(total);
+    console.log(total);
+    return total;
   };
 
   const increaseItemCount = (item) => {
@@ -44,7 +43,6 @@ function App() {
 
     newItems[index].count = item.count + 1;
     setCartItems(newItems);
-    countTotalPrice();
   };
 
   const decreaseItemCount = (item) => {
@@ -60,7 +58,6 @@ function App() {
 
       newItems[index].count = item.count - 1;
       setCartItems(newItems);
-      countTotalPrice();
     }
   };
 
@@ -80,8 +77,6 @@ function App() {
     } else {
       increaseItemCount(itemCopy);
     }
-
-    countTotalPrice();
   };
 
   const deleteFromCart = (item) => {
@@ -97,10 +92,7 @@ function App() {
 
       newItems.splice(index, 1);
       setCartItems(newItems);
-      countTotalPrice();
     }
-
-    countTotalPrice();
   };
 
   const cartContext = useMemo(
@@ -115,12 +107,12 @@ function App() {
       deleteFromCart,
       totalPrice,
     }),
-    [cartIsOpen, cartItems]
+    [cartIsOpen, cartItems, totalPrice]
   );
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    countTotalPrice();
+    setTotalPrice(countTotalPrice());
   }, [cartItems]);
 
   return (

@@ -3,6 +3,7 @@
   height: 40px;
   border: 1px solid white;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .size-slider__input {
