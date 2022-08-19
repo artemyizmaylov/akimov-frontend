@@ -1,5 +1,4 @@
-// const url = "https://api.daryvolkhvov.ru";
-const url = "http://localhost:5000";
+const url = "https://api.daryvolkhvov.ru";
 
 async function sendOrder(message) {
   const res = await fetch(`${url}/cart`, {
