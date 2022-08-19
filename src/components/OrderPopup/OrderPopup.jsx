@@ -1,9 +1,9 @@
 import { useRef, React, useState, useContext } from "react";
 import CartContext from "../../context/CartContext";
 import ConfirmOrderPopup from "../ConfirmOrderPopup/ConfirmOrderPopup";
-import sendOrder from "../../utils/sendOrder";
 import "./OrderPopup.css";
 import WindowContext from "../../context/WindowContext";
+import { sendOrder } from "../../utils/api";
 
 export default function OrderPopup({ isOpen, switchPopup }) {
   const popup = useRef();

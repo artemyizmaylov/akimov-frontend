@@ -1,15 +1,22 @@
 import "./Catalogue.css";
-import { React, useContext, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import Item from "../CatalogueItem/CatalogueItem";
 import Menu from "../Menu/Menu";
 import Header from "../Header/Header";
-import db from "../../db.json";
 import CatalogueItemMobile from "../CatalogueItemMobile/CatalogueItemMobile";
 import WindowContext from "../../context/WindowContext";
+import { getItems } from "../../utils/api";
 
 export default function Catalogue() {
-  const [items] = useState(db);
+  const [items, setItems] = useState([]);
   const windowWidth = useContext(WindowContext);
+
+  useEffect(() => {
+    getItems().then((data) => {
+      localStorage.setItem("items", JSON.stringify(data));
+      setItems(data);
+    });
+  }, []);
 
   return (
     <section className="catalogue">

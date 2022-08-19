@@ -12,15 +12,15 @@ import "./Details.css";
 import ItemRotator from "../ItemRotator/ItemRotator";
 import Menu from "../Menu/Menu";
 import WindowContext from "../../context/WindowContext";
-import db from "../../db.json";
 
 export default function Details() {
   const nav = useNavigate();
   const windowWidth = useContext(WindowContext);
-  const { article } = useParams();
   const [popupOpened, setPopupOpened] = useState(false);
 
-  const item = db.find((i) => i.article === article);
+  const { article } = useParams();
+  const items = JSON.parse(localStorage.getItem("items"));
+  const item = items.find((i) => i.article === article);
 
   const openPopup = () => {
     setPopupOpened(true);
