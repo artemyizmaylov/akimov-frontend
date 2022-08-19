@@ -7,8 +7,8 @@ import { sendOrder } from "../../utils/api";
 
 export default function OrderPopup({ isOpen, switchPopup }) {
   const popup = useRef();
-  const breakpoint = 1920;
-  const { windowWidth } = useContext(WindowContext);
+  const windowWidth = useContext(WindowContext);
+  const breakpoint = 1024;
   const [confirmOrderOpened, setConfirmOrderOpened] = useState(false);
   const { totalPrice, cartItems } = useContext(CartContext);
 

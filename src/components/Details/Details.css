@@ -4,6 +4,7 @@
   grid-template-areas:
     "header"
     "main";
+  height: 100%;
 }
 
 .details__container {
@@ -117,10 +118,6 @@
     position: absolute;
     right: 0;
     top: 50%;
-  }
-
-  .details {
-    gap: 60px;
   }
 }
 

@@ -78,7 +78,7 @@ export default function CartItem({ item }) {
               +
             </button>
           </div>
-          <p className="counter__total">{`${200000} р`}</p>
+          <p className="counter__total">{`${item.price * item.count} р`}</p>
         </div>
       </div>
       <ConfirmDelete

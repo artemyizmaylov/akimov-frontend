@@ -28,7 +28,6 @@ function App() {
       });
     }
 
-    console.log(total);
     return total;
   };
 

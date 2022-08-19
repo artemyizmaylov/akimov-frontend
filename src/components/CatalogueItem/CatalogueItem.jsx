@@ -125,7 +125,9 @@ export default function CatalogueItem({ item }) {
                 {item.materials[material].gems}
               </p>
             </div>
-            <p className="item__text">{`от ${startingPrice} Р`}</p>
+            <p className="item__text">{`${
+              Object.keys(item.materials[material].size).length > 1 ? "от" : ""
+            } ${startingPrice} Р`}</p>
           </div>
           <button
             className="item__cart"

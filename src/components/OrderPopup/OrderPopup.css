@@ -2,14 +2,14 @@
   position: absolute;
   top: calc(100vh - 125px);
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: white;
 
   display: grid;
   grid-template-rows: 125px 1fr;
 
-  transition: 0.7s ease-in-out;
+  transition: top 0.5s ease-in-out;
 }
 
 .order-button__policy-agreement {
@@ -107,7 +107,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1024px) {
   .order-popup {
     top: 0;
     left: unset;
@@ -116,6 +116,7 @@
     height: 100vh;
     grid-template-rows: repeat(2, 1fr);
     align-content: center;
+    transition: right 0.5s ease-in-out;
   }
 }
 
