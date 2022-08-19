@@ -1,6 +1,6 @@
 .swiper {
-  width: 100vw;
-  height: calc(100vh - 135px);
+  width: 100%;
+  height: calc(100vh - 125px);
 }
 
 .swiper-pagination {
