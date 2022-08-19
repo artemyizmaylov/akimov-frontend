@@ -22,8 +22,8 @@ export default function Header({ text, subtext, buttonHandler, buttonImage }) {
 
   return (
     <header className="header">
-      <button className="header__question header__button" type="button">
-        ?
+      <button className="details__menu-button header__button" type="button">
+        &equiv;
       </button>
       <div className="header__text-container">
         <p className="header__subtext">{subtext}</p>

@@ -15,7 +15,10 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 
 function App() {
   const [cartIsOpen, setCartIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
+
   const [totalPrice, setTotalPrice] = useState(0);
   const windowWidth = useWindowWidth();
 

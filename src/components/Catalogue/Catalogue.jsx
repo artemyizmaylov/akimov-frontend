@@ -22,7 +22,7 @@ export default function Catalogue() {
     <section className="catalogue">
       <Menu />
       <Header text="ЮвелирнАя ИкОНОТЕКА" />
-      {windowWidth > 560 ? (
+      {windowWidth >= 670 ? (
         <ul className="catalogue__items">
           {items.map((item) => (
             <Item key={item.article} item={item} />
