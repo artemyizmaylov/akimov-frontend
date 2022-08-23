@@ -70,15 +70,17 @@ const Menu = memo(() => {
         <li className="menu__item">
           <Link
             className={`menu__link ${
-              location.pathname === "/about" && "menu__link_active"
+              location.pathname === "/about-collection" && "menu__link_active"
             }`}
-            to="/about"
+            to="/about-collection"
             onClick={switchMenu}
           >
             О коллекции
           </Link>
           <img
-            src={location.pathname === "/about" ? sparkWhite : sparkGold}
+            src={
+              location.pathname === "/about-collection" ? sparkWhite : sparkGold
+            }
             alt=""
           />
         </li>

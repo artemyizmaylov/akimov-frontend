@@ -125,7 +125,7 @@ function App() {
             <Route exact path="/" element={<Main />} />
             <Route path="/catalogue" element={<Catalogue />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about-collection" element={<About />} />
             <Route path="/details/:article" element={<Details />} />
           </Routes>
           <CartPopup />
