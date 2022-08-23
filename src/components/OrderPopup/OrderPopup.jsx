@@ -11,17 +11,24 @@ export default function OrderPopup({ isOpen, switchPopup }) {
   const breakpoint = 1024;
   const [confirmOrderOpened, setConfirmOrderOpened] = useState(false);
   const { totalPrice, cartItems } = useContext(CartContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSwitchPopup = () => {
     switchPopup();
   };
 
+  const setErrorMessage = (msg) => {
+    const errorField = popup.current.querySelector(
+      ".order-popup__confirm-button"
+    );
+
+    errorField.textContent = msg;
+
+    setTimeout(() => (errorField.textContent = "Оставить заявку"), 1500);
+  };
+
   const hadleSubmit = (evt) => {
     evt.preventDefault();
-    setConfirmOrderOpened(true);
-    document
-      .querySelector(".order-popup")
-      .classList.add("order-popup_fullscreen");
 
     const bill = {
       customer: {
@@ -33,7 +40,21 @@ export default function OrderPopup({ isOpen, switchPopup }) {
       order: cartItems,
     };
 
-    sendOrder(bill);
+    setIsLoading(true);
+
+    sendOrder(bill)
+      .then((res) => {
+        if (res.message === "email send!") {
+          setConfirmOrderOpened(true);
+          popup.current.classList.add("order-popup_fullscreen");
+        } else {
+          setErrorMessage("Что-то пошло не так... ");
+        }
+      })
+      .catch(() => {
+        setErrorMessage("Что-то пошло не так...");
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -82,28 +103,32 @@ export default function OrderPopup({ isOpen, switchPopup }) {
           placeholder="Как вас зовут"
           min={2}
           max={30}
-          // required
+          required
         />
         <input
           className="order-popup__input"
           name="number"
           type="tel"
           placeholder="Телефон"
-          // required
+          required
         />
         <input
           className="order-popup__input"
           name="email"
           type="email"
           placeholder="Почта"
-          // required
+          required
         />
         <textarea
           className="order-popup__input order-popup__input_type_textarea"
           name="wishes"
           placeholder="Здесь вы можете оставить свои пожелания к заказу"
         />
-        <button className="order-popup__confirm-button" type="submit">
+        <button
+          className="order-popup__confirm-button"
+          type="submit"
+          disabled={isLoading}
+        >
           Оставить
           <br />
           заявку

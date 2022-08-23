@@ -41,6 +41,12 @@
   text-align: center;
   color: black;
   background-color: var(--gold);
+  transition: 0.5s;
+}
+
+.order-popup__confirm-button:disabled {
+  opacity: 60%;
+  cursor: default;
 }
 
 .order-popup__price {
@@ -129,4 +135,5 @@
 .order-popup_fullscreen {
   width: 100%;
   z-index: 99;
+  transition: 0.5s ease-in-out;
 }
