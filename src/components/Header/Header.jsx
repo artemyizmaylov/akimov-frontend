@@ -22,7 +22,7 @@ export default function Header({ text, subtext, buttonHandler, buttonImage }) {
 
   return (
     <header className="header">
-      <button className="details__menu-button header__button" type="button">
+      <button className="header__menu-button header__button" type="button">
         &equiv;
       </button>
       <div className="header__text-container">

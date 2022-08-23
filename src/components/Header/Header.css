@@ -24,7 +24,7 @@
   height: 100%;
 }
 
-.details__menu-button {
+.header__menu-button {
   color: var(--gold);
   font-size: 35px;
   line-height: 0;

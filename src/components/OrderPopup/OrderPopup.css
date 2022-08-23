@@ -48,7 +48,6 @@
   line-height: 43px;
   text-align: center;
   text-transform: uppercase;
-  color: black;
 }
 
 .order-popup__text {
@@ -56,6 +55,7 @@
   line-height: 26px;
   text-align: center;
   text-transform: uppercase;
+  color: black;
 }
 
 .order-popup__form {
