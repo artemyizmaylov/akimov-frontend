@@ -45,7 +45,8 @@
 }
 
 .order-popup__confirm-button:disabled {
-  opacity: 60%;
+  opacity: 50%;
+  background-color: white;
   cursor: default;
 }
 
