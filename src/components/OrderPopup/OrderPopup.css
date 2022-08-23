@@ -39,7 +39,6 @@
   font-size: 35px;
   line-height: 43px;
   text-align: center;
-  color: black;
   background-color: var(--gold);
   transition: 0.5s;
 }
@@ -55,6 +54,7 @@
   line-height: 43px;
   text-align: center;
   text-transform: uppercase;
+  color: black;
 }
 
 .order-popup__text {

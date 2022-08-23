@@ -2,7 +2,7 @@ import "./Filter.css";
 import { useState, useEffect, useRef, React } from "react";
 import gsap from "gsap";
 
-export default function Filter() {
+export default function Filter({ handle }) {
   const who = useRef();
   const category = useRef();
   const [whoActive, setwhoActive] = useState(false);
@@ -14,11 +14,13 @@ export default function Filter() {
     if (whoActive) {
       gsap.to(who.current, {
         height: 101,
+        display: "block",
         ease,
       });
     } else {
       gsap.to(who.current, {
         height: 0,
+        display: "none",
         ease,
       });
     }
@@ -27,12 +29,14 @@ export default function Filter() {
   useEffect(() => {
     if (categoryActive) {
       gsap.to(category.current, {
-        height: 351,
+        height: 310,
+        display: "block",
         ease,
       });
     } else {
       gsap.to(category.current, {
         height: 0,
+        display: "none",
         ease,
       });
     }
@@ -66,8 +70,22 @@ export default function Filter() {
       </li>
       <li className="menu__filter" ref={who}>
         <ul className="menu__filter-container">
-          <p className="menu__item menu__link">Мужчина</p>
-          <p className="menu__item menu__link">Женщина</p>
+          <button
+            className="menu__item menu__link"
+            id="male"
+            type="button"
+            onClick={handle}
+          >
+            Мужчина
+          </button>
+          <button
+            className="menu__item menu__link"
+            id="female"
+            type="button"
+            onClick={handle}
+          >
+            Женщина
+          </button>
         </ul>
       </li>
       <li className="menu__item">
@@ -96,13 +114,54 @@ export default function Filter() {
       </li>
       <li className="menu__filter" ref={category}>
         <ul className="menu__filter-container">
-          <p className="menu__item menu__link">Кресты</p>
-          <p className="menu__item menu__link">Образки</p>
-          <p className="menu__item menu__link">Кольца</p>
-          <p className="menu__item menu__link">Браслеты</p>
-          <p className="menu__item menu__link">Серьги</p>
-          <p className="menu__item menu__link">Складни</p>
-          <p className="menu__item menu__link">Цепи</p>
+          <button
+            className="menu__item menu__link"
+            id="cross"
+            type="button"
+            onClick={handle}
+          >
+            Кресты
+          </button>
+          <button
+            className="menu__item menu__link"
+            id="images"
+            type="button"
+            onClick={handle}
+          >
+            Образки
+          </button>
+          <button
+            className="menu__item menu__link"
+            id="rings"
+            type="button"
+            onClick={handle}
+          >
+            Кольца
+          </button>
+          <button
+            className="menu__item menu__link"
+            id="earrings"
+            type="button"
+            onClick={handle}
+          >
+            Серьги
+          </button>
+          <button
+            className="menu__item menu__link"
+            id="foldings"
+            type="button"
+            onClick={handle}
+          >
+            Складни
+          </button>
+          <button
+            className="menu__item menu__link"
+            id="chains"
+            type="button"
+            onClick={handle}
+          >
+            Цепи
+          </button>
         </ul>
       </li>
     </>

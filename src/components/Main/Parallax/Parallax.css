@@ -12,6 +12,7 @@
   position: absolute;
   bottom: 0;
   transform-origin: bottom;
+  object-fit: cover;
 }
 
 .parallax__layer-one {

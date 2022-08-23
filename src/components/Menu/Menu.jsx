@@ -1,16 +1,13 @@
 import "./Menu.css";
 import { Link, useLocation } from "react-router-dom";
-import { memo, useEffect, useRef, useState, React, useContext } from "react";
+import { useEffect, useRef, useState, React, useContext } from "react";
 import { gsap } from "gsap";
 import logo from "../../images/logo-gold.svg";
 import sparkGold from "../../images/spark-gold.svg";
 import sparkWhite from "../../images/spark-white.svg";
-import Filter from "./Filter/Filter";
 import WindowContext from "../../context/WindowContext";
 
-const Menu = memo(() => {
-  Menu.displayName = "Menu";
-
+export default function Menu({ children }) {
   const windowWidth = useContext(WindowContext);
   const menu = useRef();
   const location = useLocation();
@@ -18,7 +15,9 @@ const Menu = memo(() => {
   const breakpoint = 1024;
 
   const switchMenu = () => {
-    setHidden(!hidden);
+    if (windowWidth < breakpoint) {
+      setHidden(!hidden);
+    }
   };
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const Menu = memo(() => {
           />
         </li>
 
-        {location.pathname === "/catalogue" && <Filter />}
+        {children}
 
         <li className="menu__item">
           <Link
@@ -108,6 +107,4 @@ const Menu = memo(() => {
       />
     </nav>
   );
-});
-
-export default Menu;
+}
