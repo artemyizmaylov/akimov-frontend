@@ -4,7 +4,7 @@
   width: 225px;
   color: white;
   align-self: end;
-  z-index: 50;
+  z-index: 99;
 }
 
 .enter-button__text {

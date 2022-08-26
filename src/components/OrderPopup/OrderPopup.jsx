@@ -10,7 +10,7 @@ export default function OrderPopup({ isOpen, switchPopup }) {
   const windowWidth = useContext(WindowContext);
   const breakpoint = 1024;
   const [confirmOrderOpened, setConfirmOrderOpened] = useState(false);
-  const { totalPrice, cartItems } = useContext(CartContext);
+  const { totalPrice, cartItems, setCartItems } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSwitchPopup = () => {
@@ -47,6 +47,7 @@ export default function OrderPopup({ isOpen, switchPopup }) {
         if (res.message === "email send!") {
           setConfirmOrderOpened(true);
           popup.current.classList.add("order-popup_fullscreen");
+          setCartItems([]);
         } else {
           setErrorMessage("Что-то пошло не так... ");
         }

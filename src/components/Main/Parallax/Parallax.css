@@ -1,96 +1,114 @@
 .parallax {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  background-image: url("../../../images/parallax/7.png");
+  background-color: transparent;
+  background-size: cover;
 }
 
 .parallax__layer {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
-  bottom: 0;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   transform-origin: bottom;
-  object-fit: cover;
+  transform: scale(1.2);
 }
 
-.parallax__layer-one {
-  transform: translateZ(5px) translateY(35px) scale(110%);
+.parallax__depth1 {
+  background-image: url("../../../images/parallax/6.png");
+  z-index: 2;
 }
 
-.parallax__layer-two {
-  transform: translateZ(-20px) translateY(35px) scale(1.1);
+.parallax__depth2 {
+  background-image: url("../../../images/parallax/5.png");
+  z-index: 3;
 }
 
-.parallax__layer-three {
-  transform: translateZ(-100px) translateY(-20px) scale(1.4);
+.parallax__depth3 {
+  background-image: url("../../../images/parallax/4.png");
+  z-index: 4;
 }
 
-.parallax__layer-four {
-  transform: translateZ(-150px) scale(1.5);
+.parallax__depth4 {
+  background-image: url("../../../images/parallax/3.png");
+  z-index: 5;
 }
 
-.parallax__layer-five {
-  transform: translateZ(-200px) translateY(-5px) scale(1.6);
+.parallax__depth5 {
+  background-image: url("../../../images/parallax/2.png");
+  z-index: 6;
 }
 
-.parallax__layer-six {
-  transform: translateZ(-400px) scale(1.7);
+.parallax__depth6 {
+  background-image: url("../../../images/parallax/1.png");
+  z-index: 7;
 }
 
-.parallax__layer-seven {
-  transform: translateZ(-1000px) scale(3);
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
 }
 
-.parallax__heading {
-  display: block;
+.content__heading {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   font-family: "Lighthaus";
   font-size: 140px;
-  top: 50px;
-  left: 20px;
-  transform: translateZ(-20px);
+  z-index: 5;
 }
 
-.parallax__round-text {
+.content__round-text {
+  position: absolute;
+  top: 42%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  width: 191px;
+  height: 191px;
   background-image: url("../../../images/parallax/text.png");
   background-repeat: no-repeat;
-  background-size: 190px;
-  background-position-x: 46%;
-  background-position-y: 50%;
-  transform-origin: 46% 50%;
+  background-size: contain;
   animation: rotate 180s linear infinite;
 }
 
-.parallax__logo {
+.content__logo {
+  position: absolute;
+  top: 75%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  width: 234px;
+  height: 85px;
   background-image: url("../../../images//logo-white.svg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 234px;
-  background-position-x: 75%;
-  background-position-y: 80%;
-  transform: translateZ(10px);
+  background-size: 100%;
+}
+
+@media (max-width: 1550px) {
+  .content__heading {
+    font-size: 110px;
+  }
+
+  .content__round-text {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 @keyframes rotate {
   from {
-    transform: rotate(0);
+    transform: translate(-50%, -50%) rotate(0);
   }
 
   to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 1700px) {
-  .parallax__heading {
-    font-size: 100px;
-  }
-
-  .parallax__round-text {
-    background-size: 120px;
-  }
-
-  .parallax__logo {
-    background-size: 170px;
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
