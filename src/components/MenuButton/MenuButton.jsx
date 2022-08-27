@@ -20,14 +20,17 @@ export default function MenuButton() {
   useEffect(() => {
     const settings = {
       transform: "translateX(0)",
+      display: "flex",
       ease: "back.inOut",
       duration: 0.9,
     };
 
     if (hidden) {
       settings.transform = "translateX(-100%)";
+      settings.display = "none";
     } else {
       settings.transform = "translateX(0)";
+      settings.display = "flex";
     }
 
     gsap.to(".menu", settings);

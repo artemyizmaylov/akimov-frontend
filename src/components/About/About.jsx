@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./About.css";
 import gsap from "gsap";
-import Menu from "../Menu/Menu";
 
 import magi from "../../images/about/magi.png";
 import textImage from "../../images/about/with-text-img.png";
@@ -37,7 +36,6 @@ export default function About() {
 
   return (
     <div className="about">
-      <Menu />
       <div className="about__container">
         <section className="about__section">
           <h2 className="about__heading">О КОЛЛЕКЦИИ</h2>

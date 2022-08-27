@@ -10,7 +10,6 @@ import closeButton from "../../images/close-gold.svg";
 
 import "./Details.css";
 import ItemRotator from "../ItemRotator/ItemRotator";
-import Menu from "../Menu/Menu";
 import WindowContext from "../../context/WindowContext";
 
 export default function Details() {
@@ -42,11 +41,11 @@ export default function Details() {
           subtext={item.type}
           buttonImage={closeButton}
           buttonHandler={returnToCatalogue}
+          withMenuButton
         />
       ) : (
         <Header buttonImage={closeButton} buttonHandler={returnToCatalogue} />
       )}
-      <Menu />
       <section className="details__container">
         <div className="details__item">
           {item.type === "цепь" ? (

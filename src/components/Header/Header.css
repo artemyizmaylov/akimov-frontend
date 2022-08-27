@@ -1,7 +1,10 @@
 .header {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  min-height: 86px;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-template-areas: "left-button text right-button ";
+  justify-items: center;
   align-items: center;
   background: #000;
   grid-area: header;
@@ -14,11 +17,11 @@
 }
 
 .header__button:first-of-type {
-  margin-left: 15px;
+  grid-area: left-button;
 }
 
 .header__button:last-of-type {
-  margin-right: 15px;
+  grid-area: right-button;
 }
 
 .header__button-image {
@@ -49,6 +52,7 @@
   flex-direction: column;
   align-items: center;
   max-width: 65%;
+  grid-area: text;
 }
 
 .header__text {
@@ -67,13 +71,5 @@
 @media (min-width: 500px) {
   .header__text {
     font-size: 32px;
-  }
-
-  .header__button:first-of-type {
-    margin-left: 50px;
-  }
-
-  .header__button:last-of-type {
-    margin-right: 50px;
   }
 }

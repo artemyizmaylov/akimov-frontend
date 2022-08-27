@@ -3,7 +3,13 @@ import CartContext from "../../context/CartContext";
 import MenuButton from "../MenuButton/MenuButton";
 import "./Header.css";
 
-export default function Header({ text, subtext, buttonHandler, buttonImage }) {
+export default function Header({
+  text,
+  subtext,
+  buttonHandler,
+  buttonImage,
+  withMenuButton,
+}) {
   const { cartItems, setCartIsOpen } = useContext(CartContext);
   const [counter, setCounter] = useState(0);
 
@@ -23,7 +29,7 @@ export default function Header({ text, subtext, buttonHandler, buttonImage }) {
 
   return (
     <header className="header">
-      <MenuButton />
+      {withMenuButton ? <MenuButton /> : null}
       <div className="header__text-container">
         <p className="header__subtext">{subtext}</p>
         <p className="header__text">{text}</p>

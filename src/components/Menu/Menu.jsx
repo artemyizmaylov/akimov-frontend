@@ -27,7 +27,7 @@ export default function Menu({ children }) {
           />
         </li>
 
-        {children}
+        {location.pathname === "/catalogue" ? children : null}
 
         <li className="menu__item">
           <Link
