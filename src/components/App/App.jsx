@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { React, useEffect, useState } from "react";
 
 import CartContext, { useCart } from "../../context/CartContext";
@@ -24,6 +24,7 @@ function App() {
 
   const cart = useCart();
   const windowWidth = useWindowWidth();
+  const { pathname } = useLocation();
 
   const search = (id) => {
     switch (id) {
@@ -107,9 +108,12 @@ function App() {
             <Route path="/details/:article" element={<Details />} />
           </Routes>
 
-          <Menu>
-            <Filter handle={filterItems} />
-          </Menu>
+          {pathname === "/" ? null : (
+            <Menu>
+              <Filter handle={filterItems} />
+            </Menu>
+          )}
+
           <CartPopup />
         </CartContext.Provider>
       </WindowContext.Provider>
