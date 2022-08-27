@@ -85,9 +85,12 @@ export default function OrderPopup({ isOpen, switchPopup }) {
           className="order-popup__price-button"
           onClick={handleSwitchPopup}
           type="button"
+          disabled={cartItems.length === 0}
         >
           <p className="order-popup__price">{`${totalPrice} р`}</p>
-          <h3 className="order-popup__text">Оформить заказ</h3>
+          <h3 className="order-popup__text">
+            {cartItems.length === 0 ? "Корзина пуста" : "Оформить заказ"}
+          </h3>
         </button>
       )}
 

@@ -9,3 +9,9 @@
   width: 0;
   height: 0;
 }
+
+@media (min-width: 1024px) {
+  .menu-button {
+    display: none;
+  }
+}

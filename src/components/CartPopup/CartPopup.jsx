@@ -47,13 +47,9 @@ export default function CartPopup() {
         text="коРЗИНА"
       />
       <ul className="cart-popup__items">
-        {cartItems.length > 0 ? (
-          cartItems.map((item) => (
-            <Item key={item.article + item.material + item.size} item={item} />
-          ))
-        ) : (
-          <p className="cart-popup__text">Ваша корзина пуста</p>
-        )}
+        {cartItems.map((item) => (
+          <Item key={item.article + item.material + item.size} item={item} />
+        ))}
       </ul>
       <OrderTable handleButtonClick={switchOrderPopup} />
       <OrderPopup isOpen={isOrderPopupOpened} switchPopup={switchOrderPopup} />

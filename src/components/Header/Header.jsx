@@ -12,7 +12,6 @@ export default function Header({
 }) {
   const { cartItems, setCartIsOpen } = useContext(CartContext);
   const [counter, setCounter] = useState(0);
-  const breakpoint = 1024;
 
   const openCartPopup = () => {
     setCartIsOpen(true);
@@ -30,7 +29,7 @@ export default function Header({
 
   return (
     <header className="header">
-      {withMenuButton && window.innerWidth < breakpoint ? <MenuButton /> : null}
+      {withMenuButton ? <MenuButton /> : null}
       <div className="header__text-container">
         <p className="header__subtext">{subtext}</p>
         <p className="header__text">{text}</p>

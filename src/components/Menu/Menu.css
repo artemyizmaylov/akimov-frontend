@@ -12,6 +12,7 @@
   background-color: black;
   z-index: 50;
   transform: translateX(-100%);
+  grid-area: menu;
 }
 
 /* Подложка для перекрытия другого контента при анимации */
@@ -63,9 +64,9 @@
 
 @media (min-width: 1024px) {
   .menu {
-    grid-area: menu;
     grid-row: span 2;
     transform: translateX(0);
+    display: flex;
   }
 }
 
