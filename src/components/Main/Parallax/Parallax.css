@@ -16,17 +16,19 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  transform-origin: bottom;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .parallax__depth1 {
   background-image: url("../../../images/parallax/6.png");
+  transform: scale(1.2);
+
   z-index: 2;
 }
 
 .parallax__depth2 {
   background-image: url("../../../images/parallax/5.png");
+  transform: scale(1.2);
   z-index: 3;
 }
 
@@ -68,7 +70,7 @@
 
 .content__round-text {
   position: absolute;
-  top: 42%;
+  top: 51.5%;
   left: 46%;
   transform: translate(-50%, -50%);
   width: 191px;
@@ -81,8 +83,8 @@
 
 .content__logo {
   position: absolute;
-  top: 75%;
-  left: 73%;
+  top: 78%;
+  left: 71%;
   transform: translate(-50%, -50%);
   width: 234px;
   height: 85px;

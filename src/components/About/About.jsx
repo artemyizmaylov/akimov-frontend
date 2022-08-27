@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./About.css";
 import gsap from "gsap";
 import Menu from "../Menu/Menu";
@@ -24,6 +24,7 @@ export default function About() {
   const [material, setMaterial] = useState("silver");
   const [gems, setGems] = useState("emeralds");
   const footerHeading = useRef(null);
+  const nav = useNavigate();
 
   useEffect(() => {
     gsap.to(footerHeading.current, {
@@ -274,7 +275,7 @@ export default function About() {
           </p>
         </section>
 
-        <div className="link-to-catalogue">
+        <div className="link-to-catalogue" onClick={() => nav("/catalogue")}>
           <p className="link-to-catalogue__text">в икОнОтеку</p>
           <Link className="circle-button" to="/catalogue" />
         </div>

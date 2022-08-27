@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/CartContext";
+import MenuButton from "../MenuButton/MenuButton";
 import "./Header.css";
 
 export default function Header({ text, subtext, buttonHandler, buttonImage }) {
@@ -22,9 +23,7 @@ export default function Header({ text, subtext, buttonHandler, buttonImage }) {
 
   return (
     <header className="header">
-      <button className="header__menu-button header__button" type="button">
-        &equiv;
-      </button>
+      <MenuButton />
       <div className="header__text-container">
         <p className="header__subtext">{subtext}</p>
         <p className="header__text">{text}</p>

@@ -49,7 +49,15 @@ export default function Details() {
       <Menu />
       <section className="details__container">
         <div className="details__item">
-          <ItemRotator article={article} />
+          {item.type === "цепь" ? (
+            <img
+              className="details__image"
+              src={`/items/${item.article}_gold_i.png`}
+              alt={item.name}
+            />
+          ) : (
+            <ItemRotator article={article} />
+          )}
           <img className="details__rotate-image" src={rotateImage} alt="" />
           <img
             className="details__rotate-image-left"

@@ -8,7 +8,9 @@ import WindowContext from "../../context/WindowContext";
 
 export default function CatalogueItem({ item }) {
   const { addToCart } = useContext(CartContext);
-  const [material, setMaterial] = useState("gold");
+  const [material, setMaterial] = useState(
+    item.collection === "воинская" ? "silver" : "gold"
+  );
   const startingPrice = Object.values(item.materials[material].size)[0].prices;
 
   const goldImage = useRef();
@@ -76,6 +78,7 @@ export default function CatalogueItem({ item }) {
           style={{
             objectFit:
               item.type === "цепь" && windowWidth < 580 ? "cover" : "contain",
+            opacity: item.collection === "воинская" ? "0" : "100%",
           }}
           alt={item.name}
           src={`/items/${item.article}_gold${
@@ -88,6 +91,7 @@ export default function CatalogueItem({ item }) {
           style={{
             objectFit:
               item.type === "цепь" && windowWidth < 580 ? "cover" : "contain",
+            opacity: item.collection === "воинская" ? "100%" : "0",
           }}
           alt={item.name}
           src={`/items/${item.article}_silver${
@@ -111,7 +115,7 @@ export default function CatalogueItem({ item }) {
         </div>
         <div className="item__interactive">
           <MaterialSlider
-            value={material}
+            isChecked={material === "gold" ? false : true}
             onChange={changeMaterials}
             id={item.article}
             vertical
@@ -138,7 +142,6 @@ export default function CatalogueItem({ item }) {
         </div>
         <Link
           to={`/details/${item.article}`}
-          state={{ item }}
           className="item__text_gold item__text_big"
         >
           ПОДРОБНЕЕ

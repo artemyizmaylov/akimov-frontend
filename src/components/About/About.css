@@ -154,6 +154,7 @@
   justify-content: center;
   gap: 12px;
   margin-top: 70px;
+  cursor: pointer;
 }
 
 .link-to-catalogue__text {

@@ -1,0 +1,11 @@
+.menu-button {
+  color: var(--gold);
+  font-size: 35px;
+  line-height: 0;
+  z-index: 51;
+}
+
+.menu-button_hidden {
+  width: 0;
+  height: 0;
+}
