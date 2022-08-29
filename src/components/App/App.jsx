@@ -21,6 +21,7 @@ function App() {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [lastFilter, setLastFilter] = useState({ id: "", pressCount: 0 });
+  const [savedSlide, setSavedSlide] = useState(0);
 
   const cart = useCart();
   const windowWidth = useWindowWidth();
@@ -71,6 +72,8 @@ function App() {
 
       if (lastFilter.pressCount % 2 === 1) {
         setFilteredItems(items);
+        setSavedSlide(0);
+
         return;
       }
       search(id);
@@ -78,6 +81,8 @@ function App() {
       search(id);
       setLastFilter({ id, pressCount: 1 });
     }
+
+    setSavedSlide(0);
   };
 
   useEffect(() => {
@@ -91,6 +96,12 @@ function App() {
       setItems(data);
       setFilteredItems(data);
     });
+
+    if (!sessionStorage.getItem("savedSlide")) {
+      sessionStorage.setItem("savedSlide", 0);
+    }
+
+    setSavedSlide(sessionStorage.getItem("savedSlide"));
   }, []);
 
   return (
@@ -101,7 +112,13 @@ function App() {
             <Route exact path="/" element={<Main />} />
             <Route
               path="/catalogue"
-              element={<Catalogue items={filteredItems} />}
+              element={
+                <Catalogue
+                  items={filteredItems}
+                  savedSlide={savedSlide}
+                  setSavedSlide={setSavedSlide}
+                />
+              }
             />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/about-collection" element={<About />} />

@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import CatalogueItemMobile from "../CatalogueItemMobile/CatalogueItemMobile";
 import WindowContext from "../../context/WindowContext";
 
-export default function Catalogue({ items }) {
+export default function Catalogue({ items, savedSlide, setSavedSlide }) {
   const windowWidth = useContext(WindowContext);
 
   return (
@@ -18,7 +18,11 @@ export default function Catalogue({ items }) {
           ))}
         </ul>
       ) : (
-        <CatalogueItemMobile items={items} />
+        <CatalogueItemMobile
+          items={items}
+          savedSlide={savedSlide}
+          setSavedSlide={setSavedSlide}
+        />
       )}
     </section>
   );
