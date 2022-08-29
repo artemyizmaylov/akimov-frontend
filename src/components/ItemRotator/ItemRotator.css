@@ -1,7 +1,9 @@
 #item-rotator {
+  position: relative;
   width: 100%;
   height: 100%;
   z-index: 2;
+  grid-area: item-rotator;
 }
 
 #item-rotator * {

@@ -72,3 +72,10 @@
     font-size: 32px;
   }
 }
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 20px 40px;
+    grid-template-columns: 110px 1fr 110px;
+  }
+}

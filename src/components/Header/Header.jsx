@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/CartContext";
 import MenuButton from "../MenuButton/MenuButton";
+import BackwardButton from "../BackwardButton/BackwardButton";
 import "./Header.css";
+import WindowContext from "../../context/WindowContext";
 
 export default function Header({
   text,
@@ -12,6 +14,10 @@ export default function Header({
 }) {
   const { cartItems, setCartIsOpen } = useContext(CartContext);
   const [counter, setCounter] = useState(0);
+  const windowWidth = useContext(WindowContext);
+  const [button, setButton] = useState(
+    windowWidth < 1024 ? <MenuButton /> : <BackwardButton />
+  );
 
   const openCartPopup = () => {
     setCartIsOpen(true);
@@ -27,9 +33,13 @@ export default function Header({
     setCounter(count);
   }, [cartItems]);
 
+  useEffect(() => {
+    setButton(windowWidth < 1024 ? <MenuButton /> : <BackwardButton />);
+  }, [windowWidth]);
+
   return (
     <header className="header">
-      {withMenuButton ? <MenuButton /> : null}
+      {withMenuButton ? button : null}
       <div className="header__text-container">
         <p className="header__subtext">{subtext}</p>
         <p className="header__text">{text}</p>

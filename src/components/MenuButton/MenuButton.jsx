@@ -6,10 +6,11 @@ import WindowContext from "../../context/WindowContext";
 import "./MenuButton.css";
 
 export default function MenuButton() {
-  const [hidden, setHidden] = useState(true);
-  const windowWidth = useContext(WindowContext);
   const breakpoint = 1024;
   const button = useRef(null);
+  const windowWidth = useContext(WindowContext);
+
+  const [hidden, setHidden] = useState(true);
 
   const switchMenu = () => {
     if (windowWidth < breakpoint) {
@@ -37,14 +38,17 @@ export default function MenuButton() {
   }, [hidden]);
 
   useEffect(() => {
-    if (windowWidth >= breakpoint) {
-      setHidden(false);
-      button.current.classList.add("menu-button_hidden");
-    } else {
-      setHidden(true);
-      button.current.classList.remove("menu-button_hidden");
-    }
-  }, [windowWidth]);
+    return () => {
+      const settings = {
+        transform: "translateX(0)",
+        display: "flex",
+        ease: "back.inOut",
+        duration: 0.9,
+      };
+
+      gsap.to(".menu", settings);
+    };
+  }, []);
 
   return (
     <button

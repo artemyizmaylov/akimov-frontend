@@ -21,6 +21,8 @@ export default function Details() {
   const items = JSON.parse(localStorage.getItem("items"));
   const item = items.find((i) => i.article === article);
 
+  const breakpoint = 1500;
+
   const openPopup = () => {
     setPopupOpened(true);
   };
@@ -35,7 +37,7 @@ export default function Details() {
 
   return (
     <div className="details">
-      {windowWidth < 1920 ? (
+      {windowWidth < breakpoint ? (
         <Header
           text={item.name}
           subtext={item.type}
@@ -44,7 +46,7 @@ export default function Details() {
           withMenuButton
         />
       ) : (
-        <Header buttonImage={closeButton} buttonHandler={returnToCatalogue} />
+        <Header withMenuButton />
       )}
       <section className="details__container">
         <div className="details__item">
@@ -88,7 +90,7 @@ export default function Details() {
           <div className="details__item-circle" />
         </div>
         <div className="details__description">
-          {windowWidth >= 1920 && (
+          {windowWidth >= breakpoint && (
             <>
               <p className="details__item-type">{item.type}</p>
               <h2 className="details__text_big details__item-name">
