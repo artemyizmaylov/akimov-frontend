@@ -9,7 +9,7 @@ export default function ItemRotator({ article }) {
     totalFrames: 179,
     speed: 90,
     defaultProgressBar: true,
-    imageUrlFormat: "0_x.png",
+    imageUrlFormat: "0_x.webp",
   });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ItemRotator({ article }) {
         className="item-rotator-image"
         id="item-rotator-image"
         alt="example"
-        src={`/items3D/${article}/0_0.png`}
+        src={`/items3D/${article}/0_0.webp`}
       />
     </div>
   );

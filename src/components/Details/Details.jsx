@@ -51,13 +51,30 @@ export default function Details() {
           {item.type === "цепь" ? (
             <img
               className="details__image"
-              src={`/items/${item.article}_gold_i.png`}
+              src={`/items/${item.article}_gold_i.webp`}
               alt={item.name}
             />
           ) : (
             <ItemRotator article={article} />
           )}
           <img className="details__rotate-image" src={rotateImage} alt="" />
+
+          <svg
+            className="details__arrow"
+            width="40"
+            height="40"
+            viewBox="0 0 12 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M0.000201021 0C-0.0162592 4.2623 0.970956 7.8812 5.61424 10C0.970956 12.1188 0.000201021 15.7212 0.000201021 20H2.1949C2.1949 15.05 6.23514 11 11.1732 11V9C6.23514 9 2.1949 4.95 2.1949 0H0.000201021Z"
+              fill="#ffba80"
+            />
+          </svg>
+
           <img
             className="details__rotate-image-left"
             src={rotateLeftImage}
@@ -79,17 +96,18 @@ export default function Details() {
               </h2>
             </>
           )}
+
           <p className="details__text">{item.description}</p>
+          <button
+            className="details__item-choose"
+            type="button"
+            onClick={openPopup}
+          >
+            <img className="dateail__point-image" src={point} alt="" />
+            <p className="details__text_big">выбрАть ИСПОЛНЕНИЕ</p>
+            <img className="dateail__point-image" src={point} alt="" />
+          </button>
         </div>
-        <button
-          className="details__item-choose"
-          type="button"
-          onClick={openPopup}
-        >
-          <img className="dateail__point-image" src={point} alt="" />
-          <p className="details__text_big">выбрАть ИСПОЛНЕНИЕ</p>
-          <img className="dateail__point-image" src={point} alt="" />
-        </button>
       </section>
       <ItemPopup item={item} isOpen={popupOpened} handleClose={closePopup} />
     </div>

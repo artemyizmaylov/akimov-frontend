@@ -83,7 +83,7 @@ export default function CatalogueItem({ item }) {
           alt={item.name}
           src={`/items/${item.article}_gold${
             item.type === "цепь" && windowWidth < 580 ? "_m" : ""
-          }.png`}
+          }.webp`}
           ref={goldImage}
         />
         <img
@@ -96,7 +96,7 @@ export default function CatalogueItem({ item }) {
           alt={item.name}
           src={`/items/${item.article}_silver${
             item.type === "цепь" && windowWidth < 768 ? "_m" : ""
-          }.png`}
+          }.webp`}
           ref={silverImage}
         />
       </div>

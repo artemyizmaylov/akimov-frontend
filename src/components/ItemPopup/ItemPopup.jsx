@@ -89,13 +89,13 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
       <div className="item-popup__image-container">
         <img
           className="item-popup__image"
-          src={`/items/${item.article}_gold.png`}
+          src={`/items/${item.article}_gold.webp`}
           alt={item.name}
           ref={goldImage}
         />
         <img
           className="item-popup__image"
-          src={`/items/${item.article}_silver.png`}
+          src={`/items/${item.article}_silver.webp`}
           alt={item.name}
           ref={silverImage}
         />

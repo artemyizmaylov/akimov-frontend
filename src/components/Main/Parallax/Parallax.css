@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url("../../../images/parallax/7.png");
+  background-image: url("../../../images/parallax/7.webp");
   background-color: transparent;
   background-size: cover;
 }
@@ -20,35 +20,35 @@
 }
 
 .parallax__depth1 {
-  background-image: url("../../../images/parallax/6.png");
+  background-image: url("../../../images/parallax/6.webp");
   transform: scale(1.2);
 
   z-index: 2;
 }
 
 .parallax__depth2 {
-  background-image: url("../../../images/parallax/5.png");
+  background-image: url("../../../images/parallax/5.webp");
   transform: scale(1.2);
   z-index: 3;
 }
 
 .parallax__depth3 {
-  background-image: url("../../../images/parallax/4.png");
+  background-image: url("../../../images/parallax/4.webp");
   z-index: 4;
 }
 
 .parallax__depth4 {
-  background-image: url("../../../images/parallax/3.png");
+  background-image: url("../../../images/parallax/3.webp");
   z-index: 5;
 }
 
 .parallax__depth5 {
-  background-image: url("../../../images/parallax/2.png");
+  background-image: url("../../../images/parallax/2.webp");
   z-index: 6;
 }
 
 .parallax__depth6 {
-  background-image: url("../../../images/parallax/1.png");
+  background-image: url("../../../images/parallax/1.webp");
   z-index: 7;
 }
 

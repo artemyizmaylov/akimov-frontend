@@ -53,7 +53,7 @@ export default function CartItem({ item }) {
 
       <img
         className="cart-item__image"
-        src={`/items/${item.article}_${item.material}.png`}
+        src={`/items/${item.article}_${item.material}.webp`}
         alt={item.name}
       />
 

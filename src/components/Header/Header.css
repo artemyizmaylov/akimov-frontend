@@ -1,5 +1,4 @@
 .header {
-  position: relative;
   min-height: 86px;
   display: grid;
   grid-template-columns: 40px 1fr 40px;
