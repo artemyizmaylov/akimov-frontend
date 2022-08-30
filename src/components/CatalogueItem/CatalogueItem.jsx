@@ -1,7 +1,7 @@
 import "./CatalogueItem.css";
 import gsap from "gsap";
 import { React, useRef, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import MaterialSlider from "../MaterialSlider/MaterialSlider";
 import WindowContext from "../../context/WindowContext";
@@ -16,6 +16,7 @@ export default function CatalogueItem({ item }) {
   const goldImage = useRef();
   const silverImage = useRef();
   const windowWidth = useContext(WindowContext);
+  const nav = useNavigate();
 
   const handleCartClick = () => {
     const itemCopy = { ...item };
@@ -85,6 +86,7 @@ export default function CatalogueItem({ item }) {
             item.type === "цепь" && windowWidth < 580 ? "_m" : ""
           }.webp`}
           ref={goldImage}
+          onClick={() => nav(`/details/${item.article}`)}
         />
         <img
           className="item__image item__image_silver"
@@ -98,6 +100,7 @@ export default function CatalogueItem({ item }) {
             item.type === "цепь" && windowWidth < 768 ? "_m" : ""
           }.webp`}
           ref={silverImage}
+          onClick={() => nav(`/details/${item.article}`)}
         />
       </div>
       <div className="item__info-container">
