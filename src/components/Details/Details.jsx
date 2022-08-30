@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Header from "../Header/Header";
 import ItemPopup from "../ItemPopup/ItemPopup";
 import rotateImage from "../../images/rotate-gold.svg";
@@ -7,10 +7,12 @@ import rotateLeftImage from "../../images/rotate-gold-left.svg";
 import rotateRightImage from "../../images/rotate-gold-right.svg";
 import point from "../../images/point-gold.svg";
 import closeButton from "../../images/close-gold.svg";
+import arrow from "../../images/arrow-down-gold.svg";
 
 import "./Details.css";
 import ItemRotator from "../ItemRotator/ItemRotator";
 import WindowContext from "../../context/WindowContext";
+import gsap from "gsap";
 
 export default function Details() {
   const nav = useNavigate();
@@ -20,6 +22,9 @@ export default function Details() {
   const { article } = useParams();
   const items = JSON.parse(localStorage.getItem("items"));
   const item = items.find((i) => i.article === article);
+
+  const itemContainer = useRef(null);
+  const circle = useRef(null);
 
   const breakpoint = 1500;
 
@@ -35,6 +40,26 @@ export default function Details() {
     nav("/catalogue");
   };
 
+  const circleAnimation = (e) => {
+    const { layerX, layerY } = e;
+
+    if (layerX === 0 && layerY === 0) {
+      return;
+    }
+
+    gsap.to(circle.current, {
+      left: layerX,
+      top: layerY,
+      duration: 5,
+    });
+  };
+
+  useEffect(() => {
+    itemContainer.current.addEventListener("mousemove", circleAnimation);
+    return () =>
+      itemContainer.current.removeEventListener("mousemove", circleAnimation);
+  }, []);
+
   return (
     <div className="details">
       {windowWidth < breakpoint ? (
@@ -49,7 +74,7 @@ export default function Details() {
         <Header withMenuButton />
       )}
       <section className="details__container">
-        <div className="details__item">
+        <div className="details__item" ref={itemContainer}>
           {item.type === "цепь" ? (
             <img
               className="details__image"
@@ -59,24 +84,9 @@ export default function Details() {
           ) : (
             <ItemRotator article={article} />
           )}
+
           <img className="details__rotate-image" src={rotateImage} alt="" />
-
-          <svg
-            className="details__arrow"
-            width="40"
-            height="40"
-            viewBox="0 0 12 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M0.000201021 0C-0.0162592 4.2623 0.970956 7.8812 5.61424 10C0.970956 12.1188 0.000201021 15.7212 0.000201021 20H2.1949C2.1949 15.05 6.23514 11 11.1732 11V9C6.23514 9 2.1949 4.95 2.1949 0H0.000201021Z"
-              fill="#ffba80"
-            />
-          </svg>
-
+          <img className="details__arrow" src={arrow} alt="" />
           <img
             className="details__rotate-image-left"
             src={rotateLeftImage}
@@ -87,7 +97,7 @@ export default function Details() {
             src={rotateRightImage}
             alt=""
           />
-          <div className="details__item-circle" />
+          <div ref={circle} className="details__item-circle" />
         </div>
         <div className="details__description">
           {windowWidth >= breakpoint && (

@@ -37,8 +37,9 @@
 }
 
 .details__arrow {
-  transform: rotate(90deg);
   grid-area: arrow;
+  width: 40px;
+  height: 40px;
 }
 
 .details__text {
@@ -110,7 +111,7 @@
 @media (min-width: 768px) {
   .details__item {
     display: grid;
-    grid-template-columns: 1fr 7fr 1fr;
+    grid-template-columns: min-content 1fr min-content;
     grid-template-rows: 1fr 40px;
     grid-template-areas:
       "left item-rotator right"
@@ -180,14 +181,13 @@
   }
 
   .details__item-circle {
+    position: absolute;
     width: 340px;
     height: 340px;
     background-color: white;
     border-radius: 50%;
     display: block;
-    position: absolute;
-    top: 100px;
-    left: 20px;
+    transform: translate(-170px, -170px);
     z-index: 1;
   }
 
