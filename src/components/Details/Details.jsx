@@ -56,8 +56,6 @@ export default function Details() {
 
   useEffect(() => {
     itemContainer.current.addEventListener("mousemove", circleAnimation);
-    return () =>
-      itemContainer.current.removeEventListener("mousemove", circleAnimation);
   }, []);
 
   return (

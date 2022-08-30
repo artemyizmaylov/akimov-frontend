@@ -19,6 +19,8 @@ import bronze from "../../images/about/bronze.png";
 import gold from "../../images/about/gold.png";
 import silver from "../../images/about/silver.png";
 
+import Header from "../Header/Header";
+
 export default function About() {
   const [material, setMaterial] = useState("silver");
   const [gems, setGems] = useState("emeralds");
@@ -36,6 +38,7 @@ export default function About() {
 
   return (
     <div className="about">
+      <Header withMenuButton />
       <div className="about__container">
         <section className="about__section">
           <h2 className="about__heading">О КОЛЛЕКЦИИ</h2>

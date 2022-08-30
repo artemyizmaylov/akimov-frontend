@@ -5,7 +5,6 @@
   grid-template-areas: "left-button text right-button ";
   justify-items: center;
   align-items: center;
-  background: #000;
   grid-area: header;
   padding: 20px;
 }

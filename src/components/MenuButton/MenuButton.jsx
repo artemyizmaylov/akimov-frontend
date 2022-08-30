@@ -12,6 +12,13 @@ export default function MenuButton() {
 
   const [hidden, setHidden] = useState(true);
 
+  const settings = {
+    transform: "translateX(0)",
+    display: "flex",
+    ease: "back.inOut",
+    duration: 0.9,
+  };
+
   const switchMenu = () => {
     if (windowWidth < breakpoint) {
       setHidden(!hidden);
@@ -19,13 +26,6 @@ export default function MenuButton() {
   };
 
   useEffect(() => {
-    const settings = {
-      transform: "translateX(0)",
-      display: "flex",
-      ease: "back.inOut",
-      duration: 0.9,
-    };
-
     if (hidden) {
       settings.transform = "translateX(-100%)";
       settings.display = "none";
@@ -38,13 +38,18 @@ export default function MenuButton() {
   }, [hidden]);
 
   useEffect(() => {
-    return () => {
-      const settings = {
-        transform: "translateX(0)",
-        display: "flex",
-        ease: "back.inOut",
-        duration: 0.9,
+    if (windowWidth < breakpoint) {
+      return () => {
+        settings.transform = "translateX(0)";
+        settings.display = "flex";
+
+        gsap.to(".menu", settings);
       };
+    }
+
+    return () => {
+      settings.transform = "translateX(-100%)";
+      settings.display = "none";
 
       gsap.to(".menu", settings);
     };
