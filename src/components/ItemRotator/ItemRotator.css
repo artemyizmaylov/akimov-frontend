@@ -14,3 +14,9 @@
 #item-rotator img {
   object-fit: contain;
 }
+
+@media (min-width: 1500px) {
+  #item-rotator {
+    height: calc(100vh - 100px);
+  }
+}

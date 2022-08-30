@@ -22,6 +22,8 @@
     "arrow";
   justify-items: center;
   align-items: center;
+  align-content: center;
+
   scroll-snap-align: center;
   overflow: hidden;
 }
@@ -112,7 +114,8 @@
   .details__item {
     display: grid;
     grid-template-columns: min-content 1fr min-content;
-    grid-template-rows: 1fr 40px;
+    grid-template-rows: calc(100% - 86px) 40px;
+    row-gap: 15px;
     grid-template-areas:
       "left item-rotator right"
       "arrow arrow arrow";
@@ -171,13 +174,14 @@
   .details__container {
     display: flex;
     overflow: auto;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
   }
 
   .details__description {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 30%;
   }
 
   .details__item-circle {
@@ -202,6 +206,6 @@
   }
 
   .details__container {
-    padding: 40px;
+    padding: 0 40px 40px 49px;
   }
 }
