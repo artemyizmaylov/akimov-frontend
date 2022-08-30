@@ -1,15 +1,18 @@
-.about__container {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
+.about {
   background: linear-gradient(
     40deg,
     rgba(5, 0, 17, 1) 0%,
     rgba(23, 7, 7, 1) 67%,
     rgba(15, 5, 0, 1) 100%
   );
+}
+
+.about__container {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
 .about__section {

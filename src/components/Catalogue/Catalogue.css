@@ -4,6 +4,13 @@
   grid-template-areas:
     "header"
     "items";
+
+  background: linear-gradient(
+    40deg,
+    rgba(5, 0, 17, 1) 0%,
+    rgba(23, 7, 7, 1) 67%,
+    rgba(15, 5, 0, 1) 100%
+  );
 }
 
 .catalogue__items {
