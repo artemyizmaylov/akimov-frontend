@@ -44,10 +44,9 @@ export default function Filter({ handle }) {
 
   return (
     <>
-      <li className="menu__item">
+      <li className="menu__item" onClick={() => setwhoActive(!whoActive)}>
         <button
           className={`menu__link ${whoActive && "menu__link_active"}`}
-          onClick={() => setwhoActive(!whoActive)}
           type="button"
         >
           Для кого
@@ -88,10 +87,12 @@ export default function Filter({ handle }) {
           </button>
         </ul>
       </li>
-      <li className="menu__item">
+      <li
+        className="menu__item"
+        onClick={() => setCategoryActive(!categoryActive)}
+      >
         <button
           className={`menu__link ${categoryActive && "menu__link_active"}`}
-          onClick={() => setCategoryActive(!categoryActive)}
           type="button"
         >
           Категория

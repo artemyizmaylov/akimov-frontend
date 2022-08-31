@@ -1,17 +1,19 @@
 import React from "react";
 import "./Menu.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/logo-gold.svg";
 import sparkGold from "../../images/spark-gold.svg";
 import sparkWhite from "../../images/spark-white.svg";
 
 export default function Menu({ children }) {
   const { pathname } = useLocation();
+  const nav = useNavigate();
 
   return (
     <nav className="menu">
       <img className="menu__logo" src={logo} alt="Логотип" />
       <ul className="menu__items">
+        {pathname === "/catalogue" ? children : null}
         <li className="menu__item">
           <Link
             className={`menu__link ${
@@ -22,13 +24,12 @@ export default function Menu({ children }) {
             Каталог
           </Link>
           <img
+            className="menu__item-image"
             src={pathname === "/catalogue" ? sparkWhite : sparkGold}
             alt=""
+            onClick={() => nav("/catalogue")}
           />
         </li>
-
-        {pathname === "/catalogue" ? children : null}
-
         <li className="menu__item">
           <Link
             className={`menu__link ${
@@ -39,21 +40,11 @@ export default function Menu({ children }) {
             О коллекции
           </Link>
           <img
+            className="menu__item-image"
             src={pathname === "/about-collection" ? sparkWhite : sparkGold}
             alt=""
+            onClick={() => nav("/about-collection")}
           />
-        </li>
-
-        <li className="menu__item">
-          <Link
-            className={`menu__link ${
-              pathname === "/contacts" && "menu__link_active"
-            }`}
-            to="/contacts"
-          >
-            Контакты
-          </Link>
-          <img src={pathname === "/contacts" ? sparkWhite : sparkGold} alt="" />
         </li>
       </ul>
     </nav>
