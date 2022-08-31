@@ -37,7 +37,7 @@ export default function About() {
   });
 
   return (
-    <div className="about">
+    <div className="about animate-bg">
       <Header withMenuButton />
       <div className="about__container">
         <section className="about__section">

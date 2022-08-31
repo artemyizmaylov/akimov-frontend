@@ -1,19 +1,13 @@
 import React, { useEffect } from "react";
 import "./ItemRotator.css";
-import { JavascriptViewer } from "@3dweb/360javascriptviewer";
+import viewer from "../../utils/360viewer";
 
 export default function ItemRotator({ article }) {
-  const viewer = new JavascriptViewer({
-    mainHolderId: "item-rotator",
-    mainImageId: "item-rotator-image",
-    totalFrames: 179,
-    speed: 90,
-    defaultProgressBar: true,
-    imageUrlFormat: "0_x.webp",
-  });
-
   useEffect(() => {
     viewer.start();
+    return () => {
+      viewer.destroy();
+    };
   }, []);
 
   return (

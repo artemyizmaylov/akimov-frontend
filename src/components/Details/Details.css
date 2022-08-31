@@ -188,11 +188,18 @@
     position: absolute;
     width: 340px;
     height: 340px;
-    background-color: white;
+    background: radial-gradient(
+      circle,
+      rgb(255, 0, 0) 0%,
+      rgba(150, 150, 150, 0.9) 2%,
+      rgb(0, 0, 0) 50%
+    );
+    mix-blend-mode: color-dodge;
     border-radius: 50%;
     display: block;
     transform: translate(-170px, -170px);
-    z-index: 1;
+    z-index: 3;
+    pointer-events: none;
   }
 
   .details__arrow {

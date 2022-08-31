@@ -24,13 +24,6 @@ body {
   color: white;
   width: 100%;
   height: 100%;
-
-  background: linear-gradient(
-    40deg,
-    rgba(5, 0, 17, 1) 0%,
-    rgb(10, 3, 3) 67%,
-    rgba(12, 5, 0, 1) 100%
-  );
 }
 
 #root {
@@ -77,4 +70,49 @@ input {
 textarea {
   resize: none;
   border: none;
+}
+
+.animate-bg {
+  background: linear-gradient(180deg, #300000, #00041b);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimateBG 30s ease infinite;
+  -moz-animation: AnimateBG 30s ease infinite;
+  animation: AnimateBG 30s ease infinite;
+}
+
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

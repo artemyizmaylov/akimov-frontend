@@ -50,7 +50,6 @@ export default function Details() {
     gsap.to(circle.current, {
       left: layerX,
       top: layerY,
-      duration: 5,
     });
   };
 
@@ -59,7 +58,7 @@ export default function Details() {
   }, []);
 
   return (
-    <div className="details">
+    <div className="details animate-bg">
       {windowWidth < breakpoint ? (
         <Header
           text={item.name}
