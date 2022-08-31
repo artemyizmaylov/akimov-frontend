@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import Header from "../Header/Header";
 import ItemPopup from "../ItemPopup/ItemPopup";
 import rotateImage from "../../images/rotate-gold.svg";
@@ -12,7 +12,6 @@ import arrow from "../../images/arrow-down-gold.svg";
 import "./Details.css";
 import ItemRotator from "../ItemRotator/ItemRotator";
 import WindowContext from "../../context/WindowContext";
-import gsap from "gsap";
 
 export default function Details() {
   const nav = useNavigate();
@@ -22,9 +21,6 @@ export default function Details() {
   const { article } = useParams();
   const items = JSON.parse(localStorage.getItem("items"));
   const item = items.find((i) => i.article === article);
-
-  const itemContainer = useRef(null);
-  const circle = useRef(null);
 
   const breakpoint = 1500;
 
@@ -40,23 +36,6 @@ export default function Details() {
     nav("/catalogue");
   };
 
-  const circleAnimation = (e) => {
-    const { layerX, layerY } = e;
-
-    if (layerX === 0 && layerY === 0) {
-      return;
-    }
-
-    gsap.to(circle.current, {
-      left: layerX,
-      top: layerY,
-    });
-  };
-
-  useEffect(() => {
-    itemContainer.current.addEventListener("mousemove", circleAnimation);
-  }, []);
-
   return (
     <div className="details animate-bg">
       {windowWidth < breakpoint ? (
@@ -71,7 +50,7 @@ export default function Details() {
         <Header withMenuButton />
       )}
       <section className="details__container">
-        <div className="details__item" ref={itemContainer}>
+        <div className="details__item">
           {item.type === "цепь" ? (
             <img
               className="details__image"
@@ -94,7 +73,6 @@ export default function Details() {
             src={rotateRightImage}
             alt=""
           />
-          <div ref={circle} className="details__item-circle" />
         </div>
         <div className="details__description">
           {windowWidth >= breakpoint && (

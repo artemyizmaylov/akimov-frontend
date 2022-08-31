@@ -2,7 +2,7 @@
   color: var(--gold);
   font-size: 35px;
   line-height: 0;
-  z-index: 51;
+  z-index: 11;
 }
 
 .menu-button_hidden {

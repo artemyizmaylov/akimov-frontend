@@ -62,7 +62,6 @@ export default function CartItem({ item }) {
           <div className="counter__elements">
             <button
               className="counter__element counter__button"
-              style={{ cursor: "pointer" }}
               onClick={decreaseCount}
               type="button"
             >
@@ -71,7 +70,6 @@ export default function CartItem({ item }) {
             <p className="counter__element">{item.count}</p>
             <button
               className="counter__element counter__button"
-              style={{ cursor: "pointer" }}
               onClick={increaseCount}
               type="button"
             >

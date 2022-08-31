@@ -7,9 +7,10 @@
   background-color: white;
   display: grid;
   grid-template-rows: 125px 1fr;
-  z-index: 60;
 
   transition: top 0.5s ease-in-out;
+  cursor: default;
+  z-index: 12;
 }
 
 .order-button__policy-agreement {
@@ -128,6 +129,5 @@
 
 .order-popup_fullscreen {
   width: 100%;
-  z-index: 99;
   transition: 0.5s ease-in-out;
 }

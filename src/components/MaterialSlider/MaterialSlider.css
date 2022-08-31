@@ -19,7 +19,7 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  cursor: none;
 }
 
 .material-slider__label_vertical {

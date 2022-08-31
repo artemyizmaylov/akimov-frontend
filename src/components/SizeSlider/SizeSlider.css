@@ -3,7 +3,6 @@
   height: 40px;
   border: 1px solid white;
   border-radius: 30px;
-  cursor: pointer;
 }
 
 .size-slider__input {
@@ -43,7 +42,6 @@
   -webkit-appearance: none;
   appearance: none;
   background: white;
-  cursor: pointer;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -52,7 +50,6 @@
 
 .size-slider__input::-ms-track {
   width: 100%;
-  cursor: pointer;
   background: transparent;
   border-color: transparent;
   color: transparent;
@@ -61,7 +58,6 @@
 .size-slider__input::-moz-range-thumb {
   appearance: none;
   background: white;
-  cursor: pointer;
   width: 30px;
   height: 30px;
   border-radius: 50%;

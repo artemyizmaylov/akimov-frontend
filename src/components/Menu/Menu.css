@@ -10,7 +10,7 @@
   padding: 68px 29px 0 29px;
   align-items: center;
   background-color: black;
-  z-index: 50;
+  z-index: 10;
   transform: translateX(-100%);
   grid-area: menu;
 }
@@ -50,16 +50,11 @@
   justify-content: space-between;
 }
 
-.menu__item-image {
-  cursor: pointer;
-}
-
 .menu__link {
   font-size: 21px;
   line-height: 26px;
   letter-spacing: 0.1em;
   color: var(--gold);
-  cursor: pointer;
 }
 
 .menu__link_active {

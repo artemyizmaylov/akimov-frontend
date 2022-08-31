@@ -75,10 +75,6 @@
   text-transform: uppercase;
 }
 
-.details__item-circle {
-  display: none;
-}
-
 .details__rotate-image {
   width: 50px;
 }
@@ -182,24 +178,6 @@
     flex-direction: column;
     gap: 20px;
     max-width: 30%;
-  }
-
-  .details__item-circle {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    background: radial-gradient(
-      circle,
-      rgb(255, 0, 0) 0%,
-      rgba(150, 150, 150, 0.9) 2%,
-      rgb(0, 0, 0) 50%
-    );
-    mix-blend-mode: color-dodge;
-    border-radius: 50%;
-    display: block;
-    transform: translate(-170px, -170px);
-    z-index: 3;
-    pointer-events: none;
   }
 
   .details__arrow {

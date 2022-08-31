@@ -7,7 +7,7 @@ import WindowContext from "../../context/WindowContext";
 
 export default function Catalogue({ items, savedSlide, setSavedSlide }) {
   const windowWidth = useContext(WindowContext);
-  const breakpoint = 670;
+  const breakpoint = 1024;
 
   return (
     <section className="catalogue animate-bg">
