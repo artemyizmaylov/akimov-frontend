@@ -33,6 +33,8 @@ export default function CartPopup() {
         display: "none",
       });
     }
+
+    setIsOrderPopupOpened(false);
   }, [cartIsOpen]);
 
   return (

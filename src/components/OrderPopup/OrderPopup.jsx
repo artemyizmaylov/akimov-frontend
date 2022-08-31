@@ -1,4 +1,4 @@
-import { useRef, React, useState, useContext } from "react";
+import { useRef, React, useState, useContext, useEffect } from "react";
 import CartContext from "../../context/CartContext";
 import ConfirmOrderPopup from "../ConfirmOrderPopup/ConfirmOrderPopup";
 import "./OrderPopup.css";
@@ -57,6 +57,12 @@ export default function OrderPopup({ isOpen, switchPopup }) {
       })
       .finally(() => setIsLoading(false));
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setConfirmOrderOpened(false);
+    }
+  }, [isOpen]);
 
   return (
     <div

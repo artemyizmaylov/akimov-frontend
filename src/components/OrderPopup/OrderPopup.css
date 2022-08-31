@@ -27,8 +27,8 @@
 
 .order-popup__close-button {
   background-image: url("../../images/close-black.svg");
-  width: 27px;
-  height: 27px;
+  width: 28px;
+  height: 28px;
   position: absolute;
   top: 30px;
   right: 30px;
@@ -105,13 +105,6 @@
 @media (min-width: 768px) {
   .order-popup__input {
     width: 475px;
-  }
-}
-
-@media (min-width: 768px) {
-  .order-popup__close-button {
-    width: 39px;
-    height: 39px;
   }
 }
 

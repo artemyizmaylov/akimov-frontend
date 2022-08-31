@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Menu.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../images/logo-gold.svg";
 import sparkGold from "../../images/spark-gold.svg";
 import sparkWhite from "../../images/spark-white.svg";
+import CartContext from "../../context/CartContext";
 
 export default function Menu({ children }) {
   const { pathname } = useLocation();
+  const { setCartIsOpen } = useContext(CartContext);
   const nav = useNavigate();
 
   return (
@@ -14,7 +16,7 @@ export default function Menu({ children }) {
       <img className="menu__logo" src={logo} alt="Логотип" />
       <ul className="menu__items">
         {pathname === "/catalogue" ? children : null}
-        <li className="menu__item">
+        <li className="menu__item" onClick={() => setCartIsOpen(false)}>
           <Link
             className={`menu__link ${
               pathname === "/catalogue" && "menu__link_active"
@@ -30,7 +32,7 @@ export default function Menu({ children }) {
             onClick={() => nav("/catalogue")}
           />
         </li>
-        <li className="menu__item">
+        <li className="menu__item" onClick={() => setCartIsOpen(false)}>
           <Link
             className={`menu__link ${
               pathname === "/about-collection" && "menu__link_active"
