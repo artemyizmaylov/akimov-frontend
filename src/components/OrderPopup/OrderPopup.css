@@ -42,6 +42,7 @@
   text-align: center;
   background-color: var(--gold);
   transition: 0.5s;
+  color: black;
 }
 
 .order-popup__confirm-button:disabled {
