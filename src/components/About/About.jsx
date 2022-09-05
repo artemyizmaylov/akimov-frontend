@@ -39,7 +39,7 @@ export default function About() {
   return (
     <div className="about animate-bg">
       <Header withMenuButton />
-      <div className="about__container">
+      <div className="about__container animate-bg">
         <section className="about__section">
           <h2 className="about__heading">О КОЛЛЕКЦИИ</h2>
           <img

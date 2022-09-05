@@ -19,7 +19,7 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
-  cursor: none;
+  cursor: pointer;
 }
 
 .material-slider__label_vertical {
@@ -73,4 +73,10 @@
   top: calc(100% - 4px);
   transform: translateY(-100%);
   background-color: var(--silver);
+}
+
+@media (min-width: 1024px) {
+  .material-slider__label {
+    cursor: none;
+  }
 }

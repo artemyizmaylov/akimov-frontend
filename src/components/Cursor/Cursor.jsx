@@ -26,7 +26,7 @@ export default function Cursor() {
         top: 0,
         left: 0,
       });
-    }, 100);
+    }, 50);
   };
 
   useEffect(() => {
@@ -34,9 +34,9 @@ export default function Cursor() {
   }, []);
 
   return (
-    <>
+    <div className="cursor-container">
       <div ref={pointer} className="cursor cursor__pointer" />
       <div ref={tail} className="cursor cursor__tail" />
-    </>
+    </div>
   );
 }

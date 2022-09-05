@@ -133,7 +133,7 @@ function App() {
             </Menu>
           )}
           <CartPopup />
-          <Cursor />
+          {windowWidth >= 1024 ? <Cursor /> : null}
         </CartContext.Provider>
       </WindowContext.Provider>
     </div>

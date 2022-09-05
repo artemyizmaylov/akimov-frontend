@@ -15,8 +15,6 @@ html {
   --silver: #c4c4c4;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  cursor: none;
 }
 
 body {
@@ -35,7 +33,6 @@ body {
 
 a {
   text-decoration: none;
-  cursor: none;
 }
 
 li {
@@ -53,7 +50,6 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
   padding: 0;
-  cursor: none;
 }
 
 h1,
@@ -117,5 +113,18 @@ textarea {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  html,
+  a,
+  button {
+    cursor: none;
   }
 }
