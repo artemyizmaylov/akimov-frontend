@@ -28,38 +28,32 @@
   background-size: cover;
   background-position: center;
   transform: scale(1.1);
+  object-fit: cover;
 }
 
 .parallax__depth1 {
-  background-image: url("../../../images/parallax/6.webp");
   transform: scale(1.2);
-
   z-index: 2;
 }
 
 .parallax__depth2 {
-  background-image: url("../../../images/parallax/5.webp");
   transform: scale(1.2);
   z-index: 3;
 }
 
 .parallax__depth3 {
-  background-image: url("../../../images/parallax/4.webp");
   z-index: 4;
 }
 
 .parallax__depth4 {
-  background-image: url("../../../images/parallax/3.webp");
   z-index: 5;
 }
 
 .parallax__depth5 {
-  background-image: url("../../../images/parallax/2.webp");
   z-index: 6;
 }
 
 .parallax__depth6 {
-  background-image: url("../../../images/parallax/1.webp");
   z-index: 7;
 }
 
@@ -83,12 +77,10 @@
   position: absolute;
   top: 51.5%;
   left: 46%;
-  transform: translate(-50%, -50%);
   width: 191px;
   height: 191px;
-  background-image: url("../../../images/parallax/text.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
   animation: rotate 180s linear infinite;
 }
 
@@ -96,13 +88,10 @@
   position: absolute;
   top: 78%;
   left: 71%;
-  transform: translate(-50%, -50%);
   width: 234px;
   height: 85px;
-  background-image: url("../../../images//logo-white.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1550px) {

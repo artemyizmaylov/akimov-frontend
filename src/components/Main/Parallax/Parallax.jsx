@@ -1,6 +1,14 @@
 import gsap from "gsap";
 import { useEffect, useRef, React } from "react";
 import "./Parallax.css";
+import depth1 from "../../../images/parallax/6.webp";
+import depth2 from "../../../images/parallax/5.webp";
+import depth3 from "../../../images/parallax/4.webp";
+import depth4 from "../../../images/parallax/3.webp";
+import depth5 from "../../../images/parallax/2.webp";
+import depth6 from "../../../images/parallax/1.webp";
+import text from "../../../images/parallax/text.png";
+import logo from "../../../images//logo-white.svg";
 
 export default function Parallax() {
   const parallax = useRef(null);
@@ -33,19 +41,19 @@ export default function Parallax() {
 
   return (
     <div className="parallax" ref={parallax}>
-      <div className="parallax__depth1 parallax__layer" />
-      <div className="parallax__depth2 parallax__layer" />
-      <div className="parallax__depth3 parallax__layer" />
-      <div className="parallax__depth4 parallax__layer" />
-      <div className="parallax__depth5 parallax__layer" />
-      <div className="parallax__depth6 parallax__layer" />
+      <img src={depth1} alt="" className="parallax__depth1 parallax__layer" />
+      <img src={depth2} alt="" className="parallax__depth2 parallax__layer" />
+      <img src={depth3} alt="" className="parallax__depth3 parallax__layer" />
+      <img src={depth4} alt="" className="parallax__depth4 parallax__layer" />
+      <img src={depth5} alt="" className="parallax__depth5 parallax__layer" />
+      <img src={depth6} alt="" className="parallax__depth6 parallax__layer" />
       <h1 className="content__heading">
         Ювелирная <br />
         иконОтека
       </h1>
       <div className="content">
-        <div className="content__round-text" />
-        <div className="content__logo" />
+        <img src={text} alt="" className="content__round-text" />
+        <img src={logo} alt="Дары Волхвов" className="content__logo" />
       </div>
     </div>
   );
