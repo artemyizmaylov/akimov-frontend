@@ -31,6 +31,7 @@ export default function Cursor() {
 
   useEffect(() => {
     window.addEventListener("mousemove", circleAnimation);
+    return () => window.removeEventListener("mousemove", circleAnimation);
   }, []);
 
   return (
