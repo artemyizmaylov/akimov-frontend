@@ -120,11 +120,3 @@ a,
 button {
   cursor: pointer;
 }
-
-@media (min-width: 1024px) {
-  html,
-  a,
-  button {
-    cursor: none;
-  }
-}

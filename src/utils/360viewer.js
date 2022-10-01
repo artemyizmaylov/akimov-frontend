@@ -6,13 +6,9 @@ const viewer = new JavascriptViewer({
   totalFrames: 179,
   speed: 90,
   inertia: 0,
-  autoRotate: true,
-  autoRotateReverse: true,
-  autoRotateSpeed: 50,
   enableImageEvents: false,
   defaultProgressBar: true,
   imageUrlFormat: "0_x.webp",
-  cursorConfig: "none",
 });
 
 export default viewer;

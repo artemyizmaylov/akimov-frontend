@@ -74,9 +74,3 @@
   transform: translateY(-100%);
   background-color: var(--silver);
 }
-
-@media (min-width: 1024px) {
-  .material-slider__label {
-    cursor: none;
-  }
-}

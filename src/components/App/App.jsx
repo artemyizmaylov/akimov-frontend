@@ -16,7 +16,6 @@ import Menu from "../Menu/Menu";
 import Filter from "../Filter/Filter";
 
 import { getItems } from "../../utils/api";
-import Cursor from "../Cursor/Cursor";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -133,7 +132,6 @@ function App() {
             </Menu>
           )}
           <CartPopup />
-          {windowWidth >= 1024 ? <Cursor /> : null}
         </CartContext.Provider>
       </WindowContext.Provider>
     </div>
