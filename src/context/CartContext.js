@@ -31,7 +31,7 @@ function useCart() {
     );
     const newItems = [...cartItems];
 
-    newItems[index].count = item.count + 1;
+    newItems[index].count++;
     setCartItems(newItems);
   };
 
@@ -46,7 +46,7 @@ function useCart() {
     if (index > -1) {
       const newItems = [...cartItems];
 
-      newItems[index].count = item.count - 1;
+      newItems[index].count--;
       setCartItems(newItems);
     }
   };
