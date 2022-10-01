@@ -9,6 +9,10 @@
   grid-area: main;
   overflow: scroll;
   scroll-snap-type: y mandatory;
+  justify-self: center;
+  align-self: center;
+  max-width: 1920px;
+  max-height: 1080px;
 }
 
 .details__item {
