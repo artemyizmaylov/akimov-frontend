@@ -87,7 +87,7 @@ export default function CatalogueItem({ item }) {
     });
 
     setCurrentItemsInCart(currentItemInCart.count);
-  }, [cartItems]);
+  }, [cartItems, material]);
 
   return (
     <li
