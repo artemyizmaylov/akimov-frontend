@@ -80,10 +80,38 @@
 }
 
 .item__cart {
-  background-image: url("../../images/cart-white.svg");
   width: 46px;
-  height: 51px;
+  height: 46px;
   grid-area: cart;
+  background-image: url("../../images/cart-white.svg");
+  overflow: hidden;
+  background-position-x: 2px;
+}
+
+.item__cart-container {
+  width: 200%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.item__spark {
+  width: 50%;
+  height: 100%;
+  background-image: url("../../images/spark-white.svg");
+  background-repeat: no-repeat;
+  background-position: 4px 23px;
+  background-size: 24px;
+}
+
+.item__counter {
+  display: block;
+  width: 50%;
+  height: 100%;
+  color: white;
+  line-height: 3.4;
 }
 
 @media (min-width: 670px) {

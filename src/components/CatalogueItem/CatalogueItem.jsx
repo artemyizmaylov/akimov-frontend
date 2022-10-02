@@ -1,18 +1,20 @@
 import "./CatalogueItem.css";
 import gsap from "gsap";
-import { React, useRef, useState, useContext } from "react";
+import { React, useRef, useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import MaterialSlider from "../MaterialSlider/MaterialSlider";
 import WindowContext from "../../context/WindowContext";
 
 export default function CatalogueItem({ item }) {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
   const [material, setMaterial] = useState(
     item.collection === "воинская" ? "silver" : "gold"
   );
+  const [currentItemsInCart, setCurrentItemsInCart] = useState(0);
   const startingPrice = Object.values(item.materials[material].size)[0].prices;
 
+  const cartCounter = useRef();
   const goldImage = useRef();
   const silverImage = useRef();
   const windowWidth = useContext(WindowContext);
@@ -63,6 +65,29 @@ export default function CatalogueItem({ item }) {
       setMaterial("gold");
     }
   }
+
+  useEffect(() => {
+    const ease = "InOut";
+    const currentItemInCart = cartItems.find(
+      (cartItem) =>
+        cartItem.article === item.article && cartItem.material === material
+    );
+
+    if (!currentItemInCart) {
+      gsap.to(cartCounter.current, {
+        x: 0,
+        ease,
+      });
+      return;
+    }
+
+    gsap.to(cartCounter.current, {
+      x: "50%",
+      ease,
+    });
+
+    setCurrentItemsInCart(currentItemInCart.count);
+  }, [cartItems]);
 
   return (
     <li
@@ -141,7 +166,12 @@ export default function CatalogueItem({ item }) {
             type="button"
             aria-label="Добавить"
             onClick={handleCartClick}
-          />
+          >
+            <div className="item__cart-container" ref={cartCounter}>
+              <p className="item__counter">{currentItemsInCart}</p>
+              <div className="item__spark" />
+            </div>
+          </button>
         </div>
         <Link
           to={`/details/${item.article}`}
