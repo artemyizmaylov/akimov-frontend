@@ -15,7 +15,6 @@ export default function Menu({ children }) {
     <nav className="menu">
       <img className="menu__logo" src={logo} alt="Логотип" />
       <ul className="menu__items">
-        {pathname === "/catalogue" ? children : null}
         <li className="menu__item" onClick={() => setCartIsOpen(false)}>
           <Link
             className={`menu__link ${
@@ -32,6 +31,9 @@ export default function Menu({ children }) {
             onClick={() => nav("/catalogue")}
           />
         </li>
+
+        {pathname === "/catalogue" ? children : null}
+
         <li className="menu__item" onClick={() => setCartIsOpen(false)}>
           <Link
             className={`menu__link ${
