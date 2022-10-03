@@ -39,7 +39,7 @@ export default function CartPopup() {
 
   return (
     <div
-      className="cart-popup"
+      className="cart-popup animate-bg"
       ref={popup}
       onScroll={(evt) => evt.stopPropagation()}
     >

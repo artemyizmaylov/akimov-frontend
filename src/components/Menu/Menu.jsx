@@ -12,7 +12,7 @@ export default function Menu({ children }) {
   const nav = useNavigate();
 
   return (
-    <nav className="menu">
+    <nav className="menu animate-bg">
       <img className="menu__logo" src={logo} alt="Логотип" />
       <ul className="menu__items">
         <li className="menu__item" onClick={() => setCartIsOpen(false)}>

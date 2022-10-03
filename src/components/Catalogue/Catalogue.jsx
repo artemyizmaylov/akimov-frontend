@@ -10,7 +10,7 @@ export default function Catalogue({ items, savedSlide, setSavedSlide }) {
   const breakpoint = 1024;
 
   return (
-    <section className="catalogue animate-bg">
+    <section className="catalogue">
       <Header
         text="ЮвелирнАя ИкОНОТЕКА"
         withMenuButton={windowWidth < breakpoint ? true : false}

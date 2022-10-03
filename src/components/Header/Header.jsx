@@ -42,7 +42,15 @@ export default function Header({
       {withMenuButton ? button : null}
       <div className="header__text-container">
         <p className="header__subtext">{subtext}</p>
-        <p className="header__text">{text}</p>
+        {text && (
+          <p
+            className={`header__text ${
+              text.length > 15 ? "header__text_small" : ""
+            }`}
+          >
+            {text}
+          </p>
+        )}
       </div>
       <button
         className="header__button"

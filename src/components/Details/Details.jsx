@@ -37,7 +37,7 @@ export default function Details() {
   };
 
   return (
-    <div className="details animate-bg">
+    <div className="details">
       {windowWidth < breakpoint ? (
         <Header
           text={item.name}

@@ -9,7 +9,6 @@
   border-right: 1px solid var(--gold);
   padding: 68px 29px 0 29px;
   align-items: center;
-  background-color: black;
   z-index: 10;
   transform: translateX(-100%);
   grid-area: menu;
@@ -22,9 +21,9 @@
   right: 0;
   width: 110%;
   height: 100%;
-  background-color: black;
   content: "";
   z-index: -1;
+  background: inherit;
 }
 
 .menu__logo {

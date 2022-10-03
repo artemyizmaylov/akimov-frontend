@@ -79,7 +79,7 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
   }, [material]);
 
   return (
-    <div className="item-popup" ref={popup}>
+    <div className="item-popup animate-bg" ref={popup}>
       <button
         className="item-popup__close-button"
         aria-label="Закрыть"

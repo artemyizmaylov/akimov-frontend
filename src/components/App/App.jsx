@@ -106,7 +106,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App animate-bg">
       <WindowContext.Provider value={windowWidth}>
         <CartContext.Provider value={cart}>
           <Routes>

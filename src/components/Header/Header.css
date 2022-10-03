@@ -7,6 +7,7 @@
   align-items: center;
   grid-area: header;
   padding: 20px;
+  background: inherit;
 }
 
 .header__button {
@@ -69,6 +70,10 @@
 @media (min-width: 500px) {
   .header__text {
     font-size: 32px;
+  }
+
+  .header__text_small {
+    font-size: 26px;
   }
 }
 
