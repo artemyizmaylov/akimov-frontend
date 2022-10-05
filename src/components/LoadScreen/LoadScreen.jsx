@@ -6,7 +6,7 @@ export default function LoadScreen({ isLoading }) {
     <div className={`load-screen ${isLoading ? "" : "load-screen_hidden"}`}>
       <svg
         width="50%"
-        height="auto"
+        height="50%"
         viewBox="0 0 188 67"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

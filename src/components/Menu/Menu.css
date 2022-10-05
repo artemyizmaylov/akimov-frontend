@@ -15,15 +15,26 @@
 }
 
 /* Подложка для перекрытия другого контента при анимации */
-.menu::after {
+.menu::before {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   width: 110%;
   height: 100%;
-  content: "";
   z-index: -1;
   background: inherit;
+}
+
+/* Подложка для предотвращения клика вне меню */
+.menu-over {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
 
 .menu__logo {
@@ -65,6 +76,10 @@
     display: flex;
     grid-row: span 2;
     transform: translateX(0);
+  }
+
+  .menu-over {
+    display: none;
   }
 }
 

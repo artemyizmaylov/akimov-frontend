@@ -1,59 +1,18 @@
-import React, { useRef } from "react";
-import { useState, useContext, useEffect } from "react";
-import { gsap } from "gsap";
-import WindowContext from "../../context/WindowContext";
+import React, { useContext, useRef } from "react";
+import MenuContext from "../../context/MenuContext";
+// import { useState, useContext, useEffect } from "react";
+// import { gsap } from "gsap";
+// import WindowContext from "../../context/WindowContext";
 
 import "./MenuButton.css";
 
 export default function MenuButton() {
-  const breakpoint = 1024;
   const button = useRef(null);
-  const windowWidth = useContext(WindowContext);
-
-  const [hidden, setHidden] = useState(true);
-
-  const settings = {
-    transform: "translateX(0)",
-    display: "flex",
-    ease: "back.inOut",
-    duration: 0.9,
-  };
+  const [menuHidden, setMenuHidden] = useContext(MenuContext);
 
   const switchMenu = () => {
-    if (windowWidth < breakpoint) {
-      setHidden(!hidden);
-    }
+    setMenuHidden(!menuHidden);
   };
-
-  useEffect(() => {
-    if (hidden) {
-      settings.transform = "translateX(-100%)";
-      settings.display = "none";
-    } else {
-      settings.transform = "translateX(0)";
-      settings.display = "flex";
-    }
-
-    gsap.to(".menu", settings);
-  }, [hidden]);
-
-  useEffect(() => {
-    if (windowWidth < breakpoint) {
-      return () => {
-        settings.transform = "translateX(0)";
-        settings.display = "flex";
-
-        gsap.to(".menu", settings);
-      };
-    }
-
-    return () => {
-      settings.transform = "translateX(-100%)";
-      settings.display = "none";
-
-      gsap.to(".menu", settings);
-    };
-  }, []);
 
   return (
     <button

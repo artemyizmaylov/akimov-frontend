@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { lazy, React, Suspense, useEffect, useState } from "react";
+import { lazy, React, Suspense, useEffect, useMemo, useState } from "react";
 
 import CartContext, { useCart } from "../../context/CartContext";
 import WindowContext from "../../context/WindowContext";
@@ -18,6 +18,7 @@ import LoadScreen from "../LoadScreen/LoadScreen";
 import useWindowWidth from "../../hooks/useWindowWidth";
 
 import { getItems } from "../../utils/api";
+import MenuContext from "../../context/MenuContext";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -25,10 +26,16 @@ function App() {
   const [lastFilter, setLastFilter] = useState({ id: "", pressCount: 0 });
   const [savedSlide, setSavedSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const breakpoint = 1024;
 
   const cart = useCart();
   const windowWidth = useWindowWidth();
   const { pathname } = useLocation();
+
+  const [menuHidden, setMenuHidden] = useState(true);
+  const menu = useMemo(() => {
+    return [menuHidden, setMenuHidden];
+  }, [menuHidden]);
 
   const search = (id) => {
     switch (id) {
@@ -87,6 +94,10 @@ function App() {
 
     setSavedSlide(0);
     window.scrollTo(0, 0);
+
+    if (windowWidth < breakpoint) {
+      setMenuHidden(true);
+    }
   };
 
   useEffect(() => {
@@ -109,9 +120,13 @@ function App() {
 
     setSavedSlide(sessionStorage.getItem("savedSlide"));
 
-    window.addEventListener("load", () => {
-      setTimeout(() => setIsLoading(false), 1000);
-    });
+    if (document.readyState === "complete") {
+      setIsLoading(false);
+    } else {
+      window.addEventListener("load", () => {
+        setTimeout(() => setIsLoading(false), 1000);
+      });
+    }
   }, []);
 
   return (
@@ -119,30 +134,32 @@ function App() {
       <LoadScreen isLoading={isLoading} />
       <WindowContext.Provider value={windowWidth}>
         <CartContext.Provider value={cart}>
-          <Suspense>
-            <Routes>
-              <Route exact path="/" element={<Main />} />
-              <Route
-                path="/catalogue"
-                element={
-                  <Catalogue
-                    items={filteredItems}
-                    savedSlide={savedSlide}
-                    setSavedSlide={setSavedSlide}
-                  />
-                }
-              />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/about-collection" element={<About />} />
-              <Route path="/details/:article" element={<Details />} />
-            </Routes>
-            {pathname === "/" ? null : (
-              <Menu>
-                <Filter handle={filterItems} />
-              </Menu>
-            )}
-            <CartPopup />
-          </Suspense>
+          <MenuContext.Provider value={menu}>
+            <Suspense>
+              <Routes>
+                <Route exact path="/" element={<Main />} />
+                <Route
+                  path="/catalogue"
+                  element={
+                    <Catalogue
+                      items={filteredItems}
+                      savedSlide={savedSlide}
+                      setSavedSlide={setSavedSlide}
+                    />
+                  }
+                />
+                <Route path="/contacts" element={<Contacts />} />
+                <Route path="/about-collection" element={<About />} />
+                <Route path="/details/:article" element={<Details />} />
+              </Routes>
+              {pathname !== "/" && (
+                <Menu>
+                  <Filter handle={filterItems} />
+                </Menu>
+              )}
+              <CartPopup />
+            </Suspense>
+          </MenuContext.Provider>
         </CartContext.Provider>
       </WindowContext.Provider>
     </div>
