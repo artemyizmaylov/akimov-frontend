@@ -35,8 +35,13 @@ export default function Parallax() {
   };
 
   useEffect(() => {
+    document.body.addEventListener("mouseenter", animateParallax);
     document.addEventListener("mousemove", animateParallax);
-    return () => document.removeEventListener("mousemove", animateParallax);
+
+    return () => {
+      document.body.removeEventListener("mouseenter", animateParallax);
+      document.removeEventListener("mousemove", animateParallax);
+    };
   }, []);
 
   return (

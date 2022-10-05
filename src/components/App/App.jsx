@@ -1,19 +1,21 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { React, useEffect, useState } from "react";
+import { lazy, React, Suspense, useEffect, useState } from "react";
 
 import CartContext, { useCart } from "../../context/CartContext";
 import WindowContext from "../../context/WindowContext";
 
-import Main from "../Main/Main";
-import About from "../About/About";
-import Contacts from "../Contacts/Contacts";
-import Catalogue from "../Catalogue/Catalogue";
-import Details from "../Details/Details";
-import CartPopup from "../CartPopup/CartPopup";
+const Main = lazy(() => import("../Main/Main"));
+const Menu = lazy(() => import("../Menu/Menu"));
+const About = lazy(() => import("../About/About"));
+const Contacts = lazy(() => import("../Contacts/Contacts"));
+const Catalogue = lazy(() => import("../Catalogue/Catalogue"));
+const CartPopup = lazy(() => import("../CartPopup/CartPopup"));
+const Details = lazy(() => import("../Details/Details"));
+const Filter = lazy(() => import("../Filter/Filter"));
+
+import LoadScreen from "../LoadScreen/LoadScreen";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import Menu from "../Menu/Menu";
-import Filter from "../Filter/Filter";
 
 import { getItems } from "../../utils/api";
 
@@ -22,6 +24,7 @@ function App() {
   const [filteredItems, setFilteredItems] = useState([]);
   const [lastFilter, setLastFilter] = useState({ id: "", pressCount: 0 });
   const [savedSlide, setSavedSlide] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const cart = useCart();
   const windowWidth = useWindowWidth();
@@ -92,6 +95,8 @@ function App() {
   }, [cart.cartItems]);
 
   useEffect(() => {
+    setIsLoading(true);
+
     getItems().then((data) => {
       localStorage.setItem("items", JSON.stringify(data));
       setItems(data);
@@ -103,35 +108,41 @@ function App() {
     }
 
     setSavedSlide(sessionStorage.getItem("savedSlide"));
+
+    window.addEventListener("load", () => {
+      setTimeout(() => setIsLoading(false), 1000);
+    });
   }, []);
 
   return (
     <div className="App animate-bg">
+      <LoadScreen isLoading={isLoading} />
       <WindowContext.Provider value={windowWidth}>
         <CartContext.Provider value={cart}>
-          <Routes>
-            <Route exact path="/" element={<Main />} />
-            <Route
-              path="/catalogue"
-              element={
-                <Catalogue
-                  items={filteredItems}
-                  savedSlide={savedSlide}
-                  setSavedSlide={setSavedSlide}
-                />
-              }
-            />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/about-collection" element={<About />} />
-            <Route path="/details/:article" element={<Details />} />
-          </Routes>
-
-          {pathname === "/" ? null : (
-            <Menu>
-              <Filter handle={filterItems} />
-            </Menu>
-          )}
-          <CartPopup />
+          <Suspense>
+            <Routes>
+              <Route exact path="/" element={<Main />} />
+              <Route
+                path="/catalogue"
+                element={
+                  <Catalogue
+                    items={filteredItems}
+                    savedSlide={savedSlide}
+                    setSavedSlide={setSavedSlide}
+                  />
+                }
+              />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/about-collection" element={<About />} />
+              <Route path="/details/:article" element={<Details />} />
+            </Routes>
+            {pathname === "/" ? null : (
+              <Menu>
+                <Filter handle={filterItems} />
+              </Menu>
+            )}
+            <CartPopup />
+          </Suspense>
         </CartContext.Provider>
       </WindowContext.Provider>
     </div>
