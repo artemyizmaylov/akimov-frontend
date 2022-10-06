@@ -3,7 +3,6 @@
   top: 0;
   width: 290px;
   height: 100%;
-  display: flex;
   flex-direction: column;
   align-items: center;
   border-right: 1px solid var(--gold);
@@ -12,6 +11,8 @@
   z-index: 10;
   transform: translateX(-100%);
   grid-area: menu;
+
+  display: none;
 }
 
 /* Подложка для перекрытия другого контента при анимации */
