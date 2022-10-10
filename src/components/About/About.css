@@ -369,6 +369,10 @@
   .about__text {
     max-width: 620px;
   }
+
+  .femail-cross__text {
+    max-width: 116px;
+  }
 }
 
 @media (min-width: 1750px) {
