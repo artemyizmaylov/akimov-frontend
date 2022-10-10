@@ -13,8 +13,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
-  height: calc(100% - 125px - 70px);
+  height: calc(100% - 125px - 86px);
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.cart-popup__items::-webkit-scrollbar {
+  display: none;
 }
 
 .cart-popup__heading {
@@ -40,6 +45,10 @@
     width: calc(100% - 290px);
     left: unset;
     right: 0;
+  }
+
+  .cart-popup__items {
+    height: calc(100% - 138px - 86px);
   }
 }
 

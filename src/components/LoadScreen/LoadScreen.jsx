@@ -3,7 +3,11 @@ import "./LoadScreen.css";
 
 export default function LoadScreen({ isLoading }) {
   return (
-    <div className={`load-screen ${isLoading ? "" : "load-screen_hidden"}`}>
+    <div
+      className={`load-screen ${
+        isLoading ? "load-screen_visible" : "load-screen_hidden"
+      }`}
+    >
       <svg
         width="50%"
         height="50%"

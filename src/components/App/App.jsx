@@ -30,7 +30,7 @@ function App() {
 
   const cart = useCart();
   const windowWidth = useWindowWidth();
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   const [menuHidden, setMenuHidden] = useState(true);
   const menu = useMemo(() => {
@@ -100,13 +100,34 @@ function App() {
     }
   };
 
+  const showLoadScreen = () => {
+    setIsLoading(true);
+
+    if (document.readyState === "complete") {
+      setIsLoading(false);
+    } else {
+      window.addEventListener("load", hideLoadScreen);
+    }
+  };
+
+  const hideLoadScreen = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+      window.removeEventListener("load", hideLoadScreen);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    showLoadScreen();
+  }, [location]);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart.cartItems));
     cart.setTotalPrice(cart.countTotalPrice());
   }, [cart.cartItems]);
 
   useEffect(() => {
-    setIsLoading(true);
+    showLoadScreen();
 
     getItems().then((data) => {
       localStorage.setItem("items", JSON.stringify(data));
@@ -119,14 +140,6 @@ function App() {
     }
 
     setSavedSlide(sessionStorage.getItem("savedSlide"));
-
-    if (document.readyState === "complete") {
-      setIsLoading(false);
-    } else {
-      window.addEventListener("load", () => {
-        setTimeout(() => setIsLoading(false), 1000);
-      });
-    }
   }, []);
 
   return (
@@ -152,7 +165,7 @@ function App() {
                 <Route path="/about-collection" element={<About />} />
                 <Route path="/details/:article" element={<Details />} />
               </Routes>
-              {pathname !== "/" && (
+              {location.pathname !== "/" && (
                 <Menu>
                   <Filter handle={filterItems} />
                 </Menu>

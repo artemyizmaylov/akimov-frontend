@@ -46,7 +46,7 @@
 
 .menu__items {
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   max-width: 200px;
   scrollbar-width: none;
 }
@@ -66,10 +66,6 @@
   line-height: 26px;
   letter-spacing: 0.1em;
   color: var(--gold);
-}
-
-.menu__link_active {
-  color: white;
 }
 
 @media (min-width: 1024px) {

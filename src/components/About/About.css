@@ -8,7 +8,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.about__container::-webkit-scrollbar {
+  display: none;
 }
 
 .about__section {

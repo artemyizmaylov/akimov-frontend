@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "./Menu.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import WindowContext from "../../context/WindowContext";
 import logo from "../../images/logo-gold.svg";
@@ -23,6 +23,10 @@ export default function Menu({ children }) {
     display: "flex",
     ease: "back.inOut",
     duration: 0.9,
+  };
+
+  const activeStyle = {
+    color: "white",
   };
 
   const closeMenu = () => {
@@ -68,15 +72,14 @@ export default function Menu({ children }) {
         <img className="menu__logo" src={logo} alt="Логотип" />
         <ul className="menu__items">
           <li className="menu__item" onClick={() => setCartIsOpen(false)}>
-            <Link
-              className={`menu__link ${
-                pathname === "/catalogue" && "menu__link_active"
-              }`}
-              to="/catalogue"
+            <NavLink
+              className="menu__link"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              to="catalogue"
               onClick={closeMenu}
             >
               Каталог
-            </Link>
+            </NavLink>
             <img
               className="menu__item-image"
               src={pathname === "/catalogue" ? sparkWhite : sparkGold}
@@ -88,15 +91,14 @@ export default function Menu({ children }) {
           {children}
 
           <li className="menu__item" onClick={() => setCartIsOpen(false)}>
-            <Link
-              className={`menu__link ${
-                pathname === "/about-collection" && "menu__link_active"
-              }`}
-              to="/about-collection"
+            <NavLink
+              className="menu__link"
+              to="about-collection"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
               onClick={closeMenu}
             >
               О коллекции
-            </Link>
+            </NavLink>
             <img
               className="menu__item-image"
               src={pathname === "/about-collection" ? sparkWhite : sparkGold}

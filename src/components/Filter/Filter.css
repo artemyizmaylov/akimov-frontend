@@ -4,6 +4,10 @@
   height: 0;
 }
 
+.menu__link_active {
+  color: white;
+}
+
 @keyframes show-category {
   from {
     height: 0;

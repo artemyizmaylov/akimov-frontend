@@ -5,6 +5,7 @@ import viewer from "../../utils/360viewer";
 export default function ItemRotator({ article }) {
   useEffect(() => {
     viewer.start();
+    return () => viewer.destroy();
   }, []);
 
   return (

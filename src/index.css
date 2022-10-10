@@ -71,6 +71,11 @@ textarea {
   border: none;
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
 .animate-bg {
   background: linear-gradient(90deg, #200000, #00041b);
   background-size: 200% 200%;
@@ -114,9 +119,4 @@ textarea {
   100% {
     background-position: 0% 50%;
   }
-}
-
-a,
-button {
-  cursor: pointer;
 }

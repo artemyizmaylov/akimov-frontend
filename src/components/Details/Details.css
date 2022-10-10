@@ -7,12 +7,17 @@
   width: 100%;
   height: calc(100% - 86px);
   grid-area: main;
-  overflow: scroll;
   scroll-snap-type: y mandatory;
   justify-self: center;
   align-self: center;
   max-width: 1920px;
   max-height: 1080px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.details__container::-webkit-scrollbar {
+  display: none;
 }
 
 .details__item {
@@ -54,8 +59,18 @@
   padding: 20px;
   display: block;
   text-align: justify;
-  overflow: scroll;
+  white-space: pre-wrap;
+  overflow-y: scroll;
   scrollbar-width: none;
+}
+
+.details__text::-webkit-scrollbar {
+  width: 1px;
+  background: gray;
+}
+
+.details__text::-webkit-scrollbar-thumb {
+  background: white;
 }
 
 .details__text_big {
@@ -104,10 +119,6 @@
   width: 10px;
   height: 10px;
   margin-bottom: 10px;
-}
-
-.details__text::-webkit-scrollbar {
-  display: none;
 }
 
 @media (min-width: 768px) {
