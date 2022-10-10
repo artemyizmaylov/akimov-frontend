@@ -11,8 +11,12 @@
   height: 100%;
 }
 
-#item-rotator img {
+.contain img {
   object-fit: contain;
+}
+
+.cover img {
+  object-fit: cover;
 }
 
 @media (min-width: 1500px) {

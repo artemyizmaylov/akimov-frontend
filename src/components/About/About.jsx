@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 import magi from "../../images/about/magi.png";
 import textImage from "../../images/about/with-text-img.png";
-import product from "../../images/about/product.png";
+// import product from "../../images/about/product.png";
 import star from "../../images/about/star.svg";
 import arrow from "../../images/about/femail-cross-arrow.svg";
 import annunciation from "../../images/about/annunciation.png";
@@ -20,6 +20,7 @@ import gold from "../../images/about/gold.png";
 import silver from "../../images/about/silver.png";
 
 import Header from "../Header/Header";
+import ItemRotator from "../ItemRotator/ItemRotator";
 
 export default function About() {
   const [material, setMaterial] = useState("silver");
@@ -38,10 +39,9 @@ export default function About() {
 
   return (
     <div className="about animate-bg">
-      <Header withMenuButton />
+      <Header withMenuButton text="О коллекции" />
       <div className="about__container animate-bg">
         <section className="about__section">
-          <h2 className="about__heading">О КОЛЛЕКЦИИ</h2>
           <img
             className="magi-image"
             src={magi}
@@ -98,11 +98,7 @@ export default function About() {
             благородной палитры оттенков золотого и&nbsp;серебряного.
           </p>
           <div className="femail-cross">
-            <img
-              className="femail-cross__image"
-              src={product}
-              alt="Наперстный крест"
-            />
+            <ItemRotator article="5014" cover />
             <div className="about__circle femail-cross__circle" />
             <div className="femail-cross__heading-container">
               <h3 className="femail-cross__heading">
@@ -136,7 +132,7 @@ export default function About() {
             и&nbsp;происходит встреча двух миров, духовного
             и&nbsp;материального.
           </p>
-          <div className="about__description">
+          <div className="about__centered-container">
             <img
               className="annunciation-image"
               src={annunciation}
@@ -162,9 +158,9 @@ export default function About() {
         </div>
 
         <section className="about__section ">
-          <div className="about__description">
-            <p className="about__text about__text_small">образок</p>
-            <p className="about__text">Казанская икона Божией Матери</p>
+          <div className="about__centered-container">
+            <p className="about__text_small">образок</p>
+            <p className="">Казанская икона Божией Матери</p>
           </div>
 
           <div className="about__product-image-container">
@@ -277,7 +273,9 @@ export default function About() {
         </section>
 
         <div className="link-to-catalogue" onClick={() => nav("/catalogue")}>
-          <p className="link-to-catalogue__text">в икОнОтеку</p>
+          <Link className="link-to-catalogue__text" to="/catalogue">
+            в икОнОтеку
+          </Link>
           <Link className="circle-button" to="/catalogue" />
         </div>
         <footer className="footer">
@@ -293,7 +291,7 @@ export default function About() {
           </div>
           <ul className="footer__contacts">
             <li className="footer__contact">
-              <p>gifts@magi.com</p>
+              <p>gifts@daryvolkhvov.ru</p>
             </li>
             <li className="footer__contact">
               <p>8 812 222-20-22</p>
