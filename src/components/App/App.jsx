@@ -1,5 +1,11 @@
 import "./App.css";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import { lazy, React, Suspense, useEffect, useMemo, useState } from "react";
 
 import CartContext, { useCart } from "../../context/CartContext";
@@ -19,6 +25,7 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 
 import { getItems } from "../../utils/api";
 import MenuContext from "../../context/MenuContext";
+import Page404 from "../Page404/Page404";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -122,6 +129,7 @@ function App() {
 
   useEffect(() => {
     showLoadScreen();
+    console.log(location);
   }, [location]);
 
   useEffect(() => {
@@ -152,6 +160,11 @@ function App() {
         <CartContext.Provider value={cart}>
           <MenuContext.Provider value={menu}>
             <Suspense>
+              {location.pathname !== "/" && location.pathname !== "/404" && (
+                <Menu>
+                  <Filter handle={filterItems} />
+                </Menu>
+              )}
               <Routes>
                 <Route exact path="/" element={<Main />} />
                 <Route
@@ -167,12 +180,10 @@ function App() {
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/about-collection" element={<About />} />
                 <Route path="/details/:article" element={<Details />} />
+                <Route path="/404" element={<Page404 />} />
+
+                <Route path="*" element={<Navigate to="/404" replace />} />
               </Routes>
-              {location.pathname !== "/" && (
-                <Menu>
-                  <Filter handle={filterItems} />
-                </Menu>
-              )}
               <CartPopup />
             </Suspense>
           </MenuContext.Provider>
