@@ -70,6 +70,8 @@
   left: 10px;
   font-family: "Lighthaus";
   font-size: 140px;
+  font-weight: normal;
+
   z-index: 5;
 }
 

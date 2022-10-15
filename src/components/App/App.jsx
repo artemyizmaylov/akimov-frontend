@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { lazy, React, Suspense, useEffect, useMemo, useState } from "react";
 
 import CartContext, { useCart } from "../../context/CartContext";
@@ -31,6 +31,7 @@ function App() {
   const cart = useCart();
   const windowWidth = useWindowWidth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [menuHidden, setMenuHidden] = useState(true);
   const menu = useMemo(() => {
@@ -98,6 +99,8 @@ function App() {
     if (windowWidth < breakpoint) {
       setMenuHidden(true);
     }
+
+    navigate("/catalogue");
   };
 
   const showLoadScreen = () => {

@@ -42,6 +42,7 @@
   font-size: 35px;
   line-height: 43px;
   text-align: center;
+  font-weight: normal;
   background-color: var(--gold);
   transition: 0.5s;
   color: black;

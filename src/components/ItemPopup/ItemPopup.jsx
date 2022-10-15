@@ -6,6 +6,7 @@ import "./ItemPopup.css";
 import CartContext from "../../context/CartContext";
 import MaterialSlider from "../MaterialSlider/MaterialSlider";
 import SizeSlider from "../SizeSlider/SizeSlider";
+import WindowContext from "../../context/WindowContext";
 
 export default function ItemPopup({ item, isOpen, handleClose }) {
   const { addToCart } = useContext(CartContext);
@@ -13,9 +14,12 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
   const sizes = Object.keys(item.materials[material].size);
   const [size, setSize] = useState(sizes[0]);
   const nav = useNavigate();
+  const windowWidth = useContext(WindowContext);
   const popup = useRef(null);
   const goldImage = useRef(null);
   const silverImage = useRef(null);
+
+  const nameSize = item.name.length > 10 ? { fontSize: 28 } : {};
 
   const handleMaterialChange = () => {
     if (material === "gold") {
@@ -101,6 +105,17 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
         />
       </div>
       <div className="item-popup__info">
+        {windowWidth >= 1500 && (
+          <div className="item-popup__item-name">
+            <p className="item-popup__text">{item.type}</p>
+            <h3
+              className="item-popup__text item-popup__text_big"
+              style={nameSize}
+            >
+              {item.name}
+            </h3>
+          </div>
+        )}
         <div className="item-popup__sliders">
           <div className="item-popup__slider-container">
             <p className="item-popup__slider-text">Выберите исполнение</p>
@@ -121,17 +136,19 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
           </div>
         </div>
         <div className="item-popup__text-container">
-          <p className="item-popup__text">{material}</p>
+          <p className="item-popup__text">
+            {material === "gold" ? "золото" : "серебро"}
+          </p>
           <p className="item-popup__text">{item.materials[material].gems}</p>
           <p className="item-popup__text">{`${size} MM`}</p>
           <p className="item-popup__text">{`${item.materials[material].size[size].weight} ГР`}</p>
         </div>
+        <AddButton
+          price={item.materials[material].size[size].prices}
+          text="Добавить"
+          onClick={handleAddButtonClick}
+        />
       </div>
-      <AddButton
-        price={item.materials[material].size[size].prices}
-        text="Добавить"
-        onClick={handleAddButtonClick}
-      />
     </div>
   );
 }
