@@ -129,7 +129,6 @@ function App() {
 
   useEffect(() => {
     showLoadScreen();
-    console.log(location);
   }, [location]);
 
   useEffect(() => {
