@@ -36,7 +36,10 @@ export default function Menu({ children }) {
   };
 
   const overMenuClick = (e) => {
-    if (e.target.className.includes("menu-over")) {
+    if (
+      typeof e.target.className === "string" &&
+      e.target.className.includes("menu-over")
+    ) {
       setMenuHidden(true);
     }
   };
@@ -84,7 +87,10 @@ export default function Menu({ children }) {
               className="menu__item-image"
               src={pathname === "/catalogue" ? sparkWhite : sparkGold}
               alt=""
-              onClick={() => nav("/catalogue")}
+              onClick={() => {
+                nav("/catalogue");
+                closeMenu();
+              }}
             />
           </li>
 
@@ -103,7 +109,10 @@ export default function Menu({ children }) {
               className="menu__item-image"
               src={pathname === "/about-collection" ? sparkWhite : sparkGold}
               alt=""
-              onClick={() => nav("/about-collection")}
+              onClick={() => {
+                nav("/about-collection");
+                closeMenu();
+              }}
             />
           </li>
         </ul>
