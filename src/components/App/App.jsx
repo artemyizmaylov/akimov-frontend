@@ -48,10 +48,14 @@ function App() {
   const search = (id) => {
     switch (id) {
       case "male":
-        setFilteredItems(items.filter((item) => item.gender === "m"));
+        setFilteredItems(
+          items.filter((item) => item.gender === "m" || item.gender === "both")
+        );
         break;
       case "female":
-        setFilteredItems(items.filter((item) => item.gender === "f"));
+        setFilteredItems(
+          items.filter((item) => item.gender === "f" || item.gender === "both")
+        );
         break;
       case "cross":
         setFilteredItems(items.filter((item) => item.type === "крест"));
@@ -77,6 +81,12 @@ function App() {
   const filterItems = (evt) => {
     const { id, classList } = evt.target;
 
+    setTimeout(() => {
+      const scrollPage = document.querySelector(".catalogue__items");
+      scrollPage && scrollPage.scrollTo(0, 0);
+      setSavedSlide(0);
+    }, 0);
+
     if (lastFilter.id && id !== lastFilter.id) {
       document
         .querySelector(`#${lastFilter.id}`)
@@ -90,8 +100,6 @@ function App() {
 
       if (lastFilter.pressCount % 2 === 1) {
         setFilteredItems(items);
-        setSavedSlide(0);
-
         return;
       }
       search(id);
@@ -103,11 +111,6 @@ function App() {
     if (windowWidth < breakpoint) {
       setMenuHidden(true);
     }
-
-    setTimeout(() => {
-      setSavedSlide(0);
-      window.scrollTo(0, 0);
-    }, 0);
 
     navigate("/catalogue");
   };
