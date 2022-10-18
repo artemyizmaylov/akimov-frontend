@@ -100,12 +100,14 @@ function App() {
       setLastFilter({ id, pressCount: 1 });
     }
 
-    setSavedSlide(0);
-    window.scrollTo(0, 0);
-
     if (windowWidth < breakpoint) {
       setMenuHidden(true);
     }
+
+    setTimeout(() => {
+      setSavedSlide(0);
+      window.scrollTo(0, 0);
+    }, 0);
 
     navigate("/catalogue");
   };

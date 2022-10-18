@@ -7,7 +7,7 @@ const viewer = new JavascriptViewer({
   speed: 90,
   inertia: 0,
   enableImageEvents: false,
-  defaultProgressBar: true,
+  defaultProgressBar: false,
   imageUrlFormat: "0_x.webp",
 });
 

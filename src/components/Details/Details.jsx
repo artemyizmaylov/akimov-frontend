@@ -37,58 +37,62 @@ export default function Details() {
   };
 
   return (
-    <div className="details">
-      {windowWidth < breakpoint ? (
-        <Header
-          text={item.name}
-          subtext={item.type}
-          buttonImage={closeButton}
-          buttonHandler={returnToCatalogue}
-          withMenuButton
-        />
-      ) : (
-        <Header withMenuButton />
-      )}
-      <section className="details__container">
-        <div className="details__item">
-          <ItemRotator article={article} />
-
-          <img className="details__rotate-image" src={rotateImage} alt="" />
-          <img className="details__arrow" src={arrow} alt="" />
-          <img
-            className="details__rotate-image-left"
-            src={rotateLeftImage}
-            alt=""
+    <>
+      <div className="details">
+        {windowWidth < breakpoint ? (
+          <Header
+            text={item.name}
+            subtext={item.type}
+            buttonImage={closeButton}
+            buttonHandler={returnToCatalogue}
+            withMenuButton
           />
-          <img
-            className="details__rotate-image-right"
-            src={rotateRightImage}
-            alt=""
-          />
-        </div>
-        <div className="details__description">
-          {windowWidth >= breakpoint && (
-            <>
-              <p className="details__item-type">{item.type}</p>
-              <h2 className="details__text_big details__item-name">
-                {item.name}
-              </h2>
-            </>
-          )}
+        ) : (
+          <Header withMenuButton />
+        )}
+        <section className="details__container">
+          <div className="details__item">
+            <ItemRotator article={article} />
 
-          <p className="details__text">{item.description}</p>
-          <button
-            className="details__item-choose"
-            type="button"
-            onClick={openPopup}
-          >
-            <img className="dateail__point-image" src={point} alt="" />
-            <p className="details__text_big">выбрАть ИСПОЛНЕНИЕ</p>
-            <img className="dateail__point-image" src={point} alt="" />
-          </button>
-        </div>
-      </section>
-      <ItemPopup item={item} isOpen={popupOpened} handleClose={closePopup} />
-    </div>
+            <img className="details__rotate-image" src={rotateImage} alt="" />
+            <img className="details__arrow" src={arrow} alt="" />
+            <img
+              className="details__rotate-image-left"
+              src={rotateLeftImage}
+              alt=""
+            />
+            <img
+              className="details__rotate-image-right"
+              src={rotateRightImage}
+              alt=""
+            />
+          </div>
+          <div className="details__description">
+            {windowWidth >= breakpoint && (
+              <>
+                <p className="details__item-type">{item.type}</p>
+                <h2 className="details__text_big details__item-name">
+                  {item.name}
+                </h2>
+              </>
+            )}
+
+            <p className="details__text">{item.description}</p>
+            <button
+              className="details__item-choose"
+              type="button"
+              onClick={openPopup}
+            >
+              <img className="dateail__point-image" src={point} alt="" />
+              <p className="details__text_big">выбрАть ИСПОЛНЕНИЕ</p>
+              <img className="dateail__point-image" src={point} alt="" />
+            </button>
+          </div>
+        </section>
+        <ItemPopup item={item} isOpen={popupOpened} handleClose={closePopup} />
+      </div>
+
+      <link rel="canonical" href="https://daryvolkhvov.ru/details/5001" />
+    </>
   );
 }
