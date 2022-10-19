@@ -8,6 +8,14 @@
   color: white;
 }
 
+.filter__input {
+  display: none;
+}
+
+.filter__input:checked + .menu__link {
+  color: white;
+}
+
 @keyframes show-category {
   from {
     height: 0;

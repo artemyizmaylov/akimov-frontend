@@ -2,7 +2,7 @@ import "./Filter.css";
 import { useState, useEffect, useRef, React } from "react";
 import gsap from "gsap";
 
-export default function Filter({ handle }) {
+export default function Filter({ handleFilter }) {
   const who = useRef();
   const category = useRef();
   const [whoActive, setwhoActive] = useState(false);
@@ -10,10 +10,19 @@ export default function Filter({ handle }) {
 
   const ease = "inOut";
 
+  const handleClick = (evt) => {
+    evt.preventDefault();
+
+    setTimeout(() => {
+      evt.target.checked = !evt.target.checked;
+      handleFilter(evt);
+    }, 0);
+  };
+
   useEffect(() => {
     if (whoActive) {
       gsap.to(who.current, {
-        height: 101,
+        height: 202,
         display: "block",
         ease,
       });
@@ -43,7 +52,7 @@ export default function Filter({ handle }) {
   }, [categoryActive]);
 
   return (
-    <>
+    <form>
       <li className="menu__item" onClick={() => setwhoActive(!whoActive)}>
         <button
           className={`menu__link ${whoActive && "menu__link_active"}`}
@@ -67,25 +76,57 @@ export default function Filter({ handle }) {
           />
         </svg>
       </li>
-      <li className="menu__filter" ref={who}>
-        <ul className="menu__filter-container">
-          <button
-            className="menu__item menu__link"
+      <li form="filter" className="menu__filter" ref={who}>
+        <fieldset className="menu__filter-container" id="who">
+          <input
+            className="filter__input"
             id="male"
-            type="button"
-            onClick={handle}
-          >
+            name="gender"
+            value="m"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="male">
             Мужчина
-          </button>
-          <button
-            className="menu__item menu__link"
+          </label>
+          <input
+            className="filter__input"
             id="female"
-            type="button"
-            onClick={handle}
-          >
+            name="gender"
+            value="f"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="female">
             Женщина
-          </button>
-        </ul>
+          </label>
+          <input
+            className="filter__input"
+            id="boy"
+            name="gender"
+            value="m child"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          ></input>
+          <label className="menu__item menu__link" htmlFor="boy">
+            Мальчик
+          </label>
+          <input
+            className="filter__input"
+            id="girl"
+            name="gender"
+            value="f child"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          ></input>
+          <label className="menu__item menu__link" htmlFor="girl">
+            Девочка
+          </label>
+        </fieldset>
       </li>
       <li
         className="menu__item"
@@ -114,57 +155,82 @@ export default function Filter({ handle }) {
         </svg>
       </li>
       <li className="menu__filter" ref={category}>
-        <ul className="menu__filter-container">
-          <button
-            className="menu__item menu__link"
+        <fieldset className="menu__filter-container" id="category">
+          <input
+            className="filter__input"
             id="cross"
-            type="button"
-            onClick={handle}
-          >
+            name="type"
+            value="крест"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="cross">
             Кресты
-          </button>
-          <button
-            className="menu__item menu__link"
+          </label>
+          <input
+            className="filter__input"
             id="images"
-            type="button"
-            onClick={handle}
-          >
+            name="type"
+            value="образок"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="images">
             Образки
-          </button>
-          <button
-            className="menu__item menu__link"
+          </label>
+
+          <input
+            className="filter__input"
             id="rings"
-            type="button"
-            onClick={handle}
-          >
+            name="type"
+            value="кольцо"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="rings">
             Кольца
-          </button>
-          <button
-            className="menu__item menu__link"
+          </label>
+          <input
+            className="filter__input"
             id="earrings"
-            type="button"
-            onClick={handle}
-          >
+            name="type"
+            value="серьги"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="earrings">
             Серьги
-          </button>
-          <button
-            className="menu__item menu__link"
+          </label>
+          <input
+            className="filter__input"
             id="foldings"
-            type="button"
-            onClick={handle}
-          >
+            name="type"
+            value="складень"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="foldings">
             Складни
-          </button>
-          <button
-            className="menu__item menu__link"
+          </label>
+          <input
+            className="filter__input"
             id="chains"
-            type="button"
-            onClick={handle}
-          >
+            name="type"
+            value="цепь"
+            type="radio"
+            form="filter"
+            onClick={handleClick}
+          />
+          <label className="menu__item menu__link" htmlFor="chains">
             Цепи
-          </button>
-        </ul>
+          </label>
+        </fieldset>
       </li>
-    </>
+    </form>
   );
 }

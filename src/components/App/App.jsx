@@ -30,7 +30,7 @@ import Page404 from "../Page404/Page404";
 function App() {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [lastFilter, setLastFilter] = useState({ id: "", pressCount: 0 });
+
   const [savedSlide, setSavedSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const breakpoint = 1024;
@@ -45,73 +45,48 @@ function App() {
     return [menuHidden, setMenuHidden];
   }, [menuHidden]);
 
-  const search = (id) => {
-    switch (id) {
-      case "male":
-        setFilteredItems(
-          items.filter((item) => item.gender === "m" || item.gender === "both")
-        );
-        break;
-      case "female":
-        setFilteredItems(
-          items.filter((item) => item.gender === "f" || item.gender === "both")
-        );
-        break;
-      case "cross":
-        setFilteredItems(items.filter((item) => item.type === "крест"));
-        break;
-      case "images":
-        setFilteredItems(items.filter((item) => item.type === "образок"));
-        break;
-      case "rings":
-        setFilteredItems(items.filter((item) => item.type === "кольцо"));
-        break;
-      case "earrings":
-        setFilteredItems(items.filter((item) => item.type === "серьги"));
-        break;
-      case "foldings":
-        setFilteredItems(items.filter((item) => item.type === "складень"));
-        break;
-      case "chains":
-        setFilteredItems(items.filter((item) => item.type === "цепь"));
-        break;
-    }
-  };
-
-  const filterItems = (evt) => {
-    const { id, classList } = evt.target;
-
+  function searchAnimation() {
     setTimeout(() => {
       const scrollPage = document.querySelector(".catalogue__items");
       scrollPage && scrollPage.scrollTo(0, 0);
+
       setSavedSlide(0);
-    }, 0);
 
-    if (lastFilter.id && id !== lastFilter.id) {
-      document
-        .querySelector(`#${lastFilter.id}`)
-        .classList.remove("menu__link_active");
-    }
-
-    classList.toggle("menu__link_active");
-
-    if (lastFilter.id === id) {
-      setLastFilter({ id, pressCount: lastFilter.pressCount + 1 });
-
-      if (lastFilter.pressCount % 2 === 1) {
-        setFilteredItems(items);
-        return;
+      if (windowWidth < breakpoint) {
+        setMenuHidden(true);
       }
-      search(id);
-    } else {
-      search(id);
-      setLastFilter({ id, pressCount: 1 });
+    }, 0);
+  }
+
+  function search(gender, type) {
+    let newFilteredItems = [...items];
+
+    if (gender) {
+      newFilteredItems = newFilteredItems.filter((item) =>
+        gender.value.length < 2
+          ? item.gender === gender.value || item.gender === "both"
+          : item.gender === gender.value
+      );
     }
 
-    if (windowWidth < breakpoint) {
-      setMenuHidden(true);
+    if (type) {
+      newFilteredItems = newFilteredItems.filter(
+        (item) => item.type === type.value
+      );
     }
 
+    setFilteredItems(newFilteredItems);
+  }
+
+  const filterItems = (evt) => {
+    searchAnimation();
+
+    const { who, category } = evt.target.closest("form");
+
+    const gender = Array.from(who.elements).find((e) => e.checked);
+    const type = Array.from(category.elements).find((e) => e.checked);
+
+    search(gender, type);
     navigate("/catalogue");
   };
 
@@ -166,7 +141,7 @@ function App() {
             <Suspense>
               {location.pathname !== "/" && location.pathname !== "/404" && (
                 <Menu>
-                  <Filter handle={filterItems} />
+                  <Filter handleFilter={filterItems} />
                 </Menu>
               )}
               <Routes>

@@ -71,6 +71,10 @@ textarea {
   border: none;
 }
 
+fieldset {
+  border: none;
+}
+
 a,
 button {
   cursor: pointer;
