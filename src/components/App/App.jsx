@@ -33,7 +33,6 @@ function App() {
 
   const [savedSlide, setSavedSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const breakpoint = 1024;
 
   const cart = useCart();
   const windowWidth = useWindowWidth();
@@ -51,10 +50,6 @@ function App() {
       scrollPage && scrollPage.scrollTo(0, 0);
 
       setSavedSlide(0);
-
-      if (windowWidth < breakpoint) {
-        setMenuHidden(true);
-      }
     }, 0);
   }
 
