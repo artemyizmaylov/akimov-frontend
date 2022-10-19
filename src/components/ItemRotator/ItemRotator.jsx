@@ -12,13 +12,22 @@ export default function ItemRotator({ article, cover }) {
     viewer.start();
 
     viewer.events().loadImage.on((progress) => {
-      progressLine.current.style.width = `${progress.percentage}%`;
+      if (progressLine.current) {
+        progressLine.current.style.width = `${progress.percentage}%`;
+      }
 
       if (progress.percentage === 100) {
         setTimeout(() => {
-          progressBar.current.style.opacity = 0;
-          setTimeout(() => (progressBar.current.style.display = "none"), 600);
-          itemRotator.current.style.filter = "blur(0)";
+          if (progressBar.current && itemRotator.current) {
+            progressBar.current.style.opacity = 0;
+            itemRotator.current.style.filter = "blur(0)";
+          }
+
+          setTimeout(() => {
+            if (progressBar.current) {
+              progressBar.current.style.display = "none";
+            }
+          }, 600);
         }, 1000);
       }
     });
