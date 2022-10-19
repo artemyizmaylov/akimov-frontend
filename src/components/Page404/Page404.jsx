@@ -1,5 +1,4 @@
 import React from "react";
-import BackwardButton from "../BackwardButton/BackwardButton";
 import "./Page404.css";
 
 export default function Page404() {
@@ -9,7 +8,12 @@ export default function Page404() {
       <p className="page-404__text">Здесь ничего нет...</p>
 
       <div className="page-404__button-container">
-        <BackwardButton />
+        <a
+          className="page-404__text page-404__link"
+          href="https://daryvolkhvov.ru/catalogue"
+        >
+          На сайт
+        </a>
       </div>
     </div>
   );

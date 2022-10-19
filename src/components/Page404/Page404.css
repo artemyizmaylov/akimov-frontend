@@ -15,8 +15,14 @@
 }
 
 .page-404__text {
+  display: inline-block;
   font-size: 16px;
   text-align: center;
+  width: 100%;
+}
+
+.page-404__link {
+  color: var(--gold);
 }
 
 .page-404__button-container {
