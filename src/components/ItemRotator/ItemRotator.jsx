@@ -8,8 +8,11 @@ export default function ItemRotator({ article, cover }) {
   const itemRotator = useRef(null);
 
   useEffect(() => {
-    viewer.isStarted && viewer.destroy();
-    viewer.start();
+    if (viewer.isStarted) viewer.destroy();
+
+    viewer.start().catch((msg) => {
+      console.log(msg);
+    });
 
     viewer.events().loadImage.on((progress) => {
       if (progressLine.current) {
