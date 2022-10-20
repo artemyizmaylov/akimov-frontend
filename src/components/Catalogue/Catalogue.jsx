@@ -21,7 +21,7 @@ export default function Catalogue({ items, savedSlide, setSavedSlide }) {
 
     if (element) {
       const latestPos = sessionStorage.getItem("latestItemsPos");
-      element.scroll(0, latestPos);
+      element.scrollTo(0, latestPos);
       element.addEventListener("scroll", onPageScroll);
     }
 

@@ -50,9 +50,7 @@ function App() {
 
   function searchAnimation() {
     setTimeout(() => {
-      const scrollPage = document.querySelector(".catalogue__items");
-      scrollPage && scrollPage.scrollTo(0, 0);
-
+      sessionStorage.setItem("latestItemsPos", 0);
       setSavedSlide(0);
     }, 0);
   }
@@ -78,15 +76,14 @@ function App() {
   }
 
   const filterItems = (evt) => {
-    searchAnimation();
+    if (location.pathname !== "/catalogue") navigate("/catalogue");
 
     const { who, category } = evt.target.closest("form");
-
     const gender = Array.from(who.elements).find((e) => e.checked);
     const type = Array.from(category.elements).find((e) => e.checked);
 
     search(gender, type);
-    navigate("/catalogue");
+    searchAnimation();
   };
 
   const showLoadScreen = () => {
