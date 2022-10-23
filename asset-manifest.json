@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.edc2333e.css",
-    "main.js": "/static/js/main.bfac4a85.js",
+    "main.css": "/static/css/main.fb6956c9.css",
+    "main.js": "/static/js/main.4f18fe2f.js",
     "static/css/142.9b28497d.chunk.css": "/static/css/142.9b28497d.chunk.css",
     "static/js/142.a3167538.chunk.js": "/static/js/142.a3167538.chunk.js",
-    "static/css/948.aae80f6a.chunk.css": "/static/css/948.aae80f6a.chunk.css",
+    "static/css/948.892477c9.chunk.css": "/static/css/948.892477c9.chunk.css",
     "static/js/948.a6cb03e3.chunk.js": "/static/js/948.a6cb03e3.chunk.js",
     "static/js/787.6da9e9d6.chunk.js": "/static/js/787.6da9e9d6.chunk.js",
     "static/media/7.webp": "/static/media/7.35c69018763f148e4754.webp",
@@ -41,16 +41,17 @@
     "static/media/point-gold.svg": "/static/media/point-gold.45388af3680ad0730ad475717b2f3282.svg",
     "static/media/spark-white.svg": "/static/media/spark-white.6cc463d31c0a128f5ea48d59b77b58e5.svg",
     "static/media/checkmark-black.svg": "/static/media/checkmark-black.29988d70fe123dee4a60.svg",
-    "main.edc2333e.css.map": "/static/css/main.edc2333e.css.map",
-    "main.bfac4a85.js.map": "/static/js/main.bfac4a85.js.map",
+    "static/media/checkmark-white.svg": "/static/media/checkmark-white.823dfc1417f5d52bb255.svg",
+    "main.fb6956c9.css.map": "/static/css/main.fb6956c9.css.map",
+    "main.4f18fe2f.js.map": "/static/js/main.4f18fe2f.js.map",
     "142.9b28497d.chunk.css.map": "/static/css/142.9b28497d.chunk.css.map",
     "142.a3167538.chunk.js.map": "/static/js/142.a3167538.chunk.js.map",
-    "948.aae80f6a.chunk.css.map": "/static/css/948.aae80f6a.chunk.css.map",
+    "948.892477c9.chunk.css.map": "/static/css/948.892477c9.chunk.css.map",
     "948.a6cb03e3.chunk.js.map": "/static/js/948.a6cb03e3.chunk.js.map",
     "787.6da9e9d6.chunk.js.map": "/static/js/787.6da9e9d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edc2333e.css",
-    "static/js/main.bfac4a85.js"
+    "static/css/main.fb6956c9.css",
+    "static/js/main.4f18fe2f.js"
   ]
 }
