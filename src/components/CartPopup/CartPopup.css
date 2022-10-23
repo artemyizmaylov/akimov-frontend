@@ -48,7 +48,7 @@
   }
 
   .cart-popup__items {
-    height: calc(100% - 138px - 86px);
+    height: calc(100% - 138px - 74px);
   }
 }
 
