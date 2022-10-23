@@ -7,11 +7,10 @@ import MaterialSlider from "../MaterialSlider/MaterialSlider";
 import WindowContext from "../../context/WindowContext";
 
 export default function CatalogueItem({ item }) {
-  const { addToCart, cartItems } = useContext(CartContext);
+  const { addToCart, deleteFromCart, cartItems } = useContext(CartContext);
   const [material, setMaterial] = useState(
     item.collection === "воинская" ? "silver" : "gold"
   );
-  const [currentItemsInCart, setCurrentItemsInCart] = useState(0);
   const startingPrice = Object.values(item.materials[material].size)[0].prices;
 
   const cartCounter = useRef();
@@ -21,6 +20,11 @@ export default function CatalogueItem({ item }) {
   const nav = useNavigate();
 
   const handleCartClick = () => {
+    const currentItemInCart = cartItems.find(
+      (cartItem) =>
+        cartItem.article === item.article && cartItem.material === material
+    );
+
     const itemCopy = { ...item };
 
     itemCopy.material = material;
@@ -32,7 +36,11 @@ export default function CatalogueItem({ item }) {
     delete itemCopy.description;
     delete itemCopy.gender;
 
-    addToCart(itemCopy);
+    if (!currentItemInCart) {
+      addToCart(itemCopy);
+    } else {
+      deleteFromCart(itemCopy);
+    }
   };
 
   function changeMaterials() {
@@ -85,8 +93,6 @@ export default function CatalogueItem({ item }) {
       x: "50%",
       ease,
     });
-
-    setCurrentItemsInCart(currentItemInCart.count);
   }, [cartItems, material]);
 
   return (
@@ -168,7 +174,7 @@ export default function CatalogueItem({ item }) {
             onClick={handleCartClick}
           >
             <div className="item__cart-container" ref={cartCounter}>
-              <p className="item__counter">{currentItemsInCart}</p>
+              <div className="item__check" />
               <div className="item__spark" />
             </div>
           </button>
