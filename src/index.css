@@ -80,6 +80,12 @@ button {
   cursor: pointer;
 }
 
+a:hover,
+button:hover {
+  opacity: 0.75;
+  transition: 0.3s;
+}
+
 .animate-bg {
   background: linear-gradient(90deg, #200000, #00041b);
   background-size: 200% 200%;

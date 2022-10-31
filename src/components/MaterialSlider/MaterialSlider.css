@@ -3,6 +3,11 @@
   height: 100%;
 }
 
+.material-slider:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 .material-slider__checkbox {
   visibility: hidden;
   display: none;

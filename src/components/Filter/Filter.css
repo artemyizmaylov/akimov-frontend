@@ -16,6 +16,11 @@
   color: white;
 }
 
+.plus:hover {
+  opacity: 0.75;
+  transition: 0.3s;
+}
+
 @keyframes show-category {
   from {
     height: 0;
