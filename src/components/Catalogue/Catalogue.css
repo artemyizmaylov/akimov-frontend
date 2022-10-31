@@ -44,11 +44,19 @@
   .catalogue__items {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .only-chains-template {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1750px) {
   .catalogue {
     grid-template-columns: 480px 1fr;
+  }
+
+  .only-chains-template {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -56,5 +64,9 @@
   .catalogue__items {
     grid-template-columns: repeat(auto-fill, minmax(360px, 500px));
     justify-content: space-around;
+  }
+
+  .only-chains-template {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

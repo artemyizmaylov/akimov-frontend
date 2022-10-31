@@ -22,11 +22,6 @@
   display: none;
 }
 
-.cart-popup__heading {
-  font-family: "Lighthaus";
-  color: var(--gold);
-}
-
 .cart-popup__close-button {
   background-image: url("../../images/close-gold.svg");
   width: 100%;
@@ -38,6 +33,7 @@
   font-size: 26px;
   text-align: center;
   margin-top: 30%;
+  font-weight: normal;
 }
 
 @media (min-width: 1024px) {

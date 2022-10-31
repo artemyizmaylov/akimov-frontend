@@ -79,7 +79,7 @@
 .item-popup__slider-text {
   font-family: "Century";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 13px;
   line-height: 16px;
   text-align: center;
@@ -100,7 +100,7 @@
 .item-popup__text {
   font-family: "Century";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.1em;
@@ -158,7 +158,7 @@
   .item-popup__text_big {
     font-family: "Lighthaus";
     font-style: normal;
-    font-weight: 400;
+    font-weight: normal;
     font-size: 34px;
     line-height: 44px;
     color: var(--gold);

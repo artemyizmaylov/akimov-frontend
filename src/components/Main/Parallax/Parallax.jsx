@@ -7,11 +7,13 @@ import depth3 from "../../../images/parallax/4.webp";
 import depth4 from "../../../images/parallax/3.webp";
 import depth5 from "../../../images/parallax/2.webp";
 import depth6 from "../../../images/parallax/1.webp";
-import text from "../../../images/parallax/text.png";
 import logo from "../../../images//logo-white.svg";
+
+import { useNavigate } from "react-router-dom";
 
 export default function Parallax() {
   const parallax = useRef(null);
+  const nav = useNavigate();
 
   const animateParallax = (e) => {
     let _w = window.innerWidth / 2;
@@ -57,7 +59,11 @@ export default function Parallax() {
         иконОтека
       </h1>
       <div className="content">
-        <img src={text} alt="" className="content__round-text" />
+        <button
+          className="content__round-text"
+          type="button"
+          onClick={() => nav("/catalogue")}
+        />
         <img src={logo} alt="Дары Волхвов" className="content__logo" />
       </div>
     </div>

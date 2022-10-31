@@ -117,7 +117,7 @@ export default function CatalogueItem({ item }) {
             item.type === "цепь" && windowWidth < 580 ? "_m" : ""
           }.webp`}
           ref={goldImage}
-          onClick={() => nav(`/details/${item.article}`)}
+          onClick={() => nav(`/details/${item.article}#description`)}
         />
         <img
           className="item__image item__image_silver"
@@ -131,7 +131,7 @@ export default function CatalogueItem({ item }) {
             item.type === "цепь" && windowWidth < 768 ? "_m" : ""
           }.webp`}
           ref={silverImage}
-          onClick={() => nav(`/details/${item.article}`)}
+          onClick={() => nav(`/details/${item.article}#description`)}
         />
       </div>
       <div className="item__info-container">
@@ -180,7 +180,7 @@ export default function CatalogueItem({ item }) {
           </button>
         </div>
         <Link
-          to={`/details/${item.article}`}
+          to={`/details/${item.article}#description`}
           className="item__text_gold item__text_big"
         >
           ПОДРОБНЕЕ

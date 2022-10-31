@@ -173,6 +173,7 @@
   font-size: 34px;
   line-height: 44px;
   color: var(--gold);
+  font-weight: normal;
 }
 
 .femail-cross {
@@ -193,7 +194,7 @@
 .femail-cross__heading {
   font-family: "Lighthaus";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 13px;
   line-height: 17px;
   text-align: right;
@@ -313,7 +314,7 @@
 .footer__contact {
   font-family: "Century";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 34px;
   line-height: 42px;
   text-align: center;
@@ -324,7 +325,7 @@
 .footer__text {
   font-family: "Century";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 8px;
   line-height: 10px;
   text-align: center;
@@ -440,7 +441,7 @@
   }
 
   .femail-cross__heading {
-    font-weight: 400;
+    font-weight: normal;
     font-size: 35px;
     line-height: 45px;
     letter-spacing: 0.085em;

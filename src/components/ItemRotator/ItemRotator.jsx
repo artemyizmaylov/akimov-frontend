@@ -2,7 +2,12 @@ import React, { useEffect, useRef } from "react";
 import "./ItemRotator.css";
 import viewer from "../../utils/360viewer";
 
-export default function ItemRotator({ article, cover }) {
+export default function ItemRotator({
+  article,
+  cover,
+  currFrame,
+  setCurrFrame,
+}) {
   const progressBar = useRef(null);
   const progressLine = useRef(null);
   const itemRotator = useRef(null);
@@ -26,6 +31,12 @@ export default function ItemRotator({ article, cover }) {
             itemRotator.current.style.filter = "blur(0)";
           }
 
+          viewer.events().startDragging.on(() => {
+            if (setCurrFrame) {
+              setCurrFrame(0);
+            }
+          });
+
           setTimeout(() => {
             if (progressBar.current) {
               progressBar.current.style.display = "none";
@@ -35,6 +46,10 @@ export default function ItemRotator({ article, cover }) {
       }
     });
   }, [article]);
+
+  useEffect(() => {
+    viewer.rotateToFrame(currFrame);
+  }, [currFrame]);
 
   return (
     <>

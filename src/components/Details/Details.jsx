@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../Header/Header";
 import ItemPopup from "../ItemPopup/ItemPopup";
 import rotateImage from "../../images/rotate-gold.svg";
@@ -7,7 +7,6 @@ import rotateLeftImage from "../../images/rotate-gold-left.svg";
 import rotateRightImage from "../../images/rotate-gold-right.svg";
 import point from "../../images/point-gold.svg";
 import closeButton from "../../images/close-gold.svg";
-import arrow from "../../images/arrow-down-gold.svg";
 
 import "./Details.css";
 import ItemRotator from "../ItemRotator/ItemRotator";
@@ -24,6 +23,10 @@ export default function Details() {
 
   const breakpoint = 1500;
 
+  let [rotationImagePos, setRotationImagePos] = useState(0);
+  const [rotate, setRotate] = useState("");
+  const [intervalID, setIntervalID] = useState("");
+
   const openPopup = () => {
     setPopupOpened(true);
   };
@@ -35,6 +38,22 @@ export default function Details() {
   const returnToCatalogue = () => {
     nav("/catalogue");
   };
+
+  useEffect(() => {
+    if (rotate === "left") {
+      const interval = setInterval(() => {
+        setRotationImagePos(rotationImagePos++);
+      }, 50);
+      setIntervalID(interval);
+    } else if (rotate === "right") {
+      const interval = setInterval(() => {
+        setRotationImagePos(rotationImagePos--);
+      }, 50);
+      setIntervalID(interval);
+    } else {
+      clearInterval(intervalID);
+    }
+  }, [rotate]);
 
   return (
     <>
@@ -52,22 +71,39 @@ export default function Details() {
         )}
         <section className="details__container">
           <div className="details__item">
-            <ItemRotator article={article} />
+            <ItemRotator
+              article={article}
+              currFrame={rotationImagePos}
+              setCurrFrame={setRotationImagePos}
+            />
 
-            <img className="details__rotate-image" src={rotateImage} alt="" />
-            <img className="details__arrow" src={arrow} alt="" />
+            <img
+              className="details__rotate-image"
+              src={rotateImage}
+              alt=""
+              onMouseDown={() => setRotate("left")}
+              onMouseUp={() => setRotate("")}
+              onMouseLeave={() => setRotate("")}
+            />
+            <a className="details__arrow" href="#description" />
             <img
               className="details__rotate-image-left"
               src={rotateLeftImage}
               alt=""
+              onMouseDown={() => setRotate("left")}
+              onMouseUp={() => setRotate("")}
+              onMouseLeave={() => setRotate("")}
             />
             <img
               className="details__rotate-image-right"
               src={rotateRightImage}
               alt=""
+              onMouseDown={() => setRotate("right")}
+              onMouseUp={() => setRotate("")}
+              onMouseLeave={() => setRotate("")}
             />
           </div>
-          <div className="details__description">
+          <div className="details__description" id="description">
             {windowWidth >= breakpoint && (
               <>
                 <p className="details__item-type">{item.type}</p>
@@ -92,7 +128,10 @@ export default function Details() {
         <ItemPopup item={item} isOpen={popupOpened} handleClose={closePopup} />
       </div>
 
-      <link rel="canonical" href="https://daryvolkhvov.ru/details/5001" />
+      <link
+        rel="canonical"
+        href="https://daryvolkhvov.ru/details/5001#description"
+      />
     </>
   );
 }

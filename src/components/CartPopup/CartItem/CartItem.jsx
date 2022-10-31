@@ -1,4 +1,5 @@
 import { React, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../../../context/CartContext";
 import "./CartItem.css";
 import ConfirmDelete from "./ConfirmDelete/ConfirmDelete";
@@ -12,6 +13,7 @@ export default function CartItem({ item }) {
     cartItems,
   } = useContext(CartContext);
   const [popupOpened, setPopupOpened] = useState(false);
+  const nav = useNavigate();
 
   const closePopup = () => {
     setPopupOpened(false);
@@ -55,6 +57,10 @@ export default function CartItem({ item }) {
         className="cart-item__image"
         src={`/items/${item.article}_${item.material}.webp`}
         alt={item.name}
+        onClick={() => {
+          nav(`details/${item.article}#description`);
+          setCartIsOpen(false);
+        }}
       />
 
       <div className="cart-item__counter">

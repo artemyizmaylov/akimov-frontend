@@ -57,6 +57,7 @@
   line-height: 44px;
   color: black;
   letter-spacing: 0.1em;
+  font-weight: normal;
 }
 
 .confirm-order-popup__button-image {

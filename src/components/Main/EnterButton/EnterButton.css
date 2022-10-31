@@ -3,7 +3,7 @@
   height: 56px;
   width: 225px;
   align-self: end;
-  z-index: 10;
+  z-index: 25;
 }
 
 .enter-button__link {
@@ -17,6 +17,7 @@
   font-family: "Lighthaus";
   font-size: 34px;
   line-height: 44px;
+  font-weight: normal;
 }
 
 .enter-button__image {

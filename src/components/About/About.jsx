@@ -98,7 +98,7 @@ export default function About() {
             благородной палитры оттенков золотого и&nbsp;серебряного.
           </p>
           <div className="femail-cross">
-            <ItemRotator article="5014" cover />
+            <ItemRotator article="5014" currFrame="0" cover />
             <div className="about__circle femail-cross__circle" />
             <div className="femail-cross__heading-container">
               <h3 className="femail-cross__heading">

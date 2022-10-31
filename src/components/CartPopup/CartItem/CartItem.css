@@ -15,6 +15,7 @@
   height: 100%;
   padding: 10px;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .cart-item__text {

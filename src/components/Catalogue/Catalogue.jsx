@@ -17,6 +17,16 @@ export default function Catalogue({ items, savedSlide, setSavedSlide }) {
   };
 
   useEffect(() => {
+    if (catalogueItems.current) {
+      if (items.every((item) => item.type === "цепь")) {
+        catalogueItems.current.classList.add("only-chains-template");
+      } else {
+        catalogueItems.current.classList.remove("only-chains-template");
+      }
+    }
+  }, [items]);
+
+  useEffect(() => {
     const element = catalogueItems.current;
 
     if (element) {
