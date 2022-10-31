@@ -49,6 +49,7 @@
   overflow-y: scroll;
   max-width: 200px;
   scrollbar-width: none;
+  overflow-x: hidden;
 }
 
 .menu__items::-webkit-scrollbar {
