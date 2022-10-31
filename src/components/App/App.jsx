@@ -1,12 +1,6 @@
 import "./App.css";
 import { lazy, React, Suspense, useEffect, useMemo, useState } from "react";
-import {
-  Routes,
-  Route,
-  useLocation,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
 
 import CartContext, { useCart } from "../../context/CartContext";
@@ -20,7 +14,6 @@ import Menu from "../Menu/Menu";
 import About from "../About/About";
 import Catalogue from "../Catalogue/Catalogue";
 import Details from "../Details/Details";
-import Filter from "../Filter/Filter";
 import LoadScreen from "../LoadScreen/LoadScreen";
 
 const Page404 = lazy(() => import("../Page404/Page404"));
@@ -36,7 +29,6 @@ function App() {
   const cart = useCart();
   const windowWidth = useWindowWidth();
   const location = useLocation();
-  const navigate = useNavigate();
 
   const tansition = useTransition(location, {
     from: { opacity: 0 },
@@ -75,10 +67,8 @@ function App() {
     setFilteredItems(newFilteredItems);
   }
 
-  const filterItems = (evt) => {
-    if (location.pathname !== "/catalogue") navigate("/catalogue");
-
-    const { who, category } = evt.target.closest("form");
+  const filterItems = (form) => {
+    const { who, category } = form;
     const gender = Array.from(who.elements).find((e) => e.checked);
     const type = Array.from(category.elements).find((e) => e.checked);
 
@@ -132,9 +122,7 @@ function App() {
           <MenuContext.Provider value={menu}>
             <Suspense>
               {location.pathname !== "/" && location.pathname !== "/404" && (
-                <Menu>
-                  <Filter handleFilter={filterItems} />
-                </Menu>
+                <Menu handleFilter={filterItems} />
               )}
               {tansition((props, item) => {
                 return (

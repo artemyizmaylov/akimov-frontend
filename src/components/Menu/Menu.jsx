@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Menu.css";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
@@ -8,8 +8,9 @@ import sparkGold from "../../images/spark-gold.svg";
 import sparkWhite from "../../images/spark-white.svg";
 import CartContext from "../../context/CartContext";
 import MenuContext from "../../context/MenuContext";
+import Filter from "../Filter/Filter";
 
-export default function Menu({ children }) {
+export default function Menu({ handleFilter }) {
   const breakpoint = 1024;
   const windowWidth = useContext(WindowContext);
   const [menuHidden, setMenuHidden] = useContext(MenuContext);
@@ -17,6 +18,9 @@ export default function Menu({ children }) {
   const { pathname } = useLocation();
   const { setCartIsOpen } = useContext(CartContext);
   const nav = useNavigate();
+
+  const [whoActive, setWhoActive] = useState(false);
+  const [categoryActive, setCategoryActive] = useState(false);
 
   const settings = {
     transform: "translateX(0)",
@@ -94,9 +98,24 @@ export default function Menu({ children }) {
             />
           </li>
 
-          {children}
+          <Filter
+            handleFilter={handleFilter}
+            whoActive={whoActive}
+            categoryActive={categoryActive}
+            setWhoActive={setWhoActive}
+            setCategoryActive={setCategoryActive}
+          />
 
-          <li className="menu__item" onClick={() => setCartIsOpen(false)}>
+          <li
+            className="menu__item"
+            onClick={() => {
+              setWhoActive(false);
+              setCategoryActive(false);
+              setCartIsOpen(false);
+              document.forms.filter.reset();
+              nav("/about-collection");
+            }}
+          >
             <NavLink
               className="menu__link"
               to="about-collection"

@@ -1,12 +1,21 @@
 import "./Filter.css";
-import { useState, useEffect, useRef, React } from "react";
+import { useEffect, useRef, React } from "react";
 import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
 
-export default function Filter({ handleFilter }) {
+export default function Filter({
+  handleFilter,
+  whoActive,
+  categoryActive,
+  setWhoActive,
+  setCategoryActive,
+}) {
   const who = useRef();
+  const whoButton = useRef();
   const category = useRef();
-  const [whoActive, setwhoActive] = useState(false);
-  const [categoryActive, setCategoryActive] = useState(false);
+  const categoryButton = useRef();
+
+  const navigate = useNavigate();
 
   const ease = "inOut";
 
@@ -15,8 +24,10 @@ export default function Filter({ handleFilter }) {
 
     setTimeout(() => {
       evt.target.checked = !evt.target.checked;
-      handleFilter(evt);
+      handleFilter(evt.target.closest("form"));
     }, 0);
+
+    if (location.pathname !== "/catalogue") navigate("/catalogue");
   };
 
   useEffect(() => {
@@ -26,12 +37,24 @@ export default function Filter({ handleFilter }) {
         display: "block",
         ease,
       });
+      gsap.to(whoButton.current, {
+        transform: "rotate(45deg)",
+      });
     } else {
       gsap.to(who.current, {
         height: 0,
         display: "none",
         ease,
       });
+      gsap.to(whoButton.current, {
+        transform: "rotate(0)",
+      });
+
+      const form = document.forms.filter;
+      const inputs = Array.from(form.who.elements);
+
+      inputs.map((input) => (input.checked = false));
+      handleFilter(form);
     }
   }, [whoActive]);
 
@@ -42,18 +65,30 @@ export default function Filter({ handleFilter }) {
         display: "block",
         ease,
       });
+      gsap.to(categoryButton.current, {
+        transform: "rotate(45deg)",
+      });
     } else {
       gsap.to(category.current, {
         height: 0,
         display: "none",
         ease,
       });
+      gsap.to(categoryButton.current, {
+        transform: "rotate(0)",
+      });
+
+      const form = document.forms.filter;
+      const inputs = Array.from(form.category.elements);
+
+      inputs.map((input) => (input.checked = false));
+      handleFilter(form);
     }
   }, [categoryActive]);
 
   return (
-    <form>
-      <li className="menu__item" onClick={() => setwhoActive(!whoActive)}>
+    <form name="filter" id="filter">
+      <li className="menu__item" onClick={() => setWhoActive(!whoActive)}>
         <button
           className={`menu__link ${whoActive && "menu__link_active"}`}
           type="button"
@@ -67,6 +102,7 @@ export default function Filter({ handleFilter }) {
           viewBox="0 0 23 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          ref={whoButton}
         >
           <path
             fillRule="evenodd"
@@ -145,6 +181,7 @@ export default function Filter({ handleFilter }) {
           viewBox="0 0 23 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          ref={categoryButton}
         >
           <path
             fillRule="evenodd"
