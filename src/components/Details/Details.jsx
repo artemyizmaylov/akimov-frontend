@@ -77,14 +77,7 @@ export default function Details() {
               setCurrFrame={setRotationImagePos}
             />
 
-            <img
-              className="details__rotate-image"
-              src={rotateImage}
-              alt=""
-              onMouseDown={() => setRotate("left")}
-              onMouseUp={() => setRotate("")}
-              onMouseLeave={() => setRotate("")}
-            />
+            <img className="details__rotate-image" src={rotateImage} alt="" />
             <a className="details__arrow" href="#description" />
             <img
               className="details__rotate-image-left"
