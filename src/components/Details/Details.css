@@ -65,8 +65,9 @@
   height: 100%;
   padding: 20px;
   display: block;
-  text-align: justify;
   white-space: pre-wrap;
+  text-align: justify;
+  hyphens: auto;
   overflow-y: scroll;
   scrollbar-width: none;
 }
