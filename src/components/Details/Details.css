@@ -105,33 +105,33 @@
 
 .details__rotate-image {
   width: 50px;
+  transition: 0.3s;
 }
 
 .details__rotate-image:hover {
   opacity: 0.75;
-  transition: 0.3s;
 }
 
 .details__rotate-image-left {
   display: none;
   z-index: 2;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .details__rotate-image-left:hover {
   opacity: 0.75;
-  transition: 0.3s;
 }
 
 .details__rotate-image-right {
   display: none;
   z-index: 2;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .details__rotate-image-right:hover {
   opacity: 0.75;
-  transition: 0.3s;
 }
 
 .details__item-choose {

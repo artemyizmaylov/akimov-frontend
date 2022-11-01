@@ -1,11 +1,11 @@
 .material-slider {
   grid-area: material-slider;
   height: 100%;
+  transition: 0.3s;
 }
 
 .material-slider:hover {
   transform: scale(1.1);
-  transition: 0.3s;
 }
 
 .material-slider__checkbox {

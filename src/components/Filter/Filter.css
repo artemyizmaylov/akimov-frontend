@@ -16,9 +16,12 @@
   color: white;
 }
 
+.plus {
+  transition: opacity 0.3s;
+}
+
 .plus:hover {
   opacity: 0.75;
-  transition: 0.3s;
 }
 
 @keyframes show-category {

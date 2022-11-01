@@ -86,11 +86,11 @@
   background-image: url("../../images/cart-white.svg");
   overflow: hidden;
   background-position-x: 2px;
+  transition: 0.3s;
 }
 
 .item__cart:hover {
   transform: scale(1.1);
-  transition: 0.3s;
 }
 
 .item__cart-container {
