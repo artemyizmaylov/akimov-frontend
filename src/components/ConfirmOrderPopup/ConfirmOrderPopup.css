@@ -18,7 +18,10 @@
 
 .confirm-order-popup_opened {
   top: 0;
-  left: 0;
+  left: unset;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .confirm-order-popup__text {

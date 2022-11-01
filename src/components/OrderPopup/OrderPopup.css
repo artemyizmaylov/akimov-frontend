@@ -13,6 +13,16 @@
   z-index: 12;
 }
 
+.order-popup-over {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  display: none;
+  z-index: 1;
+}
+
 .order-button__policy-agreement {
   color: black;
   font-size: 13px;
@@ -80,11 +90,9 @@
 .order-popup__input {
   border-bottom: 1px solid black;
   width: 291px;
-  /* height: 32px; */
 }
 
 .order-popup__input_type_textarea {
-  /* height: 136px; */
   border: 1px solid #d8d8d8;
   border-radius: 10px;
 }
@@ -129,6 +137,10 @@
 .order-popup_opened {
   top: 0;
   right: 0;
+}
+
+.order-popup_opened + .order-popup-over {
+  display: block;
 }
 
 .order-popup_fullscreen {

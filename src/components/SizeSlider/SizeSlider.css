@@ -3,6 +3,11 @@
   height: 40px;
   border: 1px solid white;
   border-radius: 30px;
+  transition: 0.3s;
+}
+
+.size-slider:hover {
+  transform: scale(1.1);
 }
 
 .size-slider__input {
@@ -14,6 +19,7 @@
   padding: 0 4px;
   position: relative;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .size-slider__text {

@@ -13,10 +13,6 @@ export default function OrderPopup({ isOpen, switchPopup }) {
   const { totalPrice, cartItems, setCartItems } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSwitchPopup = () => {
-    switchPopup();
-  };
-
   const setErrorMessage = (msg) => {
     const errorField = popup.current.querySelector(
       ".order-popup__confirm-button"
@@ -58,6 +54,15 @@ export default function OrderPopup({ isOpen, switchPopup }) {
       .finally(() => setIsLoading(false));
   };
 
+  const overOrderPopupClick = (e) => {
+    if (
+      typeof e.target.className === "string" &&
+      e.target.className.includes("order-popup-over")
+    ) {
+      switchPopup();
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
       setConfirmOrderOpened(false);
@@ -65,86 +70,87 @@ export default function OrderPopup({ isOpen, switchPopup }) {
   }, [isOpen]);
 
   return (
-    <div
-      className={`order-popup ${isOpen && "order-popup_opened"}`}
-      ref={popup}
-    >
-      {isOpen && (
+    <>
+      <div
+        className={`order-popup ${isOpen && "order-popup_opened"}`}
+        ref={popup}
+      >
         <button
           className="order-popup__close-button"
           type="button"
-          onClick={handleSwitchPopup}
+          onClick={switchPopup}
           aria-label="Закрыть"
         />
-      )}
-      {windowWidth >= breakpoint ? (
-        <p className="order-button__policy-agreement">
-          Продолжая, вы соглашаетесь на обработку персональных данных в
-          соответсвии
-          <br />с{" "}
-          <span className="order-popup__span-text">
-            политикой конфиденциальности
-          </span>
-        </p>
-      ) : (
-        <button
-          className="order-popup__price-button"
-          onClick={handleSwitchPopup}
-          type="button"
-          disabled={cartItems.length === 0}
-        >
-          <p className="order-popup__price">{`${totalPrice} р`}</p>
-          <h3 className="order-popup__text">
-            {cartItems.length === 0 ? "Корзина пуста" : "Оформить заказ"}
-          </h3>
-        </button>
-      )}
+        {windowWidth >= breakpoint ? (
+          <p className="order-button__policy-agreement">
+            Продолжая, вы соглашаетесь на обработку персональных данных в
+            соответсвии
+            <br />с{" "}
+            <span className="order-popup__span-text">
+              политикой конфиденциальности
+            </span>
+          </p>
+        ) : (
+          <button
+            className="order-popup__price-button"
+            onClick={switchPopup}
+            type="button"
+            disabled={cartItems.length === 0}
+          >
+            <p className="order-popup__price">{`${totalPrice} р`}</p>
+            <h3 className="order-popup__text">
+              {cartItems.length === 0 ? "Корзина пуста" : "Оформить заказ"}
+            </h3>
+          </button>
+        )}
 
-      <form
-        className="order-popup__form"
-        name="order"
-        onSubmit={hadleSubmit}
-        method="POST"
-      >
-        <input
-          className="order-popup__input"
-          name="name"
-          type="text"
-          placeholder="Как вас зовут"
-          min={2}
-          max={30}
-          required
-        />
-        <input
-          className="order-popup__input"
-          name="number"
-          type="tel"
-          placeholder="Телефон"
-          required
-        />
-        <input
-          className="order-popup__input"
-          name="email"
-          type="email"
-          placeholder="Почта"
-          required
-        />
-        <textarea
-          className="order-popup__input order-popup__input_type_textarea"
-          name="wishes"
-          placeholder="Здесь вы можете оставить свои пожелания к заказу"
-        />
-        <button
-          className="order-popup__confirm-button"
-          type="submit"
-          disabled={isLoading}
+        <form
+          className="order-popup__form"
+          name="order"
+          onSubmit={hadleSubmit}
+          method="POST"
         >
-          Оставить
-          <br />
-          заявку
-        </button>
-      </form>
-      <ConfirmOrderPopup isOpen={confirmOrderOpened} />
-    </div>
+          <input
+            className="order-popup__input"
+            name="name"
+            type="text"
+            placeholder="Как вас зовут"
+            min={2}
+            max={30}
+            required
+          />
+          <input
+            className="order-popup__input"
+            name="number"
+            type="tel"
+            placeholder="Телефон"
+            required
+          />
+          <input
+            className="order-popup__input"
+            name="email"
+            type="email"
+            placeholder="Почта"
+            required
+          />
+          <textarea
+            className="order-popup__input order-popup__input_type_textarea"
+            name="wishes"
+            placeholder="Здесь вы можете оставить свои пожелания к заказу"
+          />
+          <button
+            className="order-popup__confirm-button"
+            type="submit"
+            disabled={isLoading}
+          >
+            Оставить
+            <br />
+            заявку
+          </button>
+        </form>
+        <ConfirmOrderPopup isOpen={confirmOrderOpened} />
+      </div>
+      <div className="order-popup-over" onClick={overOrderPopupClick} />
+    </>
   );
 }
