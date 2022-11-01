@@ -176,22 +176,22 @@
   font-weight: normal;
 }
 
-.femail-cross {
+.female-cross {
   position: relative;
   width: 270px;
   height: 410px;
 }
 
-.femail-cross__heading-container {
+.female-cross__heading-container {
   position: absolute;
   top: 50px;
-  left: -40px;
+  right: -40px;
   width: 108px;
   height: 55px;
   z-index: 1;
 }
 
-.femail-cross__heading {
+.female-cross__heading {
   font-family: "Lighthaus";
   font-style: normal;
   font-weight: normal;
@@ -201,7 +201,7 @@
   letter-spacing: 0.085em;
 }
 
-.femail-cross__arrow {
+.female-cross__arrow {
   position: absolute;
   bottom: 0;
   left: 30px;
@@ -209,17 +209,17 @@
   height: 12px;
 }
 
-.femail-cross__circle {
+.female-cross__circle {
   position: absolute;
   top: 65px;
-  right: -45px;
+  left: -45px;
 }
 
-.femail-cross__text {
+.female-cross__text {
   position: absolute;
   max-width: 116px;
   top: 25px;
-  right: -45px;
+  left: -45px;
   z-index: 2;
   mix-blend-mode: difference;
 }
@@ -371,7 +371,7 @@
     max-width: 620px;
   }
 
-  .femail-cross__text {
+  .female-cross__text {
     max-width: 116px;
   }
 }
@@ -429,30 +429,30 @@
     height: 700px;
   }
 
-  .femail-cross {
+  .female-cross {
     width: 620px;
     height: 600px;
   }
 
-  .femail-cross__heading-container {
+  .female-cross__heading-container {
     width: 285px;
     height: 135px;
     left: -190px;
   }
 
-  .femail-cross__heading {
+  .female-cross__heading {
     font-weight: normal;
     font-size: 35px;
     line-height: 45px;
     letter-spacing: 0.085em;
   }
 
-  .femail-cross__arrow {
+  .female-cross__arrow {
     width: 50px;
     height: 25px;
   }
 
-  .femail-cross__text {
+  .female-cross__text {
     font-size: 13px;
     line-height: 16px;
     text-align: justify;
@@ -463,7 +463,7 @@
     right: 0;
   }
 
-  .femail-cross__circle {
+  .female-cross__circle {
     width: 354px;
     height: 354px;
     top: 100px;

@@ -7,7 +7,7 @@ import magi from "../../images/about/magi.png";
 import textImage from "../../images/about/with-text-img.png";
 // import product from "../../images/about/product.png";
 import star from "../../images/about/star.svg";
-import arrow from "../../images/about/femail-cross-arrow.svg";
+import arrow from "../../images/about/female-cross-arrow.svg";
 import annunciation from "../../images/about/annunciation.png";
 
 import amethyst from "../../images/about/amethyst.png";
@@ -97,16 +97,16 @@ export default function About() {
             тактильные свойства богатых текстур, тепло и&nbsp;роскошь
             благородной палитры оттенков золотого и&nbsp;серебряного.
           </p>
-          <div className="femail-cross">
+          <div className="female-cross">
             <ItemRotator article="5014" currFrame="0" cover />
-            <div className="about__circle femail-cross__circle" />
-            <div className="femail-cross__heading-container">
-              <h3 className="femail-cross__heading">
+            <div className="about__circle female-cross__circle" />
+            <div className="female-cross__heading-container">
+              <h3 className="female-cross__heading">
                 Женский нАперстный крест
               </h3>
-              <img className="femail-cross__arrow" src={arrow} alt="" />
+              <img className="female-cross__arrow" src={arrow} alt="" />
             </div>
-            <p className="femail-cross__text about__text about__text_small">
+            <p className="female-cross__text about__text about__text_small">
               На Руси по праздникам женщины и девушки надевали поверх одежды
               большие кресты, богато украшенные орнаментом. Наперстный крест был
               частью драгоценного женского убора, по которому определяли

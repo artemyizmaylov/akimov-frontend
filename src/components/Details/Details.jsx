@@ -42,13 +42,15 @@ export default function Details() {
   useEffect(() => {
     if (rotate === "left") {
       const interval = setInterval(() => {
-        setRotationImagePos(rotationImagePos++);
+        setRotationImagePos((rotationImagePos = (rotationImagePos + 1) % 179));
       }, 50);
+
       setIntervalID(interval);
     } else if (rotate === "right") {
       const interval = setInterval(() => {
-        setRotationImagePos(rotationImagePos--);
+        setRotationImagePos((rotationImagePos = (rotationImagePos - 1 + 179) % 179));
       }, 50);
+
       setIntervalID(interval);
     } else {
       clearInterval(intervalID);
@@ -77,12 +79,22 @@ export default function Details() {
               setCurrFrame={setRotationImagePos}
             />
 
-            <img className="details__rotate-image" src={rotateImage} alt="" />
-            <a className="details__arrow" href="#description" />
+            <img
+              className="details__rotate-image"
+              src={rotateImage}
+              alt=""
+              draggable="false"
+            />
+            <a
+              className="details__arrow"
+              href="#description"
+              draggable="false"
+            />
             <img
               className="details__rotate-image-left"
               src={rotateLeftImage}
               alt=""
+              draggable="false"
               onMouseDown={() => setRotate("left")}
               onMouseUp={() => setRotate("")}
               onMouseLeave={() => setRotate("")}
@@ -91,6 +103,7 @@ export default function Details() {
               className="details__rotate-image-right"
               src={rotateRightImage}
               alt=""
+              draggable="false"
               onMouseDown={() => setRotate("right")}
               onMouseUp={() => setRotate("")}
               onMouseLeave={() => setRotate("")}

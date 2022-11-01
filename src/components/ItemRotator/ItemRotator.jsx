@@ -12,6 +12,10 @@ export default function ItemRotator({
   const progressLine = useRef(null);
   const itemRotator = useRef(null);
 
+  const updateCurrentFrame = () => {
+    if (setCurrFrame) setCurrFrame(viewer.currentImageNumber);
+  };
+
   useEffect(() => {
     if (viewer.isStarted) viewer.destroy();
 
@@ -31,12 +35,6 @@ export default function ItemRotator({
             itemRotator.current.style.filter = "blur(0)";
           }
 
-          viewer.events().startDragging.on(() => {
-            if (setCurrFrame) {
-              setCurrFrame(0);
-            }
-          });
-
           setTimeout(() => {
             if (progressBar.current) {
               progressBar.current.style.display = "none";
@@ -45,6 +43,8 @@ export default function ItemRotator({
         }, 1000);
       }
     });
+
+    itemRotator.current.addEventListener("mouseup", updateCurrentFrame);
   }, [article]);
 
   useEffect(() => {
@@ -66,6 +66,7 @@ export default function ItemRotator({
           id="item-rotator-image"
           alt="example"
           src={`/items3D/${article}/0_0.webp`}
+          draggable="false"
         />
       </div>
     </>
