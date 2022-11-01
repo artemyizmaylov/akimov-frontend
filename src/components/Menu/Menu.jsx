@@ -113,7 +113,6 @@ export default function Menu({ handleFilter }) {
               setCategoryActive(false);
               setCartIsOpen(false);
               document.forms.filter.reset();
-              nav("/about-collection");
             }}
           >
             <NavLink
