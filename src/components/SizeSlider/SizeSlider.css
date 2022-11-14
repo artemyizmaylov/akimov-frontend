@@ -12,14 +12,14 @@
 
 .size-slider__input {
   width: 100%;
+  height: 100%;
   outline: none;
   overflow: hidden;
-  height: 40px;
   background: transparent;
   padding: 0 4px;
   position: relative;
-  -webkit-appearance: none;
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 .size-slider__text {
