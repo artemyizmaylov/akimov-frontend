@@ -85,10 +85,16 @@ export default function OrderPopup({ isOpen, switchPopup }) {
           <p className="order-button__policy-agreement">
             Продолжая, вы соглашаетесь на обработку персональных данных в
             соответсвии
-            <br />с{" "}
-            <span className="order-popup__span-text">
+            <br />
+            &nbsp;с&nbsp;
+            <a
+              className="order-popup__span-text"
+              href="https://privacy-check.ru/policy/da54133bfdc117c95080311118df63231b848fbdffc19e7375a0c8b451c135b0/"
+              target="_blank"
+              rel="noreferrer"
+            >
               политикой конфиденциальности
-            </span>
+            </a>
           </p>
         ) : (
           <button
