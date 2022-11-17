@@ -75,12 +75,12 @@ export default function OrderPopup({ isOpen, switchPopup }) {
         className={`order-popup ${isOpen && "order-popup_opened"}`}
         ref={popup}
       >
-        <button
+        {isOpen && <button
           className="order-popup__close-button"
           type="button"
           onClick={switchPopup}
           aria-label="Закрыть"
-        />
+        />}
         {windowWidth >= breakpoint ? (
           <p className="order-button__policy-agreement">
             Продолжая, вы соглашаетесь на обработку персональных данных в
