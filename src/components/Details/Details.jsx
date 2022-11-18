@@ -85,10 +85,13 @@ export default function Details() {
               alt=""
               draggable="false"
             />
-            <a
+            <button
               className="details__arrow"
-              href="#description"
               draggable="false"
+              type="button"
+              onClick={() => {
+                document.querySelector('.details__container').scrollTo(0, window.innerHeight)
+              }}
             />
             <img
               className="details__rotate-image-left"

@@ -58,7 +58,7 @@ export default function CartItem({ item }) {
         src={`/items/${item.article}_${item.material}.webp`}
         alt={item.name}
         onClick={() => {
-          nav(`details/${item.article}#description`);
+          nav(`details/${item.article}`);
           setCartIsOpen(false);
         }}
       />

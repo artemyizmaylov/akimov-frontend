@@ -105,11 +105,6 @@
 
 .details__rotate-image {
   width: 50px;
-  transition: 0.3s;
-}
-
-.details__rotate-image:hover {
-  opacity: 0.75;
 }
 
 .details__rotate-image-left {

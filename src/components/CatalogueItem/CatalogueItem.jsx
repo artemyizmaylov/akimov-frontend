@@ -99,9 +99,8 @@ export default function CatalogueItem({ item }) {
     <li
       className="item"
       style={{
-        gridColumn: `span ${
-          item.type === "цепь" && windowWidth >= 768 ? 2 : 1
-        }`,
+        gridColumn: `span ${item.type === "цепь" && windowWidth >= 768 ? 2 : 1
+          }`,
       }}
     >
       <div className="item__images-container">
@@ -113,11 +112,10 @@ export default function CatalogueItem({ item }) {
             opacity: item.collection === "воинская" ? "0" : "100%",
           }}
           alt={item.name}
-          src={`/items/${item.article}_gold${
-            item.type === "цепь" && windowWidth < 580 ? "_m" : ""
-          }.webp`}
+          src={`/items/${item.article}_gold${item.type === "цепь" && windowWidth < 580 ? "_m" : ""
+            }.webp`}
           ref={goldImage}
-          onClick={() => nav(`/details/${item.article}#description`)}
+          onClick={() => nav(`/details/${item.article}`)}
         />
         <img
           className="item__image item__image_silver"
@@ -127,11 +125,10 @@ export default function CatalogueItem({ item }) {
             opacity: item.collection === "воинская" ? "100%" : "0",
           }}
           alt={item.name}
-          src={`/items/${item.article}_silver${
-            item.type === "цепь" && windowWidth < 768 ? "_m" : ""
-          }.webp`}
+          src={`/items/${item.article}_silver${item.type === "цепь" && windowWidth < 768 ? "_m" : ""
+            }.webp`}
           ref={silverImage}
-          onClick={() => nav(`/details/${item.article}#description`)}
+          onClick={() => nav(`/details/${item.article}`)}
         />
       </div>
       <div className="item__info-container">
@@ -140,9 +137,8 @@ export default function CatalogueItem({ item }) {
             {item.type[0].toUpperCase() + item.type.slice(1)}
           </p>
           <p
-            className={`item__text ${
-              item.name.length > 20 && "item__text_small"
-            }`}
+            className={`item__text ${item.name.length > 20 && "item__text_small"
+              }`}
           >
             {item.name.toUpperCase()}
           </p>
@@ -163,9 +159,8 @@ export default function CatalogueItem({ item }) {
                 {item.materials[material].gems}
               </p>
             </div>
-            <p className="item__text">{`${
-              Object.keys(item.materials[material].size).length > 1 ? "от" : ""
-            } ${startingPrice} Р`}</p>
+            <p className="item__text">{`${Object.keys(item.materials[material].size).length > 1 ? "от" : ""
+              } ${startingPrice} Р`}</p>
           </div>
           <button
             className="item__cart"
@@ -180,7 +175,7 @@ export default function CatalogueItem({ item }) {
           </button>
         </div>
         <Link
-          to={`/details/${item.article}#description`}
+          to={`/details/${item.article}`}
           className="item__text_gold item__text_big"
         >
           ПОДРОБНЕЕ
