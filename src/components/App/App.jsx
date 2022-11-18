@@ -20,15 +20,15 @@ const Page404 = lazy(() => import("../Page404/Page404"));
 const CartPopup = lazy(() => import("../CartPopup/CartPopup"));
 
 function App() {
+  const cart = useCart();
+  const windowWidth = useWindowWidth();
+  const location = useLocation();
+
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [savedSlide, setSavedSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [menuHidden, setMenuHidden] = useState(true);
-
-  const cart = useCart();
-  const windowWidth = useWindowWidth();
-  const location = useLocation();
+  const [menuHidden, setMenuHidden] = useState(windowWidth >= 1024 ? false : true);
 
   const tansition = useTransition(location, {
     from: { opacity: 0 },
