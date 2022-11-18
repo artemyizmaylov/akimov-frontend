@@ -112,9 +112,11 @@
   z-index: 2;
   cursor: pointer;
   transition: 0.3s;
+  transform: rotate(180deg);
 }
 
-.details__rotate-image-left:hover {
+.details__rotate-image-left:hover,
+.details__rotate-image-right:hover {
   opacity: 0.75;
 }
 
@@ -125,9 +127,6 @@
   transition: 0.3s;
 }
 
-.details__rotate-image-right:hover {
-  opacity: 0.75;
-}
 
 .details__item-choose {
   display: flex;

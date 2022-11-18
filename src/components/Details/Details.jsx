@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Header from "../Header/Header";
 import ItemPopup from "../ItemPopup/ItemPopup";
 import rotateImage from "../../images/rotate-gold.svg";
-import rotateLeftImage from "../../images/rotate-gold-left.svg";
 import rotateRightImage from "../../images/rotate-gold-right.svg";
 import point from "../../images/point-gold.svg";
 import closeButton from "../../images/close-gold.svg";
@@ -95,7 +94,7 @@ export default function Details() {
             />
             <img
               className="details__rotate-image-left"
-              src={rotateLeftImage}
+              src={rotateRightImage}
               alt=""
               draggable="false"
               onMouseDown={() => setRotate("left")}

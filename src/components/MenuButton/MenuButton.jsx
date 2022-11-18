@@ -20,8 +20,6 @@ export default function MenuButton() {
       className="menu-button header__button"
       type="button"
       onClick={switchMenu}
-    >
-      &equiv;
-    </button>
+    />
   );
 }
