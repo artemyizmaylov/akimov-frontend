@@ -84,9 +84,8 @@
   height: 46px;
   grid-area: cart;
   background-image: url("../../images/cart-white.svg");
-  overflow: hidden;
   background-position-x: 2px;
-  transition: 0.3s;
+  overflow: hidden;
 }
 
 .item__cart:hover {
@@ -118,14 +117,6 @@
   background-repeat: no-repeat;
   background-position: center 70%;
   background-size: 24px;
-}
-
-.item__counter {
-  display: block;
-  width: 50%;
-  height: 100%;
-  color: white;
-  line-height: 3.4;
 }
 
 @media (min-width: 670px) {
