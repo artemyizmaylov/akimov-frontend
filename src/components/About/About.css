@@ -415,10 +415,6 @@
     height: 54px;
   }
 
-  .heading-with-line {
-    width: 600px;
-  }
-
   .magi-image {
     width: 254px;
     height: 254px;
@@ -437,11 +433,9 @@
   .female-cross__heading-container {
     width: 285px;
     height: 135px;
-    left: -190px;
   }
 
   .female-cross__heading {
-    font-weight: normal;
     font-size: 35px;
     line-height: 45px;
     letter-spacing: 0.085em;
@@ -450,6 +444,7 @@
   .female-cross__arrow {
     width: 50px;
     height: 25px;
+    left: 50px;
   }
 
   .female-cross__text {
@@ -495,5 +490,9 @@
     height: 376px;
     top: 80px;
     left: 146px;
+  }
+
+  .line {
+    width: calc(50% - 300px);
   }
 }

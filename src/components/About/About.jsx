@@ -5,7 +5,6 @@ import gsap from "gsap";
 
 import magi from "../../images/about/magi.png";
 import textImage from "../../images/about/with-text-img.png";
-// import product from "../../images/about/product.png";
 import star from "../../images/about/star.svg";
 import arrow from "../../images/about/female-cross-arrow.svg";
 import annunciation from "../../images/about/annunciation.png";
@@ -39,7 +38,7 @@ export default function About() {
 
   return (
     <div className="about animate-bg">
-      <Header withMenuButton text="О коллекции" />
+      <Header withMenuButton text="О иконотеке" />
       <div className="about__container animate-bg">
         <section className="about__section">
           <img
@@ -115,7 +114,7 @@ export default function About() {
           </div>
           <p className="about__text">
             Все произведения иконотеки Дары волхвов глубоко символичны, в самом
-            древнем значении слова символ - соединение мира духовного и
+            древнем значении слова символ — соединение мира духовного и
             материального. Это определяется не только темой и сюжетом. Каждое
             ювелирное произведение иконотеки Даров волхвов создано как хора.
           </p>
@@ -378,9 +377,9 @@ export default function About() {
             <li className="footer__contact">
               <p>gifts@daryvolkhvov.ru</p>
             </li>
-            <li className="footer__contact">
+            {/* <li className="footer__contact">
               <p>8 812 222-20-22</p>
-            </li>
+            </li> */}
           </ul>
           <p className="footer__text">
             © 2022 — 2023 ООО «Дары волхвов» Православная ювелирная компания.

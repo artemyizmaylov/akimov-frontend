@@ -30,3 +30,32 @@
   border: 1px solid white;
   border-radius: 50%;
 }
+
+
+@media (min-width: 2560px) {
+  .enter-button {
+    height: 76px;
+    width: 300px;
+  }
+
+  .enter-button__text {
+    font-size: 54px;
+  }
+}
+
+@media (min-width: 3820px) {
+  .enter-button {
+    height: 300px;
+    width: 500px;
+  }
+
+  .enter-button__text {
+    font-size: 90px;
+    line-height: normal;
+  }
+
+  .enter-button__image {
+    width: 70px;
+    height: 70px;
+  }
+}

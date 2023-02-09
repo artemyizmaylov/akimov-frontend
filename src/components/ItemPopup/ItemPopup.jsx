@@ -11,7 +11,7 @@ import WindowContext from "../../context/WindowContext";
 export default function ItemPopup({ item, isOpen, handleClose }) {
   const { addToCart } = useContext(CartContext);
   const [material, setMaterial] = useState("silver");
-  const sizes = Object.keys(item.materials[material].size);
+  let sizes = Object.keys(item.materials[material].size);
   const [size, setSize] = useState(sizes[0]);
   const nav = useNavigate();
   const windowWidth = useContext(WindowContext);
@@ -23,10 +23,13 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
 
   const handleMaterialChange = () => {
     if (material === "gold") {
+      sizes = Object.keys(item.materials['silver'].size);
       setMaterial("silver");
     } else {
+      sizes = Object.keys(item.materials['gold'].size);
       setMaterial("gold");
     }
+    setSize(sizes[0])
   };
 
   const handleSizeChange = (evt) => {
@@ -146,6 +149,7 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
         <AddButton
           price={item.materials[material].size[size].prices}
           text="Добавить"
+          disabled={item.materials[material].size[size].prices === 'Ожидается'}
           onClick={handleAddButtonClick}
         />
       </div>
