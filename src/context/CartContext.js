@@ -60,6 +60,7 @@ function useCart() {
     );
 
     const itemCopy = { ...item };
+    itemCopy.price = item.price.split('').filter(i => i !== ' ').join('')
     itemCopy.count = 1;
 
     if (index === -1) {
