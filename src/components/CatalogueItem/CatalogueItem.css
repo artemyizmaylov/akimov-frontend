@@ -92,6 +92,10 @@
   transform: scale(1.1);
 }
 
+.item__cart:disabled {
+  opacity: .5;
+}
+
 .item__cart-container {
   width: 200%;
   height: 100%;

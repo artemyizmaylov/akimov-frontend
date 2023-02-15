@@ -3,7 +3,7 @@ import "./AddButton.css";
 
 export default function AddButton({ price, text, onClick, disabled }) {
   return (
-    <button className={`add-button ${disabled && 'add-button_disabled'}`} type="button" onClick={onClick} disabled={disabled}>
+    <button className={`add-button`} type="button" onClick={onClick} disabled={disabled}>
       {
         disabled
           ? (<p className="add-button__price">{price}</p>)

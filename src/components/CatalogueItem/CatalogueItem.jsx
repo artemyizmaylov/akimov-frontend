@@ -160,13 +160,14 @@ export default function CatalogueItem({ item }) {
               </p>
             </div>
             <p className="item__text">{`${Object.keys(item.materials[material].size).length > 1 ? "от" : ""
-              } ${startingPrice} Р`}</p>
+              } ${startingPrice} ${startingPrice !== 'Ожидается' ? 'Р' : ''}`}</p>
           </div>
           <button
             className="item__cart"
             type="button"
             aria-label="Добавить"
             onClick={handleCartClick}
+            disabled={startingPrice === 'Ожидается'}
           >
             <div className="item__cart-container" ref={cartCounter}>
               <div className="item__check" />
