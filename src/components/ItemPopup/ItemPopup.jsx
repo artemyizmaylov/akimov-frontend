@@ -131,7 +131,6 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
           <div className="item-popup__slider-container">
             <p className="item-popup__slider-text">Выберите размер</p>
             <SizeSlider
-              id="size"
               rangeArray={sizes}
               value={size}
               onChange={handleSizeChange}
