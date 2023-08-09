@@ -142,6 +142,9 @@ export default function CatalogueItem({ item }) {
           >
             {item.name.toUpperCase()}
           </p>
+          <p className="item__text_small">
+            {item.sku}
+          </p>
         </div>
         <div className="item__interactive">
           <MaterialSlider
