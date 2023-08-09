@@ -143,7 +143,7 @@ export default function CatalogueItem({ item }) {
             {item.name.toUpperCase()}
           </p>
           <p className="item__text_small">
-            {item.sku}
+            {item.materials[material].sku}
           </p>
         </div>
         <div className="item__interactive">
