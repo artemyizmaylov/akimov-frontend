@@ -121,7 +121,7 @@ export default function Menu({ handleFilter }) {
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
               onClick={closeMenu}
             >
-              О коллекции
+              О иконотеке
             </NavLink>
             <img
               className="menu__item-image"

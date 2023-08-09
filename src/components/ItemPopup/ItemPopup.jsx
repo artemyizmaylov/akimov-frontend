@@ -142,7 +142,7 @@ export default function ItemPopup({ item, isOpen, handleClose }) {
             {material === "gold" ? "золото" : "серебро"}
           </p>
           <p className="item-popup__text">{item.materials[material].gems}</p>
-          <p className="item-popup__text">{`${size} MM`}</p>
+          <p className="item-popup__text">{`${size} ${item.type === 'цепь' ? 'CМ' : 'ММ'}`}</p>
           <p className="item-popup__text">{`${item.materials[material].size[size].weight} ГР`}</p>
         </div>
         <AddButton
